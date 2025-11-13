@@ -65,6 +65,75 @@
             50% { transform: translateY(-50px) rotate(180deg); }
         }
 
+        /* Security Check Screen */
+        #security-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f2847 0%, #1a4d7a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease;
+        }
+
+        #security-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .security-content {
+            text-align: center;
+        }
+
+        .security-shield {
+            margin: 0 auto 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .security-text {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .security-subtext {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .security-progress {
+            width: 300px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border-radius: 10px;
+            animation: loading 2s ease-in-out;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
         /* Loading Screen */
         #loading-screen {
             position: fixed;
@@ -79,6 +148,13 @@
             align-items: center;
             z-index: 9999;
             transition: opacity 0.8s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #loading-screen.active {
+            opacity: 1;
+            pointer-events: all;
         }
 
         #loading-screen.hidden {
@@ -111,7 +187,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 10000;
+            z-index: 10001;
             animation: fadeIn 0.3s ease;
         }
 
@@ -126,7 +202,7 @@
             text-align: center;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            max-width: 500px;
+            max-width: 550px;
             width: 90%;
         }
 
@@ -141,11 +217,40 @@
             }
         }
 
+        .security-badge {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
         .username-content h2 {
             color: #fff;
             font-size: 32px;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             font-weight: 800;
+        }
+
+        .username-content .security-info {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .username-content .security-info strong {
+            color: #60a5fa;
+            display: block;
+            font-size: 16px;
+            margin-bottom: 10px;
         }
 
         .username-input {
@@ -200,7 +305,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 10001;
+            z-index: 10002;
         }
 
         #loading-user.active {
@@ -286,6 +391,31 @@
             to { transform: rotate(360deg); }
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .server-info-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .server-info-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
         /* User Profile Desktop */
         .user-profile {
             display: flex;
@@ -355,6 +485,146 @@
             box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
         }
 
+        /* Server Info Modal */
+        #server-info-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10003;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #server-info-modal.active {
+            display: flex;
+        }
+
+        .server-info-content {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8f 100%);
+            padding: 50px;
+            border-radius: 30px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .server-info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .server-info-header h2 {
+            color: #fff;
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .close-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .server-info-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-item-label {
+            color: #60a5fa;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .info-item-value {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ping-indicator {
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: ping-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes ping-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .software-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .software-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .software-name {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .software-version {
+            color: #60a5fa;
+            font-size: 14px;
+            font-weight: 700;
+            background: rgba(96, 165, 250, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
         /* Mobile Navigation */
         .mobile-nav {
             display: none;
@@ -384,7 +654,7 @@
             align-items: center;
             gap: 5px;
             cursor: pointer;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border-radius: 15px;
             transition: all 0.3s ease;
         }
@@ -731,7 +1001,7 @@
                 font-size: 28px;
             }
 
-            .user-profile {
+            .user-profile, .server-info-btn {
                 display: none;
             }
 
@@ -745,6 +1015,18 @@
 
             .info-cards,
             .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .server-info-content {
+                padding: 30px 25px;
+            }
+
+            .server-info-header h2 {
+                font-size: 24px;
+            }
+
+            .spec-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -777,6 +1059,23 @@
         </div>
     </div>
 
+    <!-- Security Check Screen -->
+    <div id="security-screen">
+        <div class="security-content">
+            <div class="security-shield">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 6V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V6L12 2Z" stroke="white" stroke-width="2"/>
+                    <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="security-text">SPACE SECURITY+</div>
+            <div class="security-subtext">Sedang Memeriksa Keamanan...</div>
+            <div class="security-progress">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Loading Screen -->
     <div id="loading-screen">
         <div class="loading-text">SEDANG PROSES MEMUAT WEBSITE</div>
@@ -785,9 +1084,18 @@
     <!-- Username Modal -->
     <div id="username-modal">
         <div class="username-content">
-            <h2>Masukkan Nama Pengguna</h2>
-            <input type="text" class="username-input" id="username-input" placeholder="Nama Anda..." />
-            <button class="submit-btn" onclick="submitUsername()">Masuk</button>
+            <div class="security-badge">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 6V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V6L12 2Z" stroke="#60a5fa" stroke-width="2"/>
+                </svg>
+            </div>
+            <h2>Verifikasi Keamanan</h2>
+            <div class="security-info">
+                <strong>SPACE SECURITY+</strong>
+                Untuk alasan keamanan dan mencegah bot masuk ke website ini, kami memerlukan verifikasi identitas Anda. Silakan masukkan nama pengguna Anda untuk melanjutkan.
+            </div>
+            <input type="text" class="username-input" id="username-input" placeholder="Masukkan nama Anda..." />
+            <button class="submit-btn" onclick="submitUsername()">Verifikasi & Masuk</button>
         </div>
     </div>
 
@@ -796,6 +1104,88 @@
         <div class="loading-user-content">
             <div class="spinner"></div>
             <p>Sedang Memuat User<br>Mohon Bersabar...</p>
+        </div>
+    </div>
+
+    <!-- Server Info Modal -->
+    <div id="server-info-modal">
+        <div class="server-info-content">
+            <div class="server-info-header">
+                <h2>Informasi Server</h2>
+                <button class="close-btn" onclick="closeServerInfo()">&times;</button>
+            </div>
+            
+            <div class="server-info-grid">
+                <div class="info-item">
+                    <div class="info-item-label">VM ID</div>
+                    <div class="info-item-value">spacestorevm1</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-item-label">VM Name</div>
+                    <div class="info-item-value">singapore-amdepyc7763-spacestorevm</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-item-label">VM Region</div>
+                    <div class="info-item-value">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#60a5fa" stroke-width="2"/>
+                            <circle cx="12" cy="9" r="2.5" stroke="#60a5fa" stroke-width="2"/>
+                        </svg>
+                        SINGAPORE
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-item-label">Singapore Ping</div>
+                    <div class="info-item-value">
+                        <span class="ping-indicator"></span>
+                        23ms (Stable)
+                    </div>
+                </div>
+
+                <div class="info-item" style="grid-column: 1 / -1;">
+                    <div class="info-item-label">VM Specification</div>
+                    <div class="spec-grid">
+                        <div class="info-item">
+                            <div class="info-item-label">RAM</div>
+                            <div class="info-item-value">128GB DDR5</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-item-label">Processor</div>
+                            <div class="info-item-value">AMD Epyc 7763 (122) @ 3.5GHz</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-item-label">Storage</div>
+                            <div class="info-item-value">644GB NVMe SSD</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-item" style="grid-column: 1 / -1;">
+                    <div class="info-item-label">Software</div>
+                    <div class="software-list">
+                        <div class="software-item">
+                            <span class="software-name">Nginx</span>
+                            <span class="software-version">v1.26.2</span>
+                        </div>
+                        <div class="software-item">
+                            <span class="software-name">Node.js</span>
+                            <span class="software-version">v22.11.0</span>
+                        </div>
+                        <div class="software-item">
+                            <span class="software-name">Docker</span>
+                            <span class="software-version">v27.3.1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-item" style="grid-column: 1 / -1; background: rgba(59, 130, 246, 0.2); border-color: rgba(59, 130, 246, 0.4);">
+                    <div class="info-item-label">Created By</div>
+                    <div class="info-item-value" style="font-size: 24px;">SPACE STORE ID</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -820,9 +1210,19 @@
                     </svg>
                     Brian Official
                 </div>
-                <div class="user-profile" id="user-profile" onclick="toggleDropdown()">
-                    <img src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff&size=100" alt="Profile" class="user-avatar" id="user-avatar">
-                    <span class="user-name" id="user-name">User</span>
+                <div class="nav-right">
+                    <button class="server-info-btn" onclick="openServerInfo()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="3" width="20" height="5" rx="1" stroke="white" stroke-width="2"/>
+                            <rect x="2" y="10" width="20" height="5" rx="1" stroke="white" stroke-width="2"/>
+                            <rect x="2" y="17" width="20" height="5" rx="1" stroke="white" stroke-width="2"/>
+                        </svg>
+                        Informasi Server
+                    </button>
+                    <div class="user-profile" id="user-profile" onclick="toggleDropdown()">
+                        <img src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff&size=100" alt="Profile" class="user-avatar" id="user-avatar">
+                        <span class="user-name" id="user-name">User</span>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -840,6 +1240,14 @@
                         <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#3b82f6" stroke-width="2"/>
                     </svg>
                     <span>Home</span>
+                </div>
+                <div class="nav-item" onclick="openServerInfo()">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="3" width="20" height="5" rx="1" stroke="#3b82f6" stroke-width="2"/>
+                        <rect x="2" y="10" width="20" height="5" rx="1" stroke="#3b82f6" stroke-width="2"/>
+                        <rect x="2" y="17" width="20" height="5" rx="1" stroke="#3b82f6" stroke-width="2"/>
+                    </svg>
+                    <span>Server</span>
                 </div>
                 <div class="nav-item" onclick="showMobileProfile()">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -932,17 +1340,22 @@
             const savedUsername = localStorage.getItem('username');
             
             if (savedUsername) {
-                // User already logged in
-                setUsername(savedUsername);
+                // User already logged in - show security check then loading
+                setTimeout(() => {
+                    document.getElementById('security-screen').classList.add('hidden');
+                    document.getElementById('loading-screen').classList.add('active');
+                }, 2000);
+                
                 setTimeout(() => {
                     document.getElementById('loading-screen').classList.add('hidden');
-                }, 1500);
+                    setUsername(savedUsername);
+                }, 3500);
             } else {
-                // Show username modal after loading
+                // New user - show security check, then username modal
                 setTimeout(() => {
-                    document.getElementById('loading-screen').classList.add('hidden');
+                    document.getElementById('security-screen').classList.add('hidden');
                     document.getElementById('username-modal').classList.add('active');
-                }, 1500);
+                }, 2000);
             }
         });
 
@@ -965,8 +1378,13 @@
                     // Save to localStorage
                     localStorage.setItem('username', username);
                     
-                    // Set username
-                    setUsername(username);
+                    // Show loading screen
+                    document.getElementById('loading-screen').classList.add('active');
+                    
+                    setTimeout(() => {
+                        document.getElementById('loading-screen').classList.add('hidden');
+                        setUsername(username);
+                    }, 1500);
                 }, 2000);
             } else {
                 alert('Mohon masukkan nama pengguna!');
@@ -1006,6 +1424,22 @@
             
             if (profile && !profile.contains(e.target) && !dropdown.contains(e.target)) {
                 dropdown.classList.remove('active');
+            }
+        });
+
+        // Server Info Functions
+        function openServerInfo() {
+            document.getElementById('server-info-modal').classList.add('active');
+        }
+
+        function closeServerInfo() {
+            document.getElementById('server-info-modal').classList.remove('active');
+        }
+
+        // Close server info when clicking outside
+        document.getElementById('server-info-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeServerInfo();
             }
         });
 
@@ -1049,7 +1483,7 @@
             });
         });
 
-        // Close mobile profile with swipe down (optional enhancement)
+        // Close mobile profile with swipe down
         let startY = 0;
         const mobileProfile = document.getElementById('mobile-profile-modal');
         
