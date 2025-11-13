@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Official - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a1628;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #2d5a8f 100%);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(3) {
+            top: 80%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(180deg); }
+        }
+
+        /* Loading Screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f2847 0%, #1a4d7a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-text {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* Username Modal */
+        #username-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        #username-modal.active {
+            display: flex;
+        }
+
+        .username-content {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8f 100%);
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .username-content h2 {
+            color: #fff;
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .username-input {
+            width: 100%;
+            padding: 18px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .username-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .username-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border: none;
+            border-radius: 15px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Loading User Modal */
+        #loading-user {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001;
+        }
+
+        #loading-user.active {
+            display: flex;
+        }
+
+        .loading-user-content {
+            text-align: center;
+            color: #fff;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-user-content p {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e40af;
+        }
+
+        .logo-icon {
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* User Profile Desktop */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .user-profile:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 3px solid #3b82f6;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: #1e40af;
+            font-size: 16px;
+        }
+
+        /* Dropdown Profile */
+        .profile-dropdown {
+            position: absolute;
+            top: 70px;
+            right: 30px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            min-width: 200px;
+            opacity: 0;
+            transform: translateY(-20px);
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1001;
+        }
+
+        .profile-dropdown.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .logout-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .mobile-nav-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-item svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .nav-item span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        /* Mobile Profile Modal */
+        #mobile-profile-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f2847 0%, #1a4d7a 100%);
+            z-index: 10002;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #mobile-profile-modal.active {
+            transform: translateY(0);
+        }
+
+        .mobile-profile-content {
+            padding: 60px 30px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .mobile-profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid #3b82f6;
+            margin: 0 auto 30px;
+        }
+
+        .mobile-profile-name {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+
+        .mobile-logout-btn {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border: none;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .mobile-logout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 24px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* Info Cards Grid */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-card h3 {
+            font-size: 26px;
+            color: #1e40af;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .info-card p {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .card-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .card-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Section */
+        .section {
+            background: rgba(255, 255, 255, 0.98);
+            margin: 50px auto;
+            padding: 70px 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            animation: fadeInUp 1s ease 0.6s both;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .section h2 {
+            font-size: 40px;
+            color: #1e40af;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border-radius: 3px;
+        }
+
+        /* Project Cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid #f0f4ff;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.3);
+            border-color: #3b82f6;
+        }
+
+        .project-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .project-card h3 {
+            font-size: 24px;
+            color: #1e40af;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .project-card p {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* Company Card */
+        .company-card {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4);
+        }
+
+        .company-card h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .company-card p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .company-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #fff;
+            color: #1e40af;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .company-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px 30px;
+            text-align: center;
+            margin-top: 80px;
+            animation: fadeInUp 1s ease 0.9s both;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        footer p {
+            color: #64748b;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .hosting-credit {
+            color: #3b82f6;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+
+            .user-profile {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 80px;
+            }
+
+            .info-cards,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-nav {
+                display: none !important;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <svg class="shape" width="150" height="150" viewBox="0 0 150 150">
+                <circle cx="75" cy="75" r="70" fill="#3b82f6" opacity="0.2"/>
+            </svg>
+            <svg class="shape" width="120" height="120" viewBox="0 0 120 120">
+                <rect x="10" y="10" width="100" height="100" fill="#60a5fa" opacity="0.2"/>
+            </svg>
+            <svg class="shape" width="100" height="100" viewBox="0 0 100 100">
+                <polygon points="50,10 90,90 10,90" fill="#93c5fd" opacity="0.2"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-text">SEDANG PROSES MEMUAT WEBSITE</div>
+    </div>
+
+    <!-- Username Modal -->
+    <div id="username-modal">
+        <div class="username-content">
+            <h2>Masukkan Nama Pengguna</h2>
+            <input type="text" class="username-input" id="username-input" placeholder="Nama Anda..." />
+            <button class="submit-btn" onclick="submitUsername()">Masuk</button>
+        </div>
+    </div>
+
+    <!-- Loading User -->
+    <div id="loading-user">
+        <div class="loading-user-content">
+            <div class="spinner"></div>
+            <p>Sedang Memuat User<br>Mohon Bersabar...</p>
+        </div>
+    </div>
+
+    <!-- Mobile Profile Modal -->
+    <div id="mobile-profile-modal">
+        <div class="mobile-profile-content">
+            <img src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff&size=200" alt="Profile" class="mobile-profile-avatar" id="mobile-avatar">
+            <div class="mobile-profile-name" id="mobile-username">User</div>
+            <button class="mobile-logout-btn" onclick="logout()">Log Out</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <header>
+            <nav class="container">
+                <div class="logo">
+                    <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#3b82f6"/>
+                        <path d="M2 17L12 22L22 17" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="#1e40af" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Brian Official
+                </div>
+                <div class="user-profile" id="user-profile" onclick="toggleDropdown()">
+                    <img src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff&size=100" alt="Profile" class="user-avatar" id="user-avatar">
+                    <span class="user-name" id="user-name">User</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown" id="profile-dropdown">
+            <button class="logout-btn" onclick="logout()">Log Out</button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <div class="mobile-nav-content">
+                <div class="nav-item" onclick="scrollToTop()">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#3b82f6" stroke-width="2"/>
+                    </svg>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item" onclick="showMobileProfile()">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="4" stroke="#3b82f6" stroke-width="2"/>
+                        <path d="M6 21C6 17.134 8.686 14 12 14C15.314 14 18 17.134 18 21" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span>Profile</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">👋 Selamat Datang</div>
+                <h1>Halo, Perkenalkan Nama Saya Brian Official</h1>
+                <p>Saya adalah mahasiswa di Sekolah Kristen Kasih Bangsa. Hobi saya adalah membuat server untuk menyediakan sumber daya kepada pengguna seperti hosting website, hosting game, dan sebagainya. Saya senang berbagi pengetahuan dan membantu orang lain dalam dunia teknologi.</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="card-image">
+                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="3" width="20" height="5" rx="1" stroke="white" stroke-width="2"/>
+                                <rect x="2" y="10" width="20" height="5" rx="1" stroke="white" stroke-width="2"/>
+                                <rect x="2" y="17" width="20" height="5" rx="1" stroke="white" stroke-width="2"/>
+                                <circle cx="6" cy="5.5" r="1" fill="white"/>
+                                <circle cx="6" cy="12.5" r="1" fill="white"/>
+                                <circle cx="6" cy="19.5" r="1" fill="white"/>
+                            </svg>
+                        </div>
+                        <h3>Tentang Server</h3>
+                        <p>Server adalah komputer yang menyediakan layanan kepada komputer lain dalam jaringan. Saya fokus pada penyediaan hosting website dan game server untuk membantu pengguna menjalankan aplikasi mereka dengan stabil dan aman.</p>
+                        <button class="card-btn" onclick="alert('Terima kasih sudah membaca!')">Pelajari Lebih Lanjut</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Projects Section -->
+            <section class="section">
+                <h2>Project yang Sedang Dikerjakan</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="white" stroke-width="2"/>
+                                <path d="M3 9H21M9 3V21" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Space Panel Hosting</h3>
+                        <p>Panel kontrol website yang powerful dan user-friendly. Anda bisa menambahkan domain, menggunakan domain gratis bawaan, dan mengontrol semua aspek website Anda dengan mudah melalui interface yang intuitif.</p>
+                        <button class="card-btn" onclick="alert('Space Panel Hosting - Coming Soon!')">Detail Project</button>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon">
+                            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3H21V21H3V3Z" stroke="white" stroke-width="2"/>
+                                <path d="M9 9H15M9 12H15M9 15H12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Space Store</h3>
+                        <p>Platform web store yang modern dan responsif untuk keperluan e-commerce. Dibangun dengan teknologi terkini untuk memberikan pengalaman berbelanja yang mulus dan menyenangkan bagi pengguna.</p>
+                        <a href="https://spacestore.dpdns.org" target="_blank" class="card-btn">Kunjungi Website</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Company Section -->
+            <section class="section">
+                <h2>Perusahaan yang Aktif</h2>
+                <div class="company-card">
+                    <h3>Space Store Indonesia</h3>
+                    <p>Perusahaan yang berfokus pada penjualan Virtual Machine (VM) dengan kualitas terbaik dan harga yang kompetitif. Kami menyediakan berbagai paket VM yang dapat disesuaikan dengan kebutuhan Anda, mulai dari penggunaan personal hingga enterprise.</p>
+                    <a href="https://spacestore.dpdns.org" target="_blank" class="company-btn">Kunjungi Space Store</a>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Brian Official. All Rights Reserved.</p>
+            <p class="hosting-credit">Website ini menggunakan hosting dari <strong>SPACE STORE</strong></p>
+        </footer>
+    </div>
+
+    <script>
+        // Check if user is logged in
+        window.addEventListener('load', function() {
+            const savedUsername = localStorage.getItem('username');
+            
+            if (savedUsername) {
+                // User already logged in
+                setUsername(savedUsername);
+                setTimeout(() => {
+                    document.getElementById('loading-screen').classList.add('hidden');
+                }, 1500);
+            } else {
+                // Show username modal after loading
+                setTimeout(() => {
+                    document.getElementById('loading-screen').classList.add('hidden');
+                    document.getElementById('username-modal').classList.add('active');
+                }, 1500);
+            }
+        });
+
+        // Submit username
+        function submitUsername() {
+            const input = document.getElementById('username-input');
+            const username = input.value.trim();
+            
+            if (username) {
+                // Hide username modal
+                document.getElementById('username-modal').classList.remove('active');
+                
+                // Show loading user
+                document.getElementById('loading-user').classList.add('active');
+                
+                // Simulate loading
+                setTimeout(() => {
+                    document.getElementById('loading-user').classList.remove('active');
+                    
+                    // Save to localStorage
+                    localStorage.setItem('username', username);
+                    
+                    // Set username
+                    setUsername(username);
+                }, 2000);
+            } else {
+                alert('Mohon masukkan nama pengguna!');
+            }
+        }
+
+        // Set username and avatar
+        function setUsername(username) {
+            const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(username)}&background=3b82f6&color=fff&size=100`;
+            
+            // Desktop
+            document.getElementById('user-name').textContent = username;
+            document.getElementById('user-avatar').src = avatarUrl;
+            
+            // Mobile
+            document.getElementById('mobile-username').textContent = username;
+            document.getElementById('mobile-avatar').src = avatarUrl.replace('size=100', 'size=200');
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('username-input')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitUsername();
+            }
+        });
+
+        // Toggle dropdown
+        function toggleDropdown() {
+            const dropdown = document.getElementById('profile-dropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const profile = document.getElementById('user-profile');
+            const dropdown = document.getElementById('profile-dropdown');
+            
+            if (profile && !profile.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Logout function
+        function logout() {
+            // Close dropdowns
+            document.getElementById('profile-dropdown').classList.remove('active');
+            document.getElementById('mobile-profile-modal').classList.remove('active');
+            
+            // Clear localStorage
+            localStorage.removeItem('username');
+            
+            // Clear input
+            document.getElementById('username-input').value = '';
+            
+            // Show username modal
+            document.getElementById('username-modal').classList.add('active');
+        }
+
+        // Show mobile profile
+        function showMobileProfile() {
+            document.getElementById('mobile-profile-modal').classList.add('active');
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Parallax effect for floating shapes
+        document.addEventListener('mousemove', function(e) {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 20;
+                const xMove = (x - 0.5) * speed;
+                const yMove = (y - 0.5) * speed;
+                shape.style.transform = `translate(${xMove}px, ${yMove}px) rotate(${index * 45}deg)`;
+            });
+        });
+
+        // Close mobile profile with swipe down (optional enhancement)
+        let startY = 0;
+        const mobileProfile = document.getElementById('mobile-profile-modal');
+        
+        mobileProfile.addEventListener('touchstart', function(e) {
+            startY = e.touches[0].clientY;
+        });
+        
+        mobileProfile.addEventListener('touchmove', function(e) {
+            const currentY = e.touches[0].clientY;
+            const diff = currentY - startY;
+            
+            if (diff > 100) {
+                mobileProfile.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
