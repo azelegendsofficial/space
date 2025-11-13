@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Server - Panduan Lengkap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a1628;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #2d5a8f 100%);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            animation-delay: 5s;
+        }
+
+        .shape:nth-child(3) {
+            top: 80%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(180deg); }
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e40af;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 30px;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: rgba(255, 255, 255, 0.98);
+            margin: 50px auto;
+            padding: 70px 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: #1e40af;
+            margin-bottom: 30px;
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            border-radius: 3px;
+        }
+
+        .content-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 30px;
+        }
+
+        .content-text strong {
+            color: #1e40af;
+            font-weight: 700;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-left: 5px solid #3b82f6;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .info-box h4 {
+            color: #1e40af;
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .info-box p {
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        /* Grid Layout */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: #fff;
+            border: 2px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            color: #1e40af;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* Steps */
+        .steps-container {
+            margin: 40px 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            min-width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .step-content h3 {
+            font-size: 22px;
+            color: #1e40af;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .step-content p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .step-content ul {
+            margin-top: 15px;
+            padding-left: 25px;
+        }
+
+        .step-content li {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        /* Requirements List */
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .requirement-item {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .requirement-item h4 {
+            color: #1e40af;
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .requirement-item p {
+            color: #475569;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-left: 5px solid #f59e0b;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .warning-box h4 {
+            color: #92400e;
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .warning-box p {
+            color: #78350f;
+            line-height: 1.7;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            display: block;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            padding: 60px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #fff;
+            color: #1e40af;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 40px 30px;
+            text-align: center;
+            margin-top: 80px;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        footer p {
+            color: #64748b;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .content-section {
+                padding: 40px 25px;
+            }
+
+            .step {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-section {
+                padding: 40px 25px;
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="floating-shapes">
+            <svg class="shape" width="150" height="150" viewBox="0 0 150 150">
+                <circle cx="75" cy="75" r="70" fill="#3b82f6" opacity="0.2"/>
+            </svg>
+            <svg class="shape" width="120" height="120" viewBox="0 0 120 120">
+                <rect x="10" y="10" width="100" height="100" fill="#60a5fa" opacity="0.2"/>
+            </svg>
+            <svg class="shape" width="100" height="100" viewBox="0 0 100 100">
+                <polygon points="50,10 90,90 10,90" fill="#93c5fd" opacity="0.2"/>
+            </svg>
+        </div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#3b82f6"/>
+                    <path d="M2 17L12 22L22 17" stroke="#2563eb" stroke-width="2"/>
+                    <path d="M2 12L12 17L22 12" stroke="#1e40af" stroke-width="2"/>
+                </svg>
+                Tentang Server
+            </div>
+            <a href="index.html" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Kembali
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>📚 Panduan Lengkap Tentang Server</h1>
+        <p>Pelajari apa itu server, bagaimana cara membuatnya, dan apa saja yang dibutuhkan untuk memulai</p>
+    </section>
+
+    <div class="container">
+        <!-- Apa Itu Server -->
+        <section class="content-section">
+            <h2 class="section-title">🖥️ Apa Itu Server?</h2>
+            <p class="content-text">
+                <strong>Server</strong> adalah sebuah komputer atau sistem komputer yang menyediakan layanan, data, atau sumber daya kepada komputer lain (yang disebut client) melalui jaringan. Server dapat berupa perangkat keras fisik atau perangkat lunak yang berjalan di komputer.
+            </p>
+            <p class="content-text">
+                Dalam konteks yang lebih sederhana, bayangkan server seperti <strong>pelayan di restoran</strong>. Ketika Anda (client) memesan makanan, pelayan (server) mengambil pesanan Anda, memprosesnya, dan mengantarkan makanan kepada Anda. Begitu juga dengan server komputer - ia menerima permintaan dari client, memprosesnya, dan mengirimkan kembali hasil yang diminta.
+            </p>
+
+            <div class="info-box">
+                <h4>💡 Tahukah Anda?</h4>
+                <p>Server dapat menangani ratusan bahkan ribuan permintaan secara bersamaan. Server besar seperti Google dan Facebook memiliki jutaan server yang tersebar di seluruh dunia untuk melayani miliaran pengguna setiap harinya!</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="3" width="20" height="4" rx="1" stroke="white" stroke-width="2"/>
+                            <rect x="2" y="10" width="20" height="4" rx="1" stroke="white" stroke-width="2"/>
+                            <rect x="2" y="17" width="20" height="4" rx="1" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Web Server</h3>
+                    <p>Menyediakan halaman website kepada pengunjung. Contoh: Apache, Nginx, IIS</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 7V17C4 18.1 4.9 19 6 19H18C19.1 19 20 18.1 20 17V7" stroke="white" stroke-width="2"/>
+                            <rect x="3" y="3" width="18" height="4" rx="1" stroke="white" stroke-width="2"/>
+                            <path d="M8 12H16M12 8V16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Database Server</h3>
+                    <p>Menyimpan dan mengelola data. Contoh: MySQL, PostgreSQL, MongoDB</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 16V8C21 6.9 20.1 6 19 6H5C3.9 6 3 6.9 3 8V16C3 17.1 3.9 18 5 18H19C20.1 18 21 17.1 21 16Z" stroke="white" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="2" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3>Game Server</h3>
+                    <p>Menjalankan game multiplayer online. Contoh: Minecraft Server, CS:GO Server</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="11" width="7" height="9" rx="1" stroke="white" stroke-width="2"/>
+                            <rect x="14" y="5" width="7" height="15" rx="1" stroke="white" stroke-width="2"/>
+                            <path d="M6.5 8V11M17.5 2V5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>File Server</h3>
+                    <p>Menyimpan dan berbagi file dalam jaringan. Contoh: FTP Server, NAS</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cara Membuat Server -->
+        <section class="content-section">
+            <h2 class="section-title">🛠️ Cara Membuat Server</h2>
+            <p class="content-text">
+                Membuat server tidaklah sesulit yang dibayangkan! Berikut adalah langkah-langkah lengkap untuk membuat server Anda sendiri:
+            </p>
+
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Tentukan Tujuan Server</h3>
+                        <p>Pertama, tentukan untuk apa server Anda akan digunakan:</p>
+                        <ul>
+                            <li>Web hosting - untuk website pribadi atau bisnis</li>
+                            <li>Game server - untuk bermain game multiplayer</li>
+                            <li>File sharing - untuk berbagi file dalam jaringan</li>
+                            <li>Development - untuk testing dan development aplikasi</li>
+                            <li>Database - untuk menyimpan data aplikasi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Pilih Jenis Server</h3>
+                        <p>Ada beberapa pilihan untuk membuat server:</p>
+                        <ul>
+                            <li><strong>Dedicated Server</strong> - Server fisik khusus untuk Anda (paling powerful)</li>
+                            <li><strong>VPS (Virtual Private Server)</strong> - Server virtual yang di-share dengan pengguna lain (balance antara harga dan performa)</li>
+                            <li><strong>Cloud Server</strong> - Server di cloud yang fleksibel dan scalable</li>
+                            <li><strong>Shared Hosting</strong> - Berbagi server dengan banyak pengguna (paling murah)</li>
+                            <li><strong>Home Server</strong> - Menggunakan komputer di rumah sebagai server</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Pilih Sistem Operasi</h3>
+                        <p>Sistem operasi adalah "otak" dari server Anda:</p>
+                        <ul>
+                            <li><strong>Linux (Ubuntu, CentOS, Debian)</strong> - Gratis, stabil, dan paling populer untuk server</li>
+                            <li><strong>Windows Server</strong> - Cocok jika Anda familiar dengan Windows dan butuh aplikasi Windows-based</li>
+                            <li><strong>FreeBSD</strong> - Sangat stabil dan aman, untuk pengguna advanced</li>
+                        </ul>
+                        <div class="info-box" style="margin-top: 15px;">
+                            <h4>💡 Rekomendasi untuk Pemula</h4>
+                            <p>Gunakan Ubuntu Server 22.04 LTS - mudah digunakan, banyak dokumentasi, dan gratis!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Instalasi dan Konfigurasi</h3>
+                        <p>Setelah sistem operasi terinstal, Anda perlu mengkonfigurasi server:</p>
+                        <ul>
+                            <li><strong>Update sistem</strong> - Pastikan semua software up-to-date</li>
+                            <li><strong>Install software yang dibutuhkan</strong> - Web server (Apache/Nginx), Database (MySQL/PostgreSQL), PHP, dll</li>
+                            <li><strong>Konfigurasi firewall</strong> - Untuk keamanan server</li>
+                            <li><strong>Setup domain dan DNS</strong> - Agar server dapat diakses dengan nama domain</li>
+                            <li><strong>Install SSL certificate</strong> - Untuk koneksi HTTPS yang aman</li>
+                        </ul>
+                        <div class="code-block">
+                            <code>
+# Contoh perintah dasar untuk setup Ubuntu Server<br>
+sudo apt update && sudo apt upgrade -y<br>
+sudo apt install apache2 mysql-server php -y<br>
+sudo ufw enable<br>
+sudo ufw allow 'Apache Full'<br>
+sudo systemctl start apache2<br>
+sudo systemctl enable apache2
+                            </code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Testing dan Monitoring</h3>
+                        <p>Setelah setup selesai, lakukan testing:</p>
+                        <ul>
+                            <li>Test koneksi ke server dari browser atau SSH</li>
+                            <li>Upload file test untuk memastikan server berfungsi</li>
+                            <li>Monitor performa server (CPU, RAM, Bandwidth)</li>
+                            <li>Setup backup otomatis untuk keamanan data</li>
+                            <li>Install monitoring tools seperti Netdata atau Grafana</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Maintenance Rutin</h3>
+                        <p>Server membutuhkan perawatan berkala:</p>
+                        <ul>
+                            <li>Update software dan security patches secara rutin</li>
+                            <li>Monitor log untuk mendeteksi masalah atau serangan</li>
+                            <li>Backup data secara teratur</li>
+                            <li>Optimasi performa jika diperlukan</li>
+                            <li>Clean up file yang tidak diperlukan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 20H22L12 2Z" stroke="#92400e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 9V13" stroke="#92400e" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="17" r="1" fill="#92400e"/>
+                    </svg>
+                    Perhatian Penting!
+                </h4>
+                <p>Keamanan server sangat penting! Selalu gunakan password yang kuat, aktifkan firewall, update software secara rutin, dan jangan expose port yang tidak diperlukan. Server yang tidak aman dapat menjadi target hacker dan malware.</p>
+            </div>
+        </section>
+
+        <!-- Apa yang Dibutuhkan -->
+        <section class="content-section">
+            <h2 class="section-title">📋 Apa yang Dibutuhkan untuk Membuat Server?</h2>
+            <p class="content-text">
+                Berikut adalah daftar lengkap kebutuhan untuk membuat dan menjalankan server:
+            </p>
+
+            <h3 style="color: #1e40af; font-size: 28px; margin: 30px 0 20px; font-weight: 700;">1️⃣ Hardware Requirements</h3>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <h4>💻 Processor (CPU)</h4>
+                    <p>Minimal: Dual-core 2.0 GHz<br>
+                    Rekomendasi: Quad-core 3.0 GHz atau lebih<br>
+                    Untuk server besar: 8+ cores</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>🧠 RAM (Memory)</h4>
+                    <p>Minimal: 2 GB<br>
+                    Rekomendasi: 8 GB<br>
+                    Untuk web/game server: 16-32 GB<br>
+                    Database server: 32 GB+</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>💾 Storage (Hard Drive)</h4>
+                    <p>Minimal: 20 GB<br>
+                    Rekomendasi: SSD 100-500 GB<br>
+                    Untuk file server: 1-4 TB HDD<br>
+                    Enterprise: Multiple TB dengan RAID</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>🌐 Network/Internet</h4>
+                    <p>Upload speed minimal: 10 Mbps<br>
+                    Rekomendasi: 100 Mbps+ dedicated<br>
+                    IP Address: Static IP (dedicated)<br>
+                    Port forwarding jika di rumah</p>
+                </div>
+            </div>
+
+            <h3 style="color: #1e40af; font-size: 28px; margin: 40px 0 20px; font-weight: 700;">2️⃣ Software Requirements</h3>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <h4>🖥️ Operating System</h4>
+                    <p>Linux: Ubuntu Server, CentOS, Debian<br>
+                    Windows: Windows Server 2019/2022<br>
+                    Gratis: Ubuntu Server (paling populer)</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>🌐 Web Server</h4>
+                    <p>Apache HTTP Server (gratis)<br>
+                    Nginx (gratis, cepat)<br>
+                    LiteSpeed (premium)<br>
+                    Microsoft IIS (Windows)</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>🗄️ Database</h4>
+                    <p>MySQL/MariaDB (gratis)<br>
+                    PostgreSQL (gratis)<br>
+                    MongoDB (NoSQL, gratis)<br>
+                    Microsoft SQL Server</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>📝 Programming Language</h4>
+                    <p>PHP (web development)<br>
+                    Python (versatile)<br>
+                    Node.js (JavaScript)<br>
+                    Java (enterprise apps)</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>🔒 Security</h4>
+                    <p>Firewall (UFW, iptables)<br>
+                    SSL Certificate (Let's Encrypt gratis)<br>
+                    Fail2Ban (anti brute-force)<br>
+                    Antivirus (ClamAV)</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>🎛️ Control Panel (Optional)</h4>
+                    <p>cPanel/WHM (berbayar)<br>
+                    Plesk (berbayar)<br>
+                    Webmin (gratis)<br>
+                    CyberPanel (gratis)</p>
+                </div>
+            </div>
+
+            <h3 style="color: #1e40af; font-size: 28px; margin: 40px 0 20px; font-weight: 700;">3️⃣ Biaya yang Dibutuhkan</h3>
+            <div class="grid-2">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z" stroke="white" stroke-width="2"/>
+                            <path d="M12 6V12L16 14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Opsi 1: Home Server</h3>
+                    <p><strong>Biaya Awal:</strong> Rp 3-10 juta (komputer bekas)<br>
+                    <strong>Biaya Bulanan:</strong> Rp 200-500 ribu (listrik + internet)<br>
+                    <strong>Cocok untuk:</strong> Belajar, testing, small projects</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="4" width="18" height="16" rx="2" stroke="white" stroke-width="2"/>
+                            <path d="M3 9H21M7 14H10M14 14H17" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Opsi 2: VPS (Virtual Private Server)</h3>
+                    <p><strong>Biaya Bulanan:</strong> Rp 50-500 ribu<br>
+                    <strong>Provider:</strong> DigitalOcean, Vultr, Linode, Space Store<br>
+                    <strong>Cocok untuk:</strong> Website, startup, medium traffic</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 15V9C3 7.89543 3.89543 7 5 7H19C20.1046 7 21 7.89543 21 9V15C21 16.1046 20.1046 17 19 17H5C3.89543 17 3 16.1046 3 15Z" stroke="white" stroke-width="2"/>
+                            <circle cx="7" cy="12" r="1" fill="white"/>
+                            <circle cx="10" cy="12" r="1" fill="white"/>
+                        </svg>
+                    </div>
+                    <h3>Opsi 3: Dedicated Server</h3>
+                    <p><strong>Biaya Bulanan:</strong> Rp 1-10 juta+<br>
+                    <strong>Provider:</strong> OVH, Hetzner, Data center lokal<br>
+                    <strong>Cocok untuk:</strong> High traffic, enterprise, gaming</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 18V12C3 10.9 3.9 10 5 10H19C20.1 10 21 10.9 21 12V18C21 19.1 20.1 20 19 20H5C3.9 20 3 19.1 3 18Z" stroke="white" stroke-width="2"/>
+                            <path d="M3 6V5C3 4.45 3.45 4 4 4H20C20.55 4 21 4.45 21 5V6C21 6.55 20.55 7 20 7H4C3.45 7 3 6.55 3 6Z" stroke="white" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Opsi 4: Cloud Server</h3>
+                    <p><strong>Biaya:</strong> Pay-as-you-go (Rp 100-5 juta/bulan)<br>
+                    <strong>Provider:</strong> AWS, Google Cloud, Azure, Alibaba Cloud<br>
+                    <strong>Cocok untuk:</strong> Scalable apps, unpredictable traffic</p>
+                </div>
+            </div>
+
+            <h3 style="color: #1e40af; font-size: 28px; margin: 40px 0 20px; font-weight: 700;">4️⃣ Pengetahuan yang Dibutuhkan</h3>
+            <div class="content-text">
+                <p style="margin-bottom: 20px;">Untuk mengelola server dengan baik, Anda perlu memahami beberapa hal:</p>
+            </div>
+
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <h4>🐧 Linux/Windows Basics</h4>
+                    <p>Command line interface, file system, user management, permissions</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>🌐 Networking</h4>
+                    <p>IP address, DNS, ports, firewall, routing, protocols (HTTP, FTP, SSH)</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>🔒 Security</h4>
+                    <p>SSL/TLS, encryption, authentication, backup strategies, attack prevention</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>⚙️ System Administration</h4>
+                    <p>Software installation, configuration, troubleshooting, monitoring, optimization</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>🗄️ Database Management</h4>
+                    <p>SQL queries, database design, backup/restore, performance tuning</p>
+                </div>
+
+                <div class="requirement-item">
+                    <h4>📜 Scripting</h4>
+                    <p>Bash/PowerShell scripting untuk automation dan task scheduling</p>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 30px;">
+                <h4>💡 Tips untuk Pemula</h4>
+                <p>Jangan khawatir jika Anda belum menguasai semuanya! Mulai dengan VPS murah untuk belajar. Banyak tutorial gratis di YouTube dan dokumentasi online. Practice makes perfect - semakin sering Anda mengkonfigurasi server, semakin mahir Anda nantinya. Join komunitas seperti r/selfhosted atau forum Indonesia untuk mendapat bantuan.</p>
+            </div>
+        </section>
+
+        <!-- Tips & Best Practices -->
+        <section class="content-section">
+            <h2 class="section-title">🎯 Tips & Best Practices</h2>
+            
+            <div class="grid-2" style="margin-top: 30px;">
+                <div class="feature-card">
+                    <h3>✅ Do's (Yang Harus Dilakukan)</h3>
+                    <ul style="color: #64748b; line-height: 2; padding-left: 20px;">
+                        <li>Selalu backup data secara rutin</li>
+                        <li>Update sistem dan software secara berkala</li>
+                        <li>Gunakan password yang kuat dan unik</li>
+                        <li>Enable firewall dan security measures</li>
+                        <li>Monitor performa server secara regular</li>
+                        <li>Dokumentasikan konfigurasi Anda</li>
+                        <li>Test backup Anda secara berkala</li>
+                        <li>Gunakan SSL certificate untuk keamanan</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>❌ Don'ts (Yang Harus Dihindari)</h3>
+                    <ul style="color: #64748b; line-height: 2; padding-left: 20px;">
+                        <li>Jangan gunakan password default</li>
+                        <li>Jangan expose port yang tidak perlu</li>
+                        <li>Jangan abaikan security updates</li>
+                        <li>Jangan login sebagai root secara langsung</li>
+                        <li>Jangan install software dari sumber tidak terpercaya</li>
+                        <li>Jangan lupa melakukan backup</li>
+                        <li>Jangan overload server dengan resource</li>
+                        <li>Jangan abaikan log dan error messages</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="warning-box" style="margin-top: 30px;">
+                <h4>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="#92400e" stroke-width="2"/>
+                        <path d="M12 8V12" stroke="#92400e" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="16" r="1" fill="#92400e"/>
+                    </svg>
+                    Perhatian Keamanan!
+                </h4>
+                <p>Server yang terhubung ke internet adalah target potensial untuk hacker. Pastikan Anda selalu mengikuti security best practices: gunakan SSH key authentication, disable password login, enable fail2ban, dan selalu monitor access logs. Lebih baik mencegah daripada mengobati!</p>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section class="content-section">
+            <h2 class="section-title">📚 Sumber Belajar & Tools</h2>
+            
+            <h3 style="color: #1e40af; font-size: 24px; margin: 30px 0 20px; font-weight: 700;">Platform Belajar Gratis</h3>
+            <div class="grid-2">
+                <div class="feature-card">
+                    <h3>🎓 DigitalOcean Tutorials</h3>
+                    <p>Tutorial lengkap dan mudah dipahami tentang server administration, dari basic hingga advanced.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📖 Linux Journey</h3>
+                    <p>Belajar Linux dari nol dengan cara yang interaktif dan menyenangkan.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎬 YouTube Channels</h3>
+                    <p>TechWorld with Nana, NetworkChuck, LearnLinuxTV - channel berkualitas untuk belajar server.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💬 Community Forums</h3>
+                    <p>r/selfhosted, Server Fault, LinuxQuestions - komunitas yang siap membantu.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #1e40af; font-size: 24px; margin: 40px 0 20px; font-weight: 700;">Tools yang Berguna</h3>
+            <div class="requirements-grid">
+                <div class="requirement-item">
+                    <h4>🔧 PuTTY/Termius</h4>
+                    <p>SSH client untuk koneksi ke server dari Windows/Mac</p>
+                </div>
+                <div class="requirement-item">
+                    <h4>📊 Netdata</h4>
+                    <p>Real-time monitoring untuk melihat performa server</p>
+                </div>
+                <div class="requirement-item">
+                    <h4>🔐 Let's Encrypt</h4>
+                    <p>SSL certificate gratis untuk HTTPS</p>
+                </div>
+                <div class="requirement-item">
+                    <h4>📦 Docker</h4>
+                    <p>Containerization untuk deploy aplikasi dengan mudah</p>
+                </div>
+                <div class="requirement-item">
+                    <h4>🌐 Cloudflare</h4>
+                    <p>CDN dan DDoS protection gratis</p>
+                </div>
+                <div class="requirement-item">
+                    <h4>💾 rsync/rclone</h4>
+                    <p>Tools untuk backup dan sinkronisasi file</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>🚀 Siap Memulai Perjalanan Server Anda?</h2>
+            <p>Dapatkan VPS berkualitas dengan harga terjangkau dari Space Store Indonesia. Kami menyediakan support 24/7 dan panduan lengkap untuk membantu Anda!</p>
+            <a href="https://spacestore.dpdns.org" target="_blank" class="cta-btn">Lihat Paket VPS</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Brian Official. All Rights Reserved.</p>
+        <p style="margin-top: 10px; color: #3b82f6; font-weight: 600;">Website ini menggunakan hosting dari SPACE STORE</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Parallax effect for floating shapes
+        document.addEventListener('mousemove', function(e) {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 20;
+                const xMove = (x - 0.5) * speed;
+                const yMove = (y - 0.5) * speed;
+                shape.style.transform = `translate(${xMove}px, ${yMove}px) rotate(${index * 45}deg)`;
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all content sections
+        document.querySelectorAll('.content-section, .feature-card, .requirement-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
