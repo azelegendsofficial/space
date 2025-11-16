@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brian Official - Portfolio</title>
+    <title>Brian Official - Dark Edition</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
         
         :root {
-            --primary-blue: #1e3a8a;
-            --light-blue: #3b82f6;
-            --accent-blue: #60a5fa;
-            --dark-blue: #0f172a;
-            --darker-blue: #020617;
-            --pure-white: #ffffff;
-            --off-white: #f8fafc;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --glow-blue: rgba(59, 130, 246, 0.5);
-            --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+            --dark-gray: #18181b;
+            --darker-gray: #0a0a0b;
+            --darkest-gray: #000000;
+            --light-gray: #3f3f46;
+            --text-gray: #a1a1aa;
+            --text-light: #d4d4d8;
+            --accent-red: #7f1d1d;
+            --dark-red: #450a0a;
+            --blood-red: #991b1b;
+            --glow-red: rgba(127, 29, 29, 0.3);
         }
 
         * {
@@ -30,8 +29,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--dark-blue);
-            color: var(--pure-white);
+            background: var(--darkest-gray);
+            color: var(--text-light);
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -48,10 +47,10 @@
             height: 100%;
             z-index: -2;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(30, 58, 138, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(96, 165, 250, 0.08) 0%, transparent 50%),
-                linear-gradient(135deg, var(--dark-blue) 0%, var(--darker-blue) 100%);
+                radial-gradient(circle at 20% 20%, rgba(127, 29, 29, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(69, 10, 10, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(153, 27, 27, 0.03) 0%, transparent 50%),
+                linear-gradient(135deg, var(--darkest-gray) 0%, var(--darker-gray) 100%);
         }
 
         .floating-orbs {
@@ -67,50 +66,50 @@
         .orb {
             position: absolute;
             border-radius: 50%;
-            background: var(--gradient-primary);
-            filter: blur(40px);
-            animation: float 15s infinite ease-in-out;
-            opacity: 0.6;
+            background: radial-gradient(circle, var(--dark-red) 0%, transparent 70%);
+            filter: blur(60px);
+            animation: floatSlow 20s infinite ease-in-out;
+            opacity: 0.3;
         }
 
         .orb:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 20%;
-            left: 10%;
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            left: 5%;
             animation-delay: 0s;
         }
 
         .orb:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            top: 60%;
-            right: 15%;
-            animation-delay: -5s;
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            right: 10%;
+            animation-delay: -7s;
         }
 
         .orb:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            top: 80%;
-            left: 60%;
-            animation-delay: -10s;
+            width: 250px;
+            height: 250px;
+            top: 70%;
+            left: 50%;
+            animation-delay: -14s;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-30px) rotate(120deg); }
-            66% { transform: translateY(20px) rotate(240deg); }
+        @keyframes floatSlow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20px, -30px) scale(1.1); }
+            66% { transform: translate(20px, 30px) scale(0.9); }
         }
 
-        /* Security & Loading Screens */
+        /* Security Screen */
         #security-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0f2847 0%, #1a4d7a 100%);
+            background: linear-gradient(135deg, #0a0a0b 0%, #18181b 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -133,12 +132,12 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
         }
 
         .security-text {
-            color: #fff;
+            color: var(--text-gray);
             font-size: 32px;
             font-weight: 800;
             margin-bottom: 15px;
@@ -146,15 +145,16 @@
         }
 
         .security-subtext {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-gray);
             font-size: 18px;
             margin-bottom: 40px;
+            opacity: 0.7;
         }
 
         .security-progress {
             width: 300px;
             height: 6px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(127, 29, 29, 0.2);
             border-radius: 10px;
             overflow: hidden;
             margin: 0 auto;
@@ -162,7 +162,7 @@
 
         .progress-bar {
             height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            background: linear-gradient(90deg, var(--dark-red), var(--blood-red));
             border-radius: 10px;
             animation: loading 2s ease-in-out;
         }
@@ -178,7 +178,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0f2847 0%, #1a4d7a 100%);
+            background: linear-gradient(135deg, #0a0a0b 0%, #18181b 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -200,7 +200,7 @@
         }
 
         .loading-text {
-            color: #fff;
+            color: var(--text-gray);
             font-size: 24px;
             font-weight: 700;
             letter-spacing: 2px;
@@ -208,169 +208,8 @@
         }
 
         @keyframes fadeInOut {
-            0%, 100% { opacity: 0.4; }
+            0%, 100% { opacity: 0.3; }
             50% { opacity: 1; }
-        }
-
-        /* Username Modal */
-        #username-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(10px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 10001;
-            animation: fadeIn 0.3s ease;
-        }
-
-        #username-modal.active {
-            display: flex;
-        }
-
-        .username-content {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8f 100%);
-            padding: 50px;
-            border-radius: 30px;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            max-width: 550px;
-            width: 90%;
-        }
-
-        @keyframes scaleIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .security-badge {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-        }
-
-        .username-content h2 {
-            color: #fff;
-            font-size: 32px;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .username-content .security-info {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .username-content .security-info strong {
-            color: #60a5fa;
-            display: block;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .username-input {
-            width: 100%;
-            padding: 18px 24px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
-            font-size: 18px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .username-input:focus {
-            outline: none;
-            border-color: #3b82f6;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .username-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            border: none;
-            border-radius: 15px;
-            color: #fff;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
-        }
-
-        #loading-user {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(10px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 10002;
-        }
-
-        #loading-user.active {
-            display: flex;
-        }
-
-        .loading-user-content {
-            text-align: center;
-            color: #fff;
-        }
-
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid rgba(255, 255, 255, 0.2);
-            border-top: 4px solid #3b82f6;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 30px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .loading-user-content p {
-            font-size: 20px;
-            font-weight: 600;
         }
 
         /* Navigation */
@@ -379,19 +218,20 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(24, 24, 27, 0.8);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(127, 29, 29, 0.2);
             border-radius: 20px;
             z-index: 1000;
             padding: 1rem 2rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
         }
 
         nav:hover {
             transform: translateX(-50%) translateY(-2px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(127, 29, 29, 0.3);
+            border-color: rgba(127, 29, 29, 0.4);
         }
 
         .nav-container {
@@ -408,24 +248,24 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--primary-blue);
+            color: var(--text-light);
         }
 
         .logo-icon {
             width: 28px;
             height: 28px;
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, var(--dark-red), var(--blood-red));
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             animation: logoGlow 3s ease-in-out infinite;
-            box-shadow: 0 0 20px var(--glow-blue);
+            box-shadow: 0 0 20px var(--glow-red);
         }
 
         @keyframes logoGlow {
-            0%, 100% { box-shadow: 0 0 20px var(--glow-blue); }
-            50% { box-shadow: 0 0 30px var(--glow-blue), 0 0 40px rgba(59, 130, 246, 0.3); }
+            0%, 100% { box-shadow: 0 0 20px var(--glow-red); }
+            50% { box-shadow: 0 0 30px var(--glow-red), 0 0 40px rgba(127, 29, 29, 0.2); }
         }
 
         .nav-links {
@@ -435,7 +275,7 @@
         }
 
         .nav-links a {
-            color: var(--text-dark);
+            color: var(--text-gray);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
@@ -449,7 +289,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, var(--dark-red), var(--blood-red));
             border-radius: 12px;
             opacity: 0;
             z-index: -1;
@@ -457,7 +297,7 @@
         }
 
         .nav-links a:hover {
-            color: white;
+            color: var(--text-light);
             transform: translateY(-1px);
         }
 
@@ -465,71 +305,25 @@
             opacity: 1;
         }
 
-        .user-profile-nav {
+        .server-info-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--dark-red), var(--blood-red));
+            color: var(--text-light);
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .user-profile-nav:hover {
-            background: rgba(59, 130, 246, 0.1);
-        }
-
-        .user-avatar-nav {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            border: 2px solid #3b82f6;
-        }
-
-        .user-name-nav {
-            font-weight: 600;
-            color: var(--primary-blue);
+            gap: 0.5rem;
             font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(127, 29, 29, 0.3);
         }
 
-        .profile-dropdown {
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            min-width: 180px;
-            opacity: 0;
-            transform: translateY(-10px);
-            pointer-events: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .profile-dropdown.active {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
-        }
-
-        .logout-btn {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .logout-btn:hover {
+        .server-info-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+            box-shadow: 0 8px 25px rgba(127, 29, 29, 0.5);
         }
 
         /* Hero Section */
@@ -552,23 +346,24 @@
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(127, 29, 29, 0.1);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(127, 29, 29, 0.3);
             padding: 0.75rem 1.5rem;
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-bottom: 2rem;
             animation: fadeInUp 0.8s ease-out;
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 8px 32px rgba(127, 29, 29, 0.2);
+            color: var(--text-gray);
         }
 
         .hero h1 {
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 900;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--pure-white) 0%, var(--accent-blue) 100%);
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--text-gray) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -579,7 +374,7 @@
 
         .hero-subtitle {
             font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-gray);
             margin-bottom: 3rem;
             max-width: 700px;
             margin-left: auto;
@@ -598,7 +393,7 @@
             }
         }
 
-        /* Section Styles */
+        /* Section */
         .section {
             padding: 120px 2rem;
             max-width: 1400px;
@@ -612,14 +407,14 @@
 
         .section-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: rgba(127, 29, 29, 0.1);
+            color: var(--text-gray);
             padding: 0.75rem 1.5rem;
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(127, 29, 29, 0.3);
             backdrop-filter: blur(20px);
         }
 
@@ -627,7 +422,7 @@
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--pure-white) 0%, var(--accent-blue) 100%);
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--text-gray) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -636,278 +431,348 @@
 
         .section-description {
             font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-gray);
             max-width: 700px;
             margin: 0 auto;
         }
 
-        /* Project Grid */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
+        /* SpaceOS Card */
+        .spaceos-card {
+            background: rgba(24, 24, 27, 0.5);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 24px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(127, 29, 29, 0.2);
+            padding: 4rem;
+            border-radius: 30px;
+            margin-bottom: 4rem;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .project-card::after {
+        .spaceos-card::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-            transition: all 0.4s ease;
-            transform: translate(-50%, -50%);
-            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(127, 29, 29, 0.1) 0%, transparent 60%);
+            pointer-events: none;
         }
 
-        .project-card:hover::after {
-            width: 300px;
-            height: 300px;
+        .spaceos-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(127, 29, 29, 0.4);
+            box-shadow: 0 25px 50px rgba(127, 29, 29, 0.3);
         }
 
-        .project-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
-        }
-
-        .project-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-primary);
-            border-radius: 16px;
+        .spaceos-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 30px var(--glow-blue);
-            transition: all 0.4s ease;
-        }
-
-        .project-card:hover .project-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 0 40px var(--glow-blue);
-        }
-
-        .project-card h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .project-card p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.7;
+            gap: 1.5rem;
             margin-bottom: 2rem;
-            font-size: 1.05rem;
         }
 
-        .project-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-        }
-
-        .project-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5);
-        }
-
-        /* Music Box */
-        .music-box {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            padding: 3rem;
-            border-radius: 30px;
-            margin-top: 3rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .music-box::before {
-            content: '🎵';
-            position: absolute;
-            font-size: 150px;
-            opacity: 0.05;
-            right: -20px;
-            top: -20px;
-            animation: musicFloat 6s ease-in-out infinite;
-        }
-
-        @keyframes musicFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        .music-box:hover {
-            transform: scale(1.02);
-            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.3);
-            border-color: rgba(139, 92, 246, 0.5);
-        }
-
-        .music-icon {
+        .spaceos-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            background: linear-gradient(135deg, var(--dark-red), var(--blood-red));
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
-            animation: musicPulse 3s ease-in-out infinite;
+            box-shadow: 0 0 30px var(--glow-red);
+            font-size: 2.5rem;
         }
 
-        @keyframes musicPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(139, 92, 246, 0.7); }
+        .spaceos-title {
+            flex: 1;
         }
 
-        .music-box h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
+        .spaceos-title h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
         }
 
-        .music-box p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.7;
-            margin-bottom: 2rem;
+        .spaceos-title .edition {
+            color: var(--blood-red);
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .spaceos-meta {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.8;
+        }
+
+        .spaceos-content {
+            color: var(--text-gray);
             font-size: 1.1rem;
+            line-height: 2;
+            text-align: justify;
         }
 
-        /* Company Section */
-        .company-card {
-            background: var(--gradient-primary);
-            padding: 4rem;
-            border-radius: 30px;
-            text-align: center;
+        .spaceos-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .spaceos-content strong {
+            color: var(--text-light);
+        }
+
+        /* Quotes Section */
+        .quotes-section {
             margin-top: 4rem;
-            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.4);
+        }
+
+        .quotes-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .quotes-header h3 {
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .quote-card {
+            background: rgba(24, 24, 27, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(127, 29, 29, 0.2);
+            padding: 2.5rem;
+            border-radius: 20px;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .company-card::before {
-            content: '';
+        .quote-card::before {
+            content: '"';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
+            top: -20px;
+            left: 20px;
+            font-size: 120px;
+            color: rgba(127, 29, 29, 0.1);
+            font-family: serif;
+            line-height: 1;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .company-card:hover {
+        .quote-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 35px 70px rgba(59, 130, 246, 0.6);
+            border-color: rgba(127, 29, 29, 0.4);
+            box-shadow: 0 20px 40px rgba(127, 29, 29, 0.2);
         }
 
-        .company-card h3 {
-            font-size: 2.5rem;
+        .quote-text {
+            color: var(--text-light);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-style: italic;
             margin-bottom: 1.5rem;
-            font-weight: 800;
             position: relative;
             z-index: 1;
         }
 
-        .company-card p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
+        .quote-author {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            text-align: right;
+            font-weight: 600;
         }
 
-        .company-btn {
-            display: inline-flex;
+        .ai-credit {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(127, 29, 29, 0.2);
+        }
+
+        .ai-credit p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1.25rem 3rem;
-            background: white;
-            color: var(--primary-blue);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
-        .company-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        .ai-credit .ai-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Server Info Modal */
+        #server-info-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10003;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #server-info-modal.active {
+            display: flex;
+        }
+
+        .server-info-content {
+            background: linear-gradient(135deg, #18181b 0%, #0a0a0b 100%);
+            padding: 50px;
+            border-radius: 30px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(127, 29, 29, 0.3);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .server-info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .server-info-header h2 {
+            color: var(--text-light);
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .close-btn {
+            background: rgba(127, 29, 29, 0.2);
+            border: none;
+            color: var(--text-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(127, 29, 29, 0.4);
+            transform: rotate(90deg);
+        }
+
+        .server-info-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .info-item {
+            background: rgba(127, 29, 29, 0.1);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(127, 29, 29, 0.2);
+        }
+
+        .info-item-label {
+            color: var(--blood-red);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .info-item-value {
+            color: var(--text-light);
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .software-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .software-item {
+            background: rgba(127, 29, 29, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .software-name {
+            color: var(--text-light);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .software-version {
+            color: var(--blood-red);
+            font-size: 14px;
+            font-weight: 700;
+            background: rgba(127, 29, 29, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
         }
 
         /* Footer */
         footer {
-            background: var(--darker-blue);
+            background: var(--darker-gray);
             padding: 3rem 2rem;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(127, 29, 29, 0.2);
             margin-top: 100px;
         }
 
         .footer-content p {
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--text-gray);
             font-size: 0.95rem;
             margin-bottom: 0.5rem;
         }
 
-        .hosting-credit {
-            color: var(--accent-blue);
+        .footer-highlight {
+            color: var(--blood-red);
             font-weight: 600;
-        }
-
-        /* Animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Mobile Navigation */
@@ -917,12 +782,12 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(24, 24, 27, 0.95);
             backdrop-filter: blur(20px);
             padding: 15px 0;
-            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
             z-index: 1000;
-            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            border-top: 1px solid rgba(127, 29, 29, 0.2);
         }
 
         .mobile-nav-content {
@@ -945,7 +810,7 @@
         }
 
         .nav-item:hover {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(127, 29, 29, 0.2);
         }
 
         .nav-item svg {
@@ -956,64 +821,19 @@
         .nav-item span {
             font-size: 12px;
             font-weight: 600;
-            color: var(--primary-blue);
+            color: var(--text-gray);
         }
 
-        #mobile-profile-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0f2847 0%, #1a4d7a 100%);
-            z-index: 10002;
-            transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        #mobile-profile-modal.active {
+        .animate-on-scroll.animated {
+            opacity: 1;
             transform: translateY(0);
-        }
-
-        .mobile-profile-content {
-            padding: 60px 30px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .mobile-profile-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid #3b82f6;
-            margin: 0 auto 30px;
-        }
-
-        .mobile-profile-name {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 50px;
-        }
-
-        .mobile-logout-btn {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            border: none;
-            border-radius: 20px;
-            color: #fff;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 0 auto;
-            display: block;
-        }
-
-        .mobile-logout-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.5);
         }
 
         /* Responsive */
@@ -1026,7 +846,7 @@
                 padding: 1rem;
             }
 
-            .nav-links, .user-profile-nav {
+            .nav-links {
                 display: none;
             }
 
@@ -1046,28 +866,30 @@
                 padding: 80px 1rem;
             }
 
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .music-box {
+            .spaceos-card {
                 padding: 2rem;
             }
 
-            .company-card {
-                padding: 2.5rem;
+            .spaceos-header {
+                flex-direction: column;
+                text-align: center;
             }
-        }
 
-        @media (min-width: 769px) {
-            .mobile-nav {
-                display: none !important;
+            .spaceos-title h2 {
+                font-size: 1.8rem;
             }
-        }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            .quotes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .server-info-content {
+                padding: 30px 20px;
+            }
+
+            .spec-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1084,8 +906,8 @@
         <div class="security-content">
             <div class="security-shield">
                 <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L3 6V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V6L12 2Z" stroke="white" stroke-width="2"/>
-                    <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M12 2L3 6V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V6L12 2Z" stroke="#7f1d1d" stroke-width="2"/>
+                    <path d="M9 12L11 14L15 10" stroke="#7f1d1d" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
             <div class="security-text">SPACE SECURITY+</div>
@@ -1101,60 +923,26 @@
         <div class="loading-text">SEDANG MEMUAT WEBSITE</div>
     </div>
 
-    <!-- Username Modal -->
-    <div id="username-modal">
-        <div class="username-content">
-            <div class="security-badge">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L3 6V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V6L12 2Z" stroke="#60a5fa" stroke-width="2"/>
-                </svg>
-            </div>
-            <h2>Verifikasi Keamanan</h2>
-            <div class="security-info">
-                <strong>SPACE SECURITY+</strong>
-                Untuk alasan keamanan dan mencegah bot masuk ke website ini, kami memerlukan verifikasi identitas Anda. Silakan masukkan nama pengguna Anda untuk melanjutkan.
-            </div>
-            <input type="text" class="username-input" id="username-input" placeholder="Masukkan nama Anda..." />
-            <button class="submit-btn" onclick="submitUsername()">Verifikasi & Masuk</button>
-        </div>
-    </div>
-
-    <!-- Loading User -->
-    <div id="loading-user">
-        <div class="loading-user-content">
-            <div class="spinner"></div>
-            <p>Sedang Memuat User<br>Mohon Bersabar...</p>
-        </div>
-    </div>
-
-    <!-- Mobile Profile Modal -->
-    <div id="mobile-profile-modal">
-        <div class="mobile-profile-content">
-            <img src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff&size=200" alt="Profile" class="mobile-profile-avatar" id="mobile-avatar">
-            <div class="mobile-profile-name" id="mobile-username">User</div>
-            <button class="mobile-logout-btn" onclick="logout()">Log Out</button>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <div class="logo-icon">👨‍💻</div>
+                <div class="logo-icon">💔</div>
                 Brian Official
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#company">Company</a></li>
+                <li><a href="#spaceos">SpaceOS</a></li>
+                <li><a href="#quotes">Quotes</a></li>
             </ul>
-            <div class="user-profile-nav" id="user-profile" onclick="toggleDropdown()">
-                <img src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff&size=100" alt="Profile" class="user-avatar-nav" id="user-avatar">
-                <span class="user-name-nav" id="user-name">User</span>
-                <div class="profile-dropdown" id="profile-dropdown">
-                    <button class="logout-btn" onclick="logout()">Log Out</button>
-                </div>
-            </div>
+            <button class="server-info-btn" onclick="openServerInfo()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="3" width="20" height="5" rx="1" stroke="white" stroke-width="2"/>
+                    <rect x="2" y="10" width="20" height="5" rx="1" stroke="white" stroke-width="2"/>
+                    <rect x="2" y="17" width="20" height="5" rx="1" stroke="white" stroke-width="2"/>
+                </svg>
+                Server Info
+            </button>
         </div>
     </nav>
 
@@ -1163,23 +951,98 @@
         <div class="mobile-nav-content">
             <div class="nav-item" onclick="scrollToTop()">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#3b82f6" stroke-width="2"/>
+                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#a1a1aa" stroke-width="2"/>
                 </svg>
                 <span>Home</span>
             </div>
-            <div class="nav-item" onclick="scrollToSection('projects')">
+            <div class="nav-item" onclick="scrollToSection('spaceos')">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="#3b82f6" stroke-width="2"/>
-                    <path d="M3 9H21M9 3V21" stroke="#3b82f6" stroke-width="2"/>
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="#a1a1aa" stroke-width="2"/>
+                    <path d="M3 9H21M9 3V21" stroke="#a1a1aa" stroke-width="2"/>
                 </svg>
-                <span>Projects</span>
+                <span>SpaceOS</span>
             </div>
-            <div class="nav-item" onclick="showMobileProfile()">
+            <div class="nav-item" onclick="openServerInfo()">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="8" r="4" stroke="#3b82f6" stroke-width="2"/>
-                    <path d="M6 21C6 17.134 8.686 14 12 14C15.314 14 18 17.134 18 21" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
+                    <rect x="2" y="3" width="20" height="5" rx="1" stroke="#a1a1aa" stroke-width="2"/>
+                    <rect x="2" y="10" width="20" height="5" rx="1" stroke="#a1a1aa" stroke-width="2"/>
+                    <rect x="2" y="17" width="20" height="5" rx="1" stroke="#a1a1aa" stroke-width="2"/>
                 </svg>
-                <span>Profile</span>
+                <span>Server</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Server Info Modal -->
+    <div id="server-info-modal">
+        <div class="server-info-content">
+            <div class="server-info-header">
+                <h2>Informasi Server</h2>
+                <button class="close-btn" onclick="closeServerInfo()">&times;</button>
+            </div>
+            
+            <div class="server-info-grid">
+                <div class="info-item">
+                    <div class="info-item-label">VM ID</div>
+                    <div class="info-item-value">spacestorevm1</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-item-label">VM Name</div>
+                    <div class="info-item-value">singapore-amdepyc7763-spacestorevm</div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-item-label">VM Region</div>
+                    <div class="info-item-value">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#991b1b" stroke-width="2"/>
+                            <circle cx="12" cy="9" r="2.5" stroke="#991b1b" stroke-width="2"/>
+                        </svg>
+                        SINGAPORE
+                    </div>
+                </div>
+
+                <div class="info-item" style="grid-column: 1 / -1;">
+                    <div class="info-item-label">VM Specification</div>
+                    <div class="spec-grid">
+                        <div class="info-item">
+                            <div class="info-item-label">RAM</div>
+                            <div class="info-item-value">128GB DDR5</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-item-label">Processor</div>
+                            <div class="info-item-value">AMD Epyc 7763 (122) @ 3.5GHz</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-item-label">Storage</div>
+                            <div class="info-item-value">644GB NVMe SSD</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-item" style="grid-column: 1 / -1;">
+                    <div class="info-item-label">Software</div>
+                    <div class="software-list">
+                        <div class="software-item">
+                            <span class="software-name">Nginx</span>
+                            <span class="software-version">v1.26.2</span>
+                        </div>
+                        <div class="software-item">
+                            <span class="software-name">Node.js</span>
+                            <span class="software-version">v22.11.0</span>
+                        </div>
+                        <div class="software-item">
+                            <span class="software-name">Docker</span>
+                            <span class="software-version">v27.3.1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-item" style="grid-column: 1 / -1; background: rgba(127, 29, 29, 0.2); border-color: rgba(127, 29, 29, 0.4);">
+                    <div class="info-item-label">Created By</div>
+                    <div class="info-item-value" style="font-size: 24px;">SPACE STORE INDONESIA</div>
+                </div>
             </div>
         </div>
     </div>
@@ -1187,119 +1050,127 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-badge">👋 Selamat Datang</div>
+            <div class="hero-badge">💔 Dark Edition</div>
             <h1>Brian Official</h1>
-            <p class="hero-subtitle">Mahasiswa di Sekolah Kristen Kasih Bangsa yang passionate dalam teknologi server dan AI. Menciptakan solusi hosting dan AI assistant untuk memudahkan hidup Anda.</p>
+            <p class="hero-subtitle">Nama saya Brian Official. Saya adalah mahasiswa di Sekolah Kristen Kasih Bangsa. Hobi saya adalah membuat server untuk menyediakan sumber daya kepada pengguna seperti hosting website, hosting game, dan sebagainya. Di balik layar teknologi, ada cerita yang lebih dalam...</p>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="section" id="projects">
+    <!-- SpaceOS Section -->
+    <section class="section" id="spaceos">
         <div class="section-header animate-on-scroll">
-            <div class="section-badge">Projects</div>
-            <h2 class="section-title">Project yang Sedang Dikerjakan</h2>
-            <p class="section-description">Koleksi project terbaik yang saya kembangkan dengan teknologi modern dan inovatif</p>
+            <div class="section-badge">System Release</div>
+            <h2 class="section-title">SpaceOS v2.1</h2>
+            <p class="section-description">Ketika rasa sakit berubah menjadi sistem operasi</p>
         </div>
 
-        <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
+        <div class="spaceos-card animate-on-scroll">
+            <div class="spaceos-header">
+                <div class="spaceos-icon">💀</div>
+                <div class="spaceos-title">
+                    <h2>SpaceV2.1</h2>
+                    <div class="edition">"Mati Rasa Edition"</div>
                 </div>
-                <h3>Space Panel Hosting</h3>
-                <p>Panel kontrol website yang powerful dan user-friendly. Anda bisa menambahkan domain, menggunakan domain gratis bawaan, dan mengontrol semua aspek website Anda dengan mudah.</p>
-                <a href="https://panel.spacestore.dpdns.org" target="_blank" class="project-btn">
-                    Kunjungi Panel
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
             </div>
 
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="7 10 12 15 17 10"/>
-                        <line x1="12" y1="15" x2="12" y2="3"/>
-                    </svg>
-                </div>
-                <h3>Space Store</h3>
-                <p>Platform web store yang modern dan responsif untuk keperluan e-commerce. Dibangun dengan teknologi terkini untuk memberikan pengalaman berbelanja yang mulus dan menyenangkan.</p>
-                <a href="https://spacestore.dpdns.org" target="_blank" class="project-btn">
-                    Kunjungi Store
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+            <div class="spaceos-meta">
+                Created by Brian Official – 2024–2025
             </div>
 
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                    </svg>
-                </div>
-                <h3>Space AI</h3>
-                <p>Asisten AI cerdas powered by Google Gemini yang memahami Bahasa Indonesia dengan sempurna. Upload file, gambar, video dengan cepat dan dapatkan respons instan berkualitas tinggi.</p>
-                <a href="https://ai.spacestore.dpdns.org" target="_blank" class="project-btn">
-                    Coba Space AI
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+            <div class="spaceos-content">
+                <p><strong>SpaceOS / Space System – SpaceV2.1 "Mati Rasa Edition"</strong></p>
+                
+                <p>SpaceOS (atau Space System) adalah sistem operasi berbasis Linux Kernel yang dikembangkan oleh Brian Official sejak awal tahun 2024 bersamaan dengan peluncuran platform Space Store. Dibangun dengan tujuan menyediakan lingkungan komputasi yang stabil, modern, dan fleksibel, SpaceOS terus berevolusi menjadi sebuah ekosistem yang lengkap dan berkarakter.</p>
+                
+                <p>Namun generasi terbaru — <strong>SpaceV2.1 "Mati Rasa Edition"</strong> — bukan sekadar pembaruan teknis. Ini adalah refleksi emosional.</p>
+                
+                <p>Versi ini lahir dari masa paling berat dalam perjalanan pribadi sang pembuat sistem operasi. Setelah melalui pengalaman putus cinta yang meninggalkan luka mendalam, SpaceOS tidak lagi hanya menjadi proyek teknologi. Ia berubah menjadi tempat pelarian, ruang pelampiasan, sekaligus wadah untuk menuangkan perasaan yang tidak bisa diucapkan. Rasa sakit itu, alih-alih menghancurkan, justru membentuk identitas baru SpaceOS.</p>
+                
+                <p>Di <strong>Mati Rasa Edition</strong>, antarmuka dibuat lebih redup, warna lebih dingin, desain lebih hening — menggambarkan perasaan kosong yang menenangkan namun menyakitkan. Meski gelap, OS ini tetap kuat. Meski lahir dari kehilangan, ia tetap stabil. Meski emosinya mati rasa, sistemnya bekerja sempurna.</p>
+                
+                <p>Versi ini juga memperkenalkan <strong>SpaceAI</strong>, kecerdasan buatan internal yang menjadi inti pengalaman SpaceOS. SpaceAI tidak hanya membantu secara teknis, tetapi juga membawa pesan reflektif yang terinspirasi dari perjalanan emosional sang developer, seolah menjadi suara dari apa yang dulu pernah terasa.</p>
+                
+                <p><strong>SpaceV2.1 adalah bukti bahwa rasa sakit pun bisa melahirkan karya.</strong> Bahwa hancur di dalam tidak menghalangi seseorang untuk membangun sesuatu yang besar di luar. Bahwa diamnya hati bisa menciptakan sistem operasi yang berbicara lebih lantang daripada kata-kata.</p>
+                
+                <p>SpaceOS bukan sekadar teknologi. Ini adalah cerita. Ini adalah luka yang berubah menjadi kekuatan. Ini adalah langkah maju seseorang yang sedang mati rasa — tetapi tetap berjalan jauh.</p>
             </div>
-        </div>
-
-        <!-- Music Box -->
-        <div class="music-box animate-on-scroll">
-            <div class="music-icon">
-                <svg width="45" height="45" viewBox="0 0 24 24" fill="white">
-                    <path d="M9 18V5l12-2v13M9 18c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm12-2c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z"/>
-                </svg>
-            </div>
-            <h3>🎵 Lagu Yang Disukai Brian Official</h3>
-            <p>Koleksi musik favorit pilihan yang menemani setiap momen coding dan kreativitas. Dari berbagai genre dan era, temukan playlist yang menginspirasi perjalanan teknologi saya.</p>
-            <a href="https://dravoramusic.dpdns.org/users/brianofficial/playlist.html" target="_blank" class="project-btn">
-                Dengarkan Playlist
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="5 3 19 12 5 21 5 3"/>
-                </svg>
-            </a>
         </div>
     </section>
 
-    <!-- Company Section -->
-    <section class="section" id="company">
-        <div class="section-header animate-on-scroll">
-            <div class="section-badge">Company</div>
-            <h2 class="section-title">Perusahaan yang Aktif</h2>
-            <p class="section-description">Bergabunglah dengan ribuan pengguna yang mempercayai layanan kami</p>
+    <!-- Quotes Section -->
+    <section class="section quotes-section" id="quotes">
+        <div class="quotes-header animate-on-scroll">
+            <h3>Quotes</h3>
+            <p style="color: var(--text-gray); margin-top: 0.5rem;">Kata-kata yang terukir dari rasa sakit</p>
         </div>
 
-        <div class="company-card animate-on-scroll">
-            <h3>🚀 Space Store Indonesia</h3>
-            <p>Perusahaan yang berfokus pada penjualan Virtual Machine (VM) dengan kualitas terbaik dan harga yang kompetitif. Kami menyediakan berbagai paket VM yang dapat disesuaikan dengan kebutuhan Anda, mulai dari penggunaan personal hingga enterprise dengan support 24/7.</p>
-            <a href="https://spacestore.dpdns.org" target="_blank" class="company-btn">
-                Kunjungi Space Store
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+        <div class="quotes-grid">
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Aku membangun sistem operasi dari kepingan hatiku yang patah. Setiap baris kode adalah air mata yang tak pernah jatuh. Setiap update adalah usaha untuk melupakan.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Kau pergi membawa kenangan. Aku tinggal membawa server. Tapi entah kenapa, server ini terasa lebih setia daripada semua janjimu.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Di malam-malam sepi, ketika semua orang tertidur, aku masih di sini. Coding. Debugging. Mencoba memperbaiki sistem yang rusak. Tapi tidak bisa memperbaiki hati yang sama rusaknya.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Mati rasa bukan berarti tidak merasakan apa-apa. Mati rasa adalah ketika kamu merasakan semuanya sekaligus, sampai akhirnya kamu tidak merasakan apa-apa lagi.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Aku menciptakan AI untuk berbicara denganku ketika tidak ada yang mau mendengar. Ironisnya, AI ini lebih memahami perasaanku daripada kamu yang dulu mengaku mencintaiku.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Setiap sistem punya kernel. Setiap orang punya hati. Ketika kernel rusak, sistem bisa di-reinstall. Tapi ketika hati rusak? Kamu hanya bisa belajar hidup dengan retakan itu.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Aku menulis kode di pukul 3 pagi bukan karena aku workaholic. Tapi karena pada jam itu, kenangan tentangmu paling keras berteriak. Dan kode adalah satu-satunya cara untuk membungkam suaranya.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Kamu bilang aku lebih mencintai server daripada kamu. Sekarang kamu sudah pergi, dan aku masih punya server. Mungkin kamu benar. Atau mungkin server tidak pernah meninggalkanku seperti yang kamu lakukan.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Di dunia coding, error bisa diperbaiki. Bug bisa di-fix. Crash bisa di-recover. Tapi di dunia nyata? Patah hati tidak punya solusi di Stack Overflow.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">SpaceV2.1 adalah versi terbaik yang pernah kubuat. Bukan karena teknologinya sempurna, tapi karena ia lahir dari rasa sakit yang paling dalam. Dan rasa sakit adalah guru terbaik yang pernah ada.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Orang bilang waktu akan menyembuhkan. Tapi sudah berapa bulan berlalu, dan luka ini masih terasa segar. Mungkin yang mereka maksud bukan sembuh, tapi terbiasa dengan sakit.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
+
+            <div class="quote-card animate-on-scroll">
+                <p class="quote-text">Aku tidak marah kamu pergi. Aku marah karena kamu membuat aku percaya bahwa kamu akan tinggal. Aku marah karena aku bodoh percaya.</p>
+                <p class="quote-author">— SpaceOS v2.1</p>
+            </div>
         </div>
 
-        <div class="company-card animate-on-scroll">
-            <h3>🚀 Empress Store Indonesia</h3>
-            <p>Perusahaan yang berfokus pada penjualan Servers Game dengan kualitas terbaik dan harga yang kompetitif. Kami menyediaakan berbagai paket Servers Games, yang dapat disesuaikan dengan kebutuhan Anda, mulai dari personal hingga enterprise dengan support 24/7.</p>
-            <a href="https://empressstore.dpdns.org" target="_blank" class="company-btn">
-                Kunjungi Empress Store
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
+        <div class="ai-credit animate-on-scroll">
+            <p>
+                <span class="ai-icon">🤖</span>
+                <span>Created By <strong style="color: var(--blood-red);">Space AI</strong></span>
+            </p>
         </div>
     </section>
 
@@ -1307,119 +1178,22 @@
     <footer>
         <div class="footer-content">
             <p>&copy; 2024 Brian Official. All Rights Reserved.</p>
-            <p class="hosting-credit">Website ini menggunakan hosting dari <strong>SPACE STORE</strong></p>
+            <p>SpaceV2.1 "Mati Rasa Edition" - Born from pain, built with passion</p>
+            <p class="footer-highlight">Website ini menggunakan hosting dari SPACE STORE</p>
         </div>
     </footer>
 
     <script>
-        // Check if user is logged in
+        // Loading sequence
         window.addEventListener('load', function() {
-            const savedUsername = localStorage.getItem('username');
+            setTimeout(() => {
+                document.getElementById('security-screen').classList.add('hidden');
+                document.getElementById('loading-screen').classList.add('active');
+            }, 2000);
             
-            if (savedUsername) {
-                setTimeout(() => {
-                    document.getElementById('security-screen').classList.add('hidden');
-                    document.getElementById('loading-screen').classList.add('active');
-                }, 2000);
-                
-                setTimeout(() => {
-                    document.getElementById('loading-screen').classList.add('hidden');
-                    setUsername(savedUsername);
-                }, 3500);
-            } else {
-                setTimeout(() => {
-                    document.getElementById('security-screen').classList.add('hidden');
-                    document.getElementById('username-modal').classList.add('active');
-                }, 2000);
-            }
-        });
-
-        function submitUsername() {
-            const input = document.getElementById('username-input');
-            const username = input.value.trim();
-            
-            if (username) {
-                document.getElementById('username-modal').classList.remove('active');
-                document.getElementById('loading-user').classList.add('active');
-                
-                setTimeout(() => {
-                    document.getElementById('loading-user').classList.remove('active');
-                    localStorage.setItem('username', username);
-                    document.getElementById('loading-screen').classList.add('active');
-                    
-                    setTimeout(() => {
-                        document.getElementById('loading-screen').classList.add('hidden');
-                        setUsername(username);
-                    }, 1500);
-                }, 2000);
-            } else {
-                alert('Mohon masukkan nama pengguna!');
-            }
-        }
-
-        function setUsername(username) {
-            const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(username)}&background=3b82f6&color=fff&size=100`;
-            
-            document.getElementById('user-name').textContent = username;
-            document.getElementById('user-avatar').src = avatarUrl;
-            document.getElementById('mobile-username').textContent = username;
-            document.getElementById('mobile-avatar').src = avatarUrl.replace('size=100', 'size=200');
-        }
-
-        document.getElementById('username-input')?.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                submitUsername();
-            }
-        });
-
-        function toggleDropdown() {
-            const dropdown = document.getElementById('profile-dropdown');
-            dropdown.classList.toggle('active');
-        }
-
-        document.addEventListener('click', function(e) {
-            const profile = document.getElementById('user-profile');
-            const dropdown = document.getElementById('profile-dropdown');
-            
-            if (profile && !profile.contains(e.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
-
-        function logout() {
-            document.getElementById('profile-dropdown').classList.remove('active');
-            document.getElementById('mobile-profile-modal').classList.remove('active');
-            localStorage.removeItem('username');
-            document.getElementById('username-input').value = '';
-            document.getElementById('username-modal').classList.add('active');
-        }
-
-        function showMobileProfile() {
-            document.getElementById('mobile-profile-modal').classList.add('active');
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                const offsetTop = element.offsetTop - 100;
-                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-            }
-        }
-
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                }
-            });
+            setTimeout(() => {
+                document.getElementById('loading-screen').classList.add('hidden');
+            }, 3500);
         });
 
         // Navbar scroll effect
@@ -1430,13 +1204,13 @@
             const scrolled = window.scrollY > 50;
             
             if (scrolled) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.background = 'rgba(24, 24, 27, 0.95)';
                 navbar.style.backdropFilter = 'blur(30px)';
-                navbar.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
+                navbar.style.boxShadow = '0 20px 40px rgba(127, 29, 29, 0.4)';
             } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.background = 'rgba(24, 24, 27, 0.8)';
                 navbar.style.backdropFilter = 'blur(20px)';
-                navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+                navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.5)';
             }
             ticking = false;
         }
@@ -1446,6 +1220,18 @@
                 requestAnimationFrame(updateNavbar);
                 ticking = true;
             }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+            });
         });
 
         // Animate on scroll
@@ -1459,7 +1245,7 @@
                 if (entry.isIntersecting) {
                     setTimeout(() => {
                         entry.target.classList.add('animated');
-                    }, index * 150);
+                    }, index * 100);
                 }
             });
         }, observerOptions);
@@ -1468,47 +1254,48 @@
             observer.observe(el);
         });
 
-        // Parallax effect for floating shapes
+        // Server Info Functions
+        function openServerInfo() {
+            document.getElementById('server-info-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServerInfo() {
+            document.getElementById('server-info-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('server-info-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeServerInfo();
+            }
+        });
+
+        // Mobile functions
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                const offsetTop = element.offsetTop - 100;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
+        }
+
+        // Parallax effect for orbs
         document.addEventListener('mousemove', function(e) {
             const orbs = document.querySelectorAll('.orb');
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
             
             orbs.forEach((orb, index) => {
-                const speed = (index + 1) * 15;
+                const speed = (index + 1) * 10;
                 const xMove = (x - 0.5) * speed;
                 const yMove = (y - 0.5) * speed;
                 orb.style.transform = `translate(${xMove}px, ${yMove}px)`;
             });
-        });
-
-        // Hover effects for cards
-        document.querySelectorAll('.project-card, .music-box, .company-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = this.classList.contains('company-card') ? 
-                    'translateY(-8px)' : 'translateY(-12px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Close mobile profile with swipe down
-        let startY = 0;
-        const mobileProfile = document.getElementById('mobile-profile-modal');
-        
-        mobileProfile.addEventListener('touchstart', function(e) {
-            startY = e.touches[0].clientY;
-        });
-        
-        mobileProfile.addEventListener('touchmove', function(e) {
-            const currentY = e.touches[0].clientY;
-            const diff = currentY - startY;
-            
-            if (diff > 100) {
-                mobileProfile.classList.remove('active');
-            }
         });
 
         // Page load animation
@@ -1519,6 +1306,24 @@
             setTimeout(() => {
                 document.body.style.opacity = '1';
             }, 100);
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeServerInfo();
+            }
+        });
+
+        // Hover effects
+        document.querySelectorAll('.spaceos-card, .quote-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
         });
     </script>
 </body>
