@@ -582,160 +582,153 @@
         .stagger-4 { animation-delay: 0.4s; }
     </style>
     <style>
-        /* Server Info Section Styles (Specific to the new content) */
+        /* SERVER CARD STYLES */
+        .server-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem; 
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-.server-card {
-    /* Mengikuti gaya card dari .project-card atau .spaceos-card */
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2.5rem;
-    margin-bottom: 2rem; /* Tambahkan jarak antar card */
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
+        .server-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
 
-.server-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--border-hover);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
+        .server-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(220, 38, 38, 0.05), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
 
-.server-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top left, rgba(220, 38, 38, 0.05), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
+        .server-card:hover::before {
+            opacity: 1;
+        }
 
-.server-card:hover::before {
-    opacity: 1;
-}
+        .server-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
 
-.server-header {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
-}
+        .server-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), #991b1b);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
 
-.server-icon {
-    /* Mengikuti gaya icon dari .spaceos-icon / .project-icon */
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--accent), #991b1b);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-}
+        .server-title h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
 
-.server-title h2 {
-    /* Mengikuti gaya judul card */
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    font-family: 'Space Grotesk', sans-serif;
-    color: var(--text-primary);
-    line-height: 1.2;
-}
+        .edition {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            background: rgba(220, 38, 38, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+        }
 
-.edition {
-    /* Mengikuti gaya edition/version */
-    font-size: 0.85rem;
-    color: var(--accent);
-    font-weight: 600;
-    padding: 0.25rem 0.75rem;
-    background: rgba(220, 38, 38, 0.1);
-    border-radius: 20px;
-    display: inline-block;
-}
+        .server-meta {
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            padding-left: 7.5rem;
+        }
 
-.server-meta {
-    /* Gaya metadata */
-    color: var(--text-tertiary);
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-bottom: 2rem;
-    padding-left: 7.5rem; /* Menjaga jarak dari icon di atas */
-}
+        .server-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+        
+        /* BOLD ACCENT STYLES */
+        .server-content strong {
+            color: var(--accent); 
+            font-weight: 600;
+        } 
+        
+        .server-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
 
-.server-content p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1.2rem;
-}
+        .server-content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
 
-.server-content strong {
-    color: var(--text-primary); /* Menyorot istilah penting */
-    font-weight: 600;
-}
+        .server-content ul li::before {
+            content: '•'; 
+            position: absolute;
+            left: 0;
+            color: var(--accent); 
+            font-weight: 700;
+        }
 
-.server-content ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-}
+        /* IMAGE AND FIGURE STYLES */
+        figure {
+            margin: 2.5rem 0;
+            padding: 1.5rem;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+        }
 
-.server-content ul li {
-    position: relative;
-    padding-left: 1.5rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-}
+        figure img {
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
 
-.server-content ul li::before {
-    content: '•'; /* Menggunakan bullet point sederhana */
-    position: absolute;
-    left: 0;
-    color: var(--accent); /* Warna accent untuk bullet */
-    font-weight: 700;
-}
+        figure figcaption {
+            font-size: 0.9rem;
+            color: var(--text-tertiary);
+            margin-top: 1rem;
+            font-style: italic;
+        }
 
-/* Responsif untuk tata letak server card */
-@media (min-width: 768px) {
-    /* Memungkinkan dua card berdampingan jika diinginkan, namun karena hanya 2 card di 1 section, 1 kolom penuh mungkin lebih baik. Saya biarkan ini opsional */
-    /* .server-info .server-card {
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    } */
-
-    /* Tata letak yang lebih luas untuk section info */
-    .server-info {
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .server-card {
-        padding: 2rem;
-    }
-    .server-meta {
-        padding-left: 0;
-        margin-top: 1rem;
-    }
-    .server-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-    }
-    .server-icon {
-        margin-bottom: 0;
-    }
-}
+        /* Responsive */
+        @media (max-width: 768px) {
+            .server-card { padding: 2rem; }
+            .server-meta { padding-left: 0; margin-top: 1rem; }
+            .server-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+            .server-icon { margin-bottom: 0; }
+        }
     </style>
 </head>
 <body>
@@ -803,9 +796,9 @@
         </div>
 
         <div class="server-content">
-            <p><strong>Server</strong> adalah sebuah **sistem komputer** (baik perangkat keras, perangkat lunak, atau keduanya) yang didesain untuk **memproses permintaan** dan **mengirimkan data** kepada komputer lain, yang disebut **klien**, melalui jaringan.</p>
+            <p>Secara sederhana, <strong>server</strong> adalah sebuah <strong>sistem komputer</strong> (baik perangkat keras, perangkat lunak, atau keduanya) yang didesain untuk <strong>memproses permintaan</strong> dan <strong>mengirimkan data</strong> kepada komputer lain, yang biasa disebut <strong>klien</strong>, melalui sebuah jaringan (seperti internet atau jaringan lokal).</p>
             
-            <p>Bayangkan server sebagai **pelayan digital** yang menyimpan semua sumber daya yang diperlukan agar website, aplikasi, atau layanan email dapat berfungsi.</p>
+            <p>Bayangkan server sebagai <strong>pelayan digital</strong> yang menyimpan semua sumber daya yang diperlukan agar website, aplikasi, atau layanan email dapat berfungsi.</p>
             
             <p><strong>Fungsi Utama Server:</strong></p>
             <ul>
@@ -826,21 +819,62 @@
         </div>
 
         <div class="server-content">
-            <p>Mekanisme kerja server mengikuti model **Klien-Server** dalam siklus langkah demi langkah:</p>
-            
+            <p>Mekanisme kerja server didasarkan pada model <strong>Klien-Server</strong> yang sederhana namun efisien. Berikut adalah ilustrasi alurnya:</p>
+
+            <figure>
+                <img src="placeholder-diagram-cara-kerja-server.jpg" alt="Diagram siklus permintaan dan respons antara klien dan server">
+                <figcaption>Diagram Alur Komunikasi Klien-Server</figcaption>
+            </figure>
             <p><strong>1. Klien Membuat Permintaan (Request)</strong></p>
-            <p>Ketika Anda mengetik alamat website (**URL**) di *browser* (klien), perangkat Anda mengirimkan paket data—sebuah **permintaan**—melalui internet menuju alamat IP spesifik server tersebut.</p>
+            <p>Perangkat Anda (**klien**), seperti *browser*, mengirimkan paket data—sebuah **permintaan**—melalui internet menuju alamat IP spesifik server tersebut.</p>
             
             <p><strong>2. Server Menerima & Memproses</strong></p>
-            <p>Server menerima permintaan. Jika itu adalah permintaan untuk halaman *web*, server: a) Mencari *file* yang diminta. b) Berinteraksi dengan basis data (jika perlu). c) Menjalankan *script* aplikasi (PHP, Python, dll.) untuk menyusun konten dinamis.</p>
+            <p>Server menerima permintaan, mencari *file* yang diminta, dan berinteraksi dengan **basis data** jika perlu, untuk menyusun konten yang relevan.</p>
             
             <p><strong>3. Server Mengirimkan Respon (Response)</strong></p>
-            <p>Setelah pemrosesan selesai, server mengirimkan kembali data yang telah disusun (misalnya, kode HTML lengkap) sebagai **respons** kepada klien, biasanya menggunakan protokol **HTTP**.</p>
+            <p>Server mengirimkan kembali data yang telah disusun (**respons**) kepada klien, termasuk **kode status HTTP** (misalnya, **200 OK**).</p>
             
             <p><strong>4. Klien Menampilkan Data</strong></p>
-            <p>*Browser* (klien) menerima respons dan menerjemahkan kode-kode tersebut untuk **menampilkan halaman *web*** yang dapat Anda lihat dan interaksikan.</p>
+            <p>*Browser* (klien) menerjemahkan kode-kode tersebut untuk **menampilkan halaman *web*** yang dapat Anda lihat.</p>
 
-            <p><strong>Siklus Sederhana:</strong> Klien ➡️ **Minta** ➡️ Server ➡️ **Proses** ➡️ Server ➡️ **Kirim** ➡️ Klien ➡️ **Tampilkan**</p>
+            <p>Siklus Sederhana: Klien ➡️ **Minta** ➡️ Server ➡️ **Proses** ➡️ Server ➡️ **Kirim** ➡️ Klien ➡️ **Tampilkan**</p>
+        </div>
+    </div>
+
+    <div class="server-card">
+        <div class="server-header">
+            <div class="server-icon">🔧</div>
+            <div class="server-title">
+                <h2>Cara Membuat Server Dasar (Web Server)</h2>
+                <div class="edition">"Langkah Praktis"</div>
+            </div>
+        </div>
+
+        <div class="server-content">
+            <p>Proses pembuatan server tergantung pada jenisnya (Web, Game, Database). Untuk membuat <strong>Web Server</strong> sederhana yang dapat diakses publik, berikut adalah langkah-langkah umumnya:</p>
+            
+            <p><strong>1. Pilih Infrastruktur Hosting:</strong></p>
+            <ul>
+                <li><strong>Shared Hosting:</strong> Paling mudah dan murah, tetapi sumber daya terbatas.</li>
+                <li><strong>VPS (Virtual Private Server):</strong> Menawarkan kontrol lebih besar dan sumber daya yang didedikasikan (pilihan paling umum untuk memulai).</li>
+                <li><strong>Dedicated Server:</strong> Seluruh mesin fisik didedikasikan untuk Anda (untuk beban kerja sangat tinggi).</li>
+            </ul>
+            
+            <p><strong>2. Pilih Sistem Operasi (OS):</strong></p>
+            <p>Server biasanya menggunakan OS berbasis **Linux** (seperti Ubuntu, CentOS) karena stabil dan aman. Windows Server juga merupakan pilihan, terutama untuk lingkungan yang sudah menggunakan teknologi Microsoft.</p>
+            
+            <p><strong>3. Instal Software Web Server:</strong></p>
+            <p>Setelah OS terinstal, Anda perlu menginstal perangkat lunak yang bertindak sebagai *server*. Yang paling populer adalah:</p>
+            <ul>
+                <li><strong>Apache:</strong> Paling tua dan teruji, banyak digunakan.</li>
+                <li><strong>Nginx:</strong> Dikenal karena performanya yang sangat cepat dan efisien dalam menangani banyak koneksi.</li>
+            </ul>
+
+            <p><strong>4. Konfigurasi Jaringan dan Domain:</strong></p>
+            <p>Lakukan konfigurasi keamanan dasar (firewall) dan kaitkan <strong>alamat IP</strong> server dengan <strong>Nama Domain</strong> Anda melalui pengaturan **DNS** (Domain Name System). Ini memungkinkan orang mengakses server Anda menggunakan nama seperti `namaanda.com`.</p>
+            
+            <p><strong>5. Uji Coba:</strong></p>
+            <p>Unggah *file* HTML sederhana (seperti `index.html`) ke direktori server Anda dan coba akses melalui *browser* menggunakan domain atau alamat IP Anda untuk memastikan server telah berfungsi dengan baik.</p>
         </div>
     </div>
 </section>
