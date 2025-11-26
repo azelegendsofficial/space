@@ -1,4 +1,428 @@
-<script>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Brian Official - Portal edukasi tentang server dan teknologi web">
+    <meta name="keywords" content="server, web server, hosting, teknologi, tutorial">
+    <meta name="author" content="Brian Official">
+    <title>Brian Official - Modern Blue</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0f1e;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* ================================
+           LIGHT EFFECTS
+        ================================ */
+        .light-effect {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.4), transparent 70%);
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 1;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .light-1 { top: -200px; left: -200px; animation-delay: 0s; }
+        .light-2 { bottom: -200px; right: -200px; animation-delay: 5s; }
+        .light-3 { top: 40%; left: 50%; animation-delay: 2.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, 50px) scale(1.2); }
+        }
+
+        /* ================================
+           CONTAINER
+        ================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ================================
+           HERO SECTION
+        ================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-box {
+            background: rgba(15, 30, 60, 0.5);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(0, 123, 255, 0.3);
+            border-radius: 30px;
+            padding: 60px 40px;
+            box-shadow: 0 0 100px rgba(0, 123, 255, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .avatar {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            box-shadow: 0 0 100px rgba(0, 123, 255, 0.6);
+            animation: pulse 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .avatar::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #007bff;
+            animation: ring 2s ease-out infinite;
+        }
+
+        @keyframes ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 100px rgba(0, 123, 255, 0.6); }
+            50% { box-shadow: 0 0 150px rgba(0, 123, 255, 0.9); }
+        }
+
+        h1 {
+            font-size: 60px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ffffff, #007bff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease 0.3s backwards;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #94b8ff;
+            margin-bottom: 30px;
+            animation: slideIn 1s ease 0.5s backwards;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 15px 40px;
+            background: rgba(0, 123, 255, 0.2);
+            border: 2px solid #007bff;
+            border-radius: 50px;
+            color: #007bff;
+            font-weight: 600;
+            font-size: 18px;
+            animation: slideIn 1s ease 0.7s backwards;
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ================================
+           SERVER SECTION
+        ================================ */
+        .server-section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 50px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #ffffff, #007bff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 60px;
+        }
+
+        .server-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .server-card {
+            background: rgba(15, 30, 60, 0.5);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(0, 123, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .server-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .server-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 123, 255, 0.6);
+            box-shadow: 0 30px 60px rgba(0, 123, 255, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 123, 255, 0.2);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.4);
+            flex-shrink: 0;
+        }
+
+        .card-title h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(0, 123, 255, 0.2);
+            border-radius: 20px;
+            color: #007bff;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .card-content {
+            color: #94b8ff;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: #6c8ab8;
+            font-style: italic;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 123, 255, 0.1);
+        }
+
+        .card-content p {
+            margin-bottom: 20px;
+        }
+
+        .card-content strong {
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        .card-content ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .card-content ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        .card-content ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #007bff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .image-box {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(10, 20, 40, 0.6);
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .image-caption {
+            margin-top: 15px;
+            color: #6c8ab8;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .step-box {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(10, 20, 40, 0.6);
+            border-left: 4px solid #007bff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .step-box:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+        }
+
+        .step-title {
+            font-size: 20px;
+            color: #007bff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* ================================
+           FOOTER
+        ================================ */
+        footer {
+            background: rgba(15, 30, 60, 0.8);
+            backdrop-filter: blur(20px);
+            border-top: 2px solid rgba(0, 123, 255, 0.3);
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .powered {
+            font-size: 18px;
+            color: #94b8ff;
+            margin-bottom: 10px;
+        }
+
+        .brand {
+            font-size: 32px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #007bff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(0, 123, 255, 0.6)); }
+            50% { filter: drop-shadow(0 0 40px rgba(0, 123, 255, 1)); }
+        }
+
+        /* ================================
+           RESPONSIVE
+        ================================ */
+        @media (max-width: 768px) {
+            h1 { font-size: 40px; }
+            .subtitle { font-size: 18px; }
+            .section-title { font-size: 35px; }
+            .hero-box { padding: 40px 30px; }
+            .server-card { padding: 30px; }
+            .card-header { flex-direction: column; text-align: center; }
+            .card-icon { width: 60px; height: 60px; font-size: 30px; }
+            .card-title h3 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Light Effects -->
+    <div class="light-effect light-1"></div>
+    <div class="light-effect light-2"></div>
+    <div class="light-effect light-3"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-box">
+            <div class="avatar">👨‍💻</div>
+            <h1>BRIAN OFFICIAL</h1>
+            <p class="subtitle">Siswa SMP Kristen Kasih Bangsa</p>
+            <div class="badge">🎓 Kristen Kasih Bangsa</div>
+        </div>
+    </section>
+
+    <!-- Server Section -->
+    <section class="server-section">
+        <div class="container">
+            <h2 class="section-title">Apa Itu Server?</h2>
+            <div class="server-grid" id="serverContent"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="powered">POWERED BY</p>
+        <p class="brand">SPACE STORE INDONESIA</p>
+    </footer>
+
+    <script>
         // ==============================================
         // DATA KONTEN - MUDAH DITAMBAHKAN
         // ==============================================
@@ -8,9 +432,9 @@
                 icon: '🖥️',
                 title: 'Definisi Server',
                 tag: 'Konsep Dasar',
-                description: 'Pemahaman dasar tentang apa itu server dan fungsinya',
+                description: 'Pemahaman dasar tentang apa itu server dan fungsinya dalam dunia teknologi',
                 image: 'https://cdn-icons-png.flaticon.com/512/2906/2906274.png',
-                imageCaption: 'Ilustrasi Server',
+                imageCaption: 'Ilustrasi Server Komputer',
                 sections: [
                     {
                         type: 'paragraph',
@@ -24,10 +448,10 @@
                         type: 'list',
                         title: 'Fungsi Utama Server:',
                         items: [
-                            { label: 'Menyimpan Data', detail: 'File website, database, dan konten' },
-                            { label: 'Memproses Permintaan', detail: 'Menjalankan program dan logika' },
-                            { label: 'Mengirim Respons', detail: 'Mengirimkan data ke klien' },
-                            { label: 'Mengelola Akses', detail: 'Mengatur keamanan pengguna' }
+                            { label: 'Menyimpan Data', detail: 'File website, database, dan konten multimedia' },
+                            { label: 'Memproses Permintaan', detail: 'Menjalankan program dan logika bisnis' },
+                            { label: 'Mengirim Respons', detail: 'Mengirimkan data yang diminta ke klien' },
+                            { label: 'Mengelola Akses', detail: 'Mengatur keamanan dan hak akses pengguna' }
                         ]
                     }
                 ],
@@ -38,13 +462,13 @@
                 icon: '🔄',
                 title: 'Cara Kerja Server',
                 tag: 'Client-Server Model',
-                description: 'Memahami proses komunikasi antara klien dan server',
+                description: 'Memahami proses komunikasi antara klien dan server dalam jaringan komputer',
                 image: 'https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQLNtNHp9_WejCQh_hO_-dnbiDp-WbEA-RhLHlWTFd-ChTLRneqQUyJn4kI_OLIUODb2xI8SKIEu0X8OyXTFGjjcJLr_G0r9Tr0cN1X6gWLxFolutA',
                 imageCaption: 'Diagram Komunikasi Klien-Server',
                 sections: [
                     {
                         type: 'paragraph',
-                        content: 'Server bekerja berdasarkan model <strong>Klien-Server</strong> yang efisien:'
+                        content: 'Server bekerja berdasarkan model <strong>Klien-Server</strong> yang efisien dan terstruktur:'
                     },
                     {
                         type: 'steps',
@@ -52,22 +476,22 @@
                             {
                                 icon: '1️⃣',
                                 title: 'Klien Mengirim Permintaan',
-                                detail: 'Browser mengirimkan request ke server melalui protokol HTTP/HTTPS.'
+                                detail: 'Browser atau aplikasi mengirimkan request ke server melalui protokol HTTP/HTTPS dengan metode GET, POST, atau lainnya.'
                             },
                             {
                                 icon: '2️⃣',
                                 title: 'Server Memproses',
-                                detail: 'Server menerima request, mencari data, dan berinteraksi dengan database.'
+                                detail: 'Server menerima request, memvalidasi data, mencari informasi di database, dan menjalankan logika aplikasi yang diperlukan.'
                             },
                             {
                                 icon: '3️⃣',
                                 title: 'Server Mengirim Respons',
-                                detail: 'Server mengirimkan data dengan kode status (200 OK, 404 Not Found).'
+                                detail: 'Server mengirimkan data yang diminta dengan kode status HTTP (200 OK, 404 Not Found, 500 Internal Error).'
                             },
                             {
                                 icon: '4️⃣',
                                 title: 'Klien Menampilkan Data',
-                                detail: 'Browser menampilkan halaman web yang bisa dilihat pengguna.'
+                                detail: 'Browser atau aplikasi menerima data dan menampilkannya dalam format yang dapat dilihat dan digunakan oleh pengguna.'
                             }
                         ]
                     }
@@ -78,14 +502,14 @@
                 id: 3,
                 icon: '🛠️',
                 title: 'Cara Membuat Server',
-                tag: 'Tutorial',
-                description: 'Panduan lengkap membuat web server dari awal',
+                tag: 'Tutorial Praktis',
+                description: 'Panduan lengkap membuat web server dari awal hingga online',
                 image: 'https://cdn-icons-png.flaticon.com/512/1087/1087815.png',
-                imageCaption: 'Setup Web Server',
+                imageCaption: 'Setup dan Konfigurasi Web Server',
                 sections: [
                     {
                         type: 'paragraph',
-                        content: 'Untuk membuat <strong>Web Server</strong> dasar:'
+                        content: 'Untuk membuat <strong>Web Server</strong> yang fungsional, ikuti langkah-langkah berikut:'
                     },
                     {
                         type: 'steps',
@@ -93,60 +517,268 @@
                             {
                                 icon: '1️⃣',
                                 title: 'Pilih Hosting',
-                                detail: '<strong>Shared Hosting</strong> - Murah, cocok pemula<br><strong>VPS</strong> - Kontrol lebih, sumber daya dedicated<br><strong>Dedicated Server</strong> - Performa maksimal'
+                                detail: '<strong>Shared Hosting</strong> - Murah, cocok untuk pemula dan website kecil<br><strong>VPS (Virtual Private Server)</strong> - Kontrol penuh, sumber daya dedicated<br><strong>Dedicated Server</strong> - Performa maksimal untuk website besar'
                             },
                             {
                                 icon: '2️⃣',
                                 title: 'Install Sistem Operasi',
-                                detail: 'Gunakan <strong>Linux</strong> (Ubuntu, CentOS) atau <strong>Windows Server</strong> untuk stabilitas.'
+                                detail: 'Gunakan <strong>Linux</strong> (Ubuntu 22.04, CentOS, Debian) atau <strong>Windows Server</strong> untuk stabilitas dan keamanan optimal.'
                             },
                             {
                                 icon: '3️⃣',
                                 title: 'Install Web Server',
-                                detail: '<strong>Apache</strong> - Paling populer dan mudah<br><strong>Nginx</strong> - Cepat dan efisien untuk traffic tinggi'
+                                detail: '<strong>Apache</strong> - Paling populer, mudah dikonfigurasi, cocok pemula<br><strong>Nginx</strong> - Cepat dan efisien, ideal untuk traffic tinggi dan load balancing'
                             },
                             {
                                 icon: '4️⃣',
                                 title: 'Konfigurasi Domain',
-                                detail: 'Hubungkan <strong>alamat IP</strong> dengan <strong>domain</strong> melalui DNS agar bisa diakses publik.'
+                                detail: 'Hubungkan <strong>alamat IP server</strong> dengan <strong>nama domain</strong> melalui DNS settings agar website bisa diakses secara publik.'
                             },
                             {
                                 icon: '5️⃣',
                                 title: 'Upload Website',
-                                detail: 'Upload file HTML ke server dan test melalui browser untuk memastikan berfungsi.'
+                                detail: 'Upload file HTML, CSS, JavaScript ke direktori server (biasanya /var/www/html) dan test melalui browser untuk memastikan semuanya berfungsi.'
                             }
                         ]
                     }
                 ],
                 delay: 400
             },
-            // ==============================================
-            // TAMBAHKAN KONTEN BARU DI BAWAH INI
-            // ==============================================
             {
                 id: 4,
                 icon: '🔒',
                 title: 'Keamanan Server',
                 tag: 'Security',
-                description: 'Pelajari cara mengamankan server dari ancaman cyber',
+                description: 'Pelajari cara mengamankan server dari berbagai ancaman cyber',
                 image: 'https://cdn-icons-png.flaticon.com/512/2910/2910769.png',
-                imageCaption: 'Server Security',
+                imageCaption: 'Keamanan dan Proteksi Server',
                 sections: [
                     {
                         type: 'paragraph',
-                        content: 'Keamanan server adalah prioritas utama untuk melindungi data dan layanan dari ancaman.'
+                        content: 'Keamanan server adalah <strong>prioritas utama</strong> untuk melindungi data dan layanan dari ancaman cyber yang semakin canggih.'
                     },
                     {
                         type: 'list',
-                        title: 'Langkah Keamanan:',
+                        title: 'Langkah Keamanan Penting:',
                         items: [
-                            { label: 'Firewall', detail: 'Filter traffic masuk dan keluar' },
-                            { label: 'SSL Certificate', detail: 'Enkripsi data dengan HTTPS' },
-                            { label: 'Update Rutin', detail: 'Patch keamanan sistem' },
-                            { label: 'Backup Data', detail: 'Cadangan untuk recovery' }
+                            { label: 'Firewall', detail: 'Memfilter traffic masuk dan keluar, blokir akses berbahaya' },
+                            { label: 'SSL Certificate', detail: 'Enkripsi data dengan HTTPS untuk komunikasi aman' },
+                            { label: 'Update Rutin', detail: 'Patch keamanan sistem operasi dan software secara berkala' },
+                            { label: 'Backup Data', detail: 'Cadangan otomatis untuk disaster recovery' },
+                            { label: 'Password Policy', detail: 'Gunakan password kuat dan autentikasi 2 faktor' },
+                            { label: 'Monitoring', detail: 'Pantau aktivitas server secara real-time' }
                         ]
                     }
                 ],
                 delay: 600
+            },
+            {
+                id: 5,
+                icon: '📊',
+                title: 'Jenis-Jenis Server',
+                tag: 'Kategori',
+                description: 'Mengenal berbagai tipe server dan fungsinya masing-masing',
+                image: 'https://cdn-icons-png.flaticon.com/512/2821/2821666.png',
+                imageCaption: 'Berbagai Jenis Server',
+                sections: [
+                    {
+                        type: 'paragraph',
+                        content: 'Ada berbagai jenis server dengan fungsi spesifik untuk kebutuhan yang berbeda:'
+                    },
+                    {
+                        type: 'list',
+                        title: 'Tipe-Tipe Server:',
+                        items: [
+                            { label: 'Web Server', detail: 'Menyimpan dan mengirim halaman website (Apache, Nginx)' },
+                            { label: 'Database Server', detail: 'Mengelola dan menyimpan database (MySQL, PostgreSQL)' },
+                            { label: 'File Server', detail: 'Menyimpan dan berbagi file dalam jaringan' },
+                            { label: 'Mail Server', detail: 'Mengelola email dan komunikasi (SMTP, IMAP)' },
+                            { label: 'Game Server', detail: 'Host multiplayer games dan handle player data' },
+                            { label: 'DNS Server', detail: 'Menerjemahkan nama domain ke alamat IP' }
+                        ]
+                    }
+                ],
+                delay: 800
+            },
+            {
+                id: 6,
+                icon: '⚡',
+                title: 'Optimasi Performa',
+                tag: 'Performance',
+                description: 'Tips dan trik untuk meningkatkan kecepatan dan efisiensi server',
+                image: 'https://cdn-icons-png.flaticon.com/512/3281/3281289.png',
+                imageCaption: 'Optimasi Performa Server',
+                sections: [
+                    {
+                        type: 'paragraph',
+                        content: 'Performa server yang optimal sangat penting untuk pengalaman pengguna yang baik:'
+                    },
+                    {
+                        type: 'steps',
+                        items: [
+                            {
+                                icon: '🚀',
+                                title: 'Caching',
+                                detail: 'Gunakan Redis atau Memcached untuk cache data yang sering diakses, mengurangi beban database.'
+                            },
+                            {
+                                icon: '📦',
+                                title: 'CDN (Content Delivery Network)',
+                                detail: 'Distribusi konten melalui server global untuk loading lebih cepat di berbagai lokasi.'
+                            },
+                            {
+                                icon: '🗜️',
+                                title: 'Kompresi',
+                                detail: 'Enable Gzip compression untuk mengurangi ukuran file yang dikirim ke klien.'
+                            },
+                            {
+                                icon: '⚙️',
+                                title: 'Load Balancing',
+                                detail: 'Distribusi traffic ke multiple server untuk menghindari overload.'
+                            }
+                        ]
+                    }
+                ],
+                delay: 1000
             }
         ];
+
+        // ==============================================
+        // RENDER FUNCTIONS
+        // ==============================================
+        
+        // Render list items
+        function renderList(listData) {
+            let html = `<p><strong>${listData.title}</strong></p><ul>`;
+            listData.items.forEach(item => {
+                html += `<li><strong>${item.label}</strong> - ${item.detail}</li>`;
+            });
+            html += '</ul>';
+            return html;
+        }
+
+        // Render step boxes
+        function renderSteps(stepsData) {
+            let html = '';
+            stepsData.items.forEach(step => {
+                html += `
+                    <div class="step-box">
+                        <div class="step-title">${step.icon} ${step.title}</div>
+                        <p>${step.detail}</p>
+                    </div>
+                `;
+            });
+            return html;
+        }
+
+        // Render paragraph
+        function renderParagraph(content) {
+            return `<p>${content}</p>`;
+        }
+
+        // Render image
+        function renderImage(image, caption) {
+            if (!image) return '';
+            return `
+                <div class="image-box">
+                    <img src="${image}" alt="${caption}" loading="lazy">
+                    <p class="image-caption">${caption}</p>
+                </div>
+            `;
+        }
+
+        // Main render function
+        function renderServerContent() {
+            const container = document.getElementById('serverContent');
+            container.innerHTML = ''; // Clear existing content
+            
+            serverData.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = 'server-card';
+                card.setAttribute('data-id', item.id);
+                
+                // Build content HTML
+                let contentHTML = '';
+                
+                // Add description
+                if (item.description) {
+                    contentHTML += `<p class="card-description">${item.description}</p>`;
+                }
+                
+                // Add image if exists
+                if (item.image) {
+                    contentHTML += renderImage(item.image, item.imageCaption || item.title);
+                }
+                
+                // Render sections
+                item.sections.forEach(section => {
+                    switch(section.type) {
+                        case 'paragraph':
+                            contentHTML += renderParagraph(section.content);
+                            break;
+                        case 'list':
+                            contentHTML += renderList(section);
+                            break;
+                        case 'steps':
+                            contentHTML += renderSteps(section);
+                            break;
+                    }
+                });
+                
+                // Build card HTML
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div class="card-icon">${item.icon}</div>
+                        <div class="card-title">
+                            <h3>${item.title}</h3>
+                            <span class="card-tag">${item.tag}</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        ${contentHTML}
+                    </div>
+                `;
+                
+                container.appendChild(card);
+
+                // Animate cards on scroll
+                setTimeout(() => {
+                    card.classList.add('show');
+                }, item.delay);
+            });
+        }
+
+        // Scroll animation handler
+        function handleScroll() {
+            const cards = document.querySelectorAll('.server-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    card.classList.add('show');
+                }
+            });
+        }
+
+        // Mouse move effect untuk light effects
+        document.addEventListener('mousemove', (e) => {
+            const lights = document.querySelectorAll('.light-effect');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            lights.forEach((light, index) => {
+                const speed = (index + 1) * 20;
+                light.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            renderServerContent();
+            handleScroll();
+        });
+
+        // Handle scroll events
+        window.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+</html>
