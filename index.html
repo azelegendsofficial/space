@@ -1,0 +1,152 @@
+<script>
+        // ==============================================
+        // DATA KONTEN - MUDAH DITAMBAHKAN
+        // ==============================================
+        const serverData = [
+            {
+                id: 1,
+                icon: '🖥️',
+                title: 'Definisi Server',
+                tag: 'Konsep Dasar',
+                description: 'Pemahaman dasar tentang apa itu server dan fungsinya',
+                image: 'https://cdn-icons-png.flaticon.com/512/2906/2906274.png',
+                imageCaption: 'Ilustrasi Server',
+                sections: [
+                    {
+                        type: 'paragraph',
+                        content: '<strong>Server</strong> adalah sistem komputer yang dirancang untuk menyediakan layanan, data, atau sumber daya kepada komputer lain (<strong>klien</strong>) melalui jaringan.'
+                    },
+                    {
+                        type: 'paragraph',
+                        content: 'Bayangkan server seperti <strong>restoran digital</strong>: ketika kamu memesan makanan (data), pelayan (server) memproses pesananmu dan mengantarkan makanan yang kamu inginkan.'
+                    },
+                    {
+                        type: 'list',
+                        title: 'Fungsi Utama Server:',
+                        items: [
+                            { label: 'Menyimpan Data', detail: 'File website, database, dan konten' },
+                            { label: 'Memproses Permintaan', detail: 'Menjalankan program dan logika' },
+                            { label: 'Mengirim Respons', detail: 'Mengirimkan data ke klien' },
+                            { label: 'Mengelola Akses', detail: 'Mengatur keamanan pengguna' }
+                        ]
+                    }
+                ],
+                delay: 0
+            },
+            {
+                id: 2,
+                icon: '🔄',
+                title: 'Cara Kerja Server',
+                tag: 'Client-Server Model',
+                description: 'Memahami proses komunikasi antara klien dan server',
+                image: 'https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQLNtNHp9_WejCQh_hO_-dnbiDp-WbEA-RhLHlWTFd-ChTLRneqQUyJn4kI_OLIUODb2xI8SKIEu0X8OyXTFGjjcJLr_G0r9Tr0cN1X6gWLxFolutA',
+                imageCaption: 'Diagram Komunikasi Klien-Server',
+                sections: [
+                    {
+                        type: 'paragraph',
+                        content: 'Server bekerja berdasarkan model <strong>Klien-Server</strong> yang efisien:'
+                    },
+                    {
+                        type: 'steps',
+                        items: [
+                            {
+                                icon: '1️⃣',
+                                title: 'Klien Mengirim Permintaan',
+                                detail: 'Browser mengirimkan request ke server melalui protokol HTTP/HTTPS.'
+                            },
+                            {
+                                icon: '2️⃣',
+                                title: 'Server Memproses',
+                                detail: 'Server menerima request, mencari data, dan berinteraksi dengan database.'
+                            },
+                            {
+                                icon: '3️⃣',
+                                title: 'Server Mengirim Respons',
+                                detail: 'Server mengirimkan data dengan kode status (200 OK, 404 Not Found).'
+                            },
+                            {
+                                icon: '4️⃣',
+                                title: 'Klien Menampilkan Data',
+                                detail: 'Browser menampilkan halaman web yang bisa dilihat pengguna.'
+                            }
+                        ]
+                    }
+                ],
+                delay: 200
+            },
+            {
+                id: 3,
+                icon: '🛠️',
+                title: 'Cara Membuat Server',
+                tag: 'Tutorial',
+                description: 'Panduan lengkap membuat web server dari awal',
+                image: 'https://cdn-icons-png.flaticon.com/512/1087/1087815.png',
+                imageCaption: 'Setup Web Server',
+                sections: [
+                    {
+                        type: 'paragraph',
+                        content: 'Untuk membuat <strong>Web Server</strong> dasar:'
+                    },
+                    {
+                        type: 'steps',
+                        items: [
+                            {
+                                icon: '1️⃣',
+                                title: 'Pilih Hosting',
+                                detail: '<strong>Shared Hosting</strong> - Murah, cocok pemula<br><strong>VPS</strong> - Kontrol lebih, sumber daya dedicated<br><strong>Dedicated Server</strong> - Performa maksimal'
+                            },
+                            {
+                                icon: '2️⃣',
+                                title: 'Install Sistem Operasi',
+                                detail: 'Gunakan <strong>Linux</strong> (Ubuntu, CentOS) atau <strong>Windows Server</strong> untuk stabilitas.'
+                            },
+                            {
+                                icon: '3️⃣',
+                                title: 'Install Web Server',
+                                detail: '<strong>Apache</strong> - Paling populer dan mudah<br><strong>Nginx</strong> - Cepat dan efisien untuk traffic tinggi'
+                            },
+                            {
+                                icon: '4️⃣',
+                                title: 'Konfigurasi Domain',
+                                detail: 'Hubungkan <strong>alamat IP</strong> dengan <strong>domain</strong> melalui DNS agar bisa diakses publik.'
+                            },
+                            {
+                                icon: '5️⃣',
+                                title: 'Upload Website',
+                                detail: 'Upload file HTML ke server dan test melalui browser untuk memastikan berfungsi.'
+                            }
+                        ]
+                    }
+                ],
+                delay: 400
+            },
+            // ==============================================
+            // TAMBAHKAN KONTEN BARU DI BAWAH INI
+            // ==============================================
+            {
+                id: 4,
+                icon: '🔒',
+                title: 'Keamanan Server',
+                tag: 'Security',
+                description: 'Pelajari cara mengamankan server dari ancaman cyber',
+                image: 'https://cdn-icons-png.flaticon.com/512/2910/2910769.png',
+                imageCaption: 'Server Security',
+                sections: [
+                    {
+                        type: 'paragraph',
+                        content: 'Keamanan server adalah prioritas utama untuk melindungi data dan layanan dari ancaman.'
+                    },
+                    {
+                        type: 'list',
+                        title: 'Langkah Keamanan:',
+                        items: [
+                            { label: 'Firewall', detail: 'Filter traffic masuk dan keluar' },
+                            { label: 'SSL Certificate', detail: 'Enkripsi data dengan HTTPS' },
+                            { label: 'Update Rutin', detail: 'Patch keamanan sistem' },
+                            { label: 'Backup Data', detail: 'Cadangan untuk recovery' }
+                        ]
+                    }
+                ],
+                delay: 600
+            }
+        ];
