@@ -5,27 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brian Official - Penjelasan Tentang Hardware dan Software Serta Fungsi dan Komponen nya</title>
     <style>
-    /* CSS untuk tombol aksi agar tidak terpengaruh oleh style utama */
-    .card-btn {
-        display: inline-block;
-        padding: 15px 35px;
-        background: linear-gradient(135deg, #3b82f6, #2563eb);
-        color: #fff;
-        border-radius: 15px;
-        text-decoration: none;
-        font-weight: 700;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    .card-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-    }
-</style>
-<style>
+    /* 1. IMPORTS & VARIABEL GLOBAL (Theming) */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
     
@@ -43,6 +23,7 @@
         --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
     }
 
+    /* 2. BASE RESET & BODY STYLES */
     * {
         margin: 0;
         padding: 0;
@@ -61,6 +42,7 @@
         scroll-behavior: smooth;
     }
 
+    /* 3. BACKGROUND & ANIMASI ORB */
     .animated-bg {
         position: fixed;
         top: 0;
@@ -138,6 +120,7 @@
         }
     }
     
+    /* 4. HEADER & NAVIGASI */
     .header {
         width: 100%;
         padding: 20px 0;
@@ -182,6 +165,7 @@
         color: var(--accent-blue);
     }
 
+    /* 5. HERO SECTION & CTA */
     .hero {
         padding: 120px 0 80px;
         text-align: center;
@@ -226,7 +210,28 @@
         transform: translateY(-3px);
         box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
     }
+    
+    /* 6. CARD BUTTON (Dari blok pertama) */
+    .card-btn {
+        display: inline-block;
+        padding: 15px 35px;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: #fff;
+        border-radius: 15px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
+    .card-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    }
+
+    /* 7. SECTION & GRIDS */
     .section {
         padding: 80px 0;
         border-top: 1px solid rgba(59, 130, 246, 0.1);
@@ -248,19 +253,19 @@
         margin: 0 auto 50px;
     }
 
+    /* Pengaturan Grid untuk PC/Laptop */
     .hardware-grid, .software-grid, .programming-grid, .distro-grid {
         display: grid;
-        /* Grid responsif dasar untuk PC/Laptop */
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 30px;
         margin-top: 30px;
     }
 
-    /* Adjust grid for better layout on smaller columns */
     .software-grid, .programming-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
+    /* 8. CARD STYLES */
     .card {
         background-color: var(--darker-blue);
         padding: 30px;
@@ -277,10 +282,10 @@
         margin-bottom: 20px;
     }
 
-    /* --- PENTING: Gambar Lebih Besar (PC/Default) --- */
+    /* PENGATURAN GAMBAR (BESAR UNTUK PC) */
     .card-visual img {
-        width: 100px; /* Lebih Besar */
-        height: 100px; /* Lebih Besar */
+        width: 100px; 
+        height: 100px; 
         border-radius: 10px;
         object-fit: cover;
         border: 3px solid var(--accent-blue);
@@ -308,40 +313,13 @@
         border-top: 1px dashed rgba(255, 255, 255, 0.1);
         padding-top: 10px;
     }
-
-    .card-list li {
-        padding: 5px 0;
-        font-size: 0.9em;
-        color: var(--pure-white); 
-    }
     
-    .card-list .sub-list {
-        list-style: disc;
-        padding-left: 20px;
-        margin-top: 5px;
-        color: var(--text-light);
-    }
-    
-    .card-list .sub-list li {
-        padding: 2px 0;
-        font-size: 0.85em;
-    }
-
-    .card-list li:last-child {
-        border-bottom: none;
-    }
-
     .card:hover {
         transform: translateY(-8px);
         box-shadow: 0 8px 20px var(--glow-blue);
     }
 
-    
-    /* Linux Section Styles */
-    .distro-grid {
-        margin-top: 30px;
-    }
-
+    /* Distro Card (Linux) - Menggunakan style card yang sama */
     .distro-card {
         background-color: var(--darker-blue);
         padding: 25px;
@@ -363,41 +341,14 @@
         border-bottom: 2px solid rgba(59, 130, 246, 0.3);
         padding-bottom: 5px;
     }
-    
-    .distro-card p {
-        font-size: 0.95em;
-        margin-bottom: 8px;
-        color: var(--text-light);
-    }
 
+    /* 9. FOOTER & SOURCES */
     .sources-list {
         margin-top: 60px;
         padding-top: 20px;
         border-top: 1px solid rgba(59, 130, 246, 0.3);
     }
 
-    .sources-list ul {
-        list-style: none;
-        padding-left: 0;
-    }
-
-    .sources-list li {
-        margin-bottom: 8px;
-        font-size: 0.9em;
-        color: var(--text-light);
-    }
-    
-    .sources-list a {
-        color: var(--accent-blue);
-        text-decoration: none;
-    }
-    
-    .sources-list a:hover {
-        text-decoration: underline;
-    }
-
-
-    /* Footer Styles */
     .footer {
         padding: 40px 0;
         text-align: center;
@@ -406,40 +357,26 @@
         color: var(--text-light);
     }
 
-    .footer p {
-        margin: 5px 0;
-    }
 
-    .social-links a {
-        color: var(--pure-white);
-        margin: 0 10px;
-        font-size: 1.5em;
-        transition: color 0.3s ease;
-    }
-
-    .social-links a:hover {
-        color: var(--accent-blue);
-    }
+    /* 10. MEDIA QUERIES (RESPONSIVITAS HP/PC) */
     
-    /* Utility */
+    /* Utility for medium screens */
     @media (max-width: 1024px) {
          .software-grid, .programming-grid {
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
     }
 
-    /* --- MEDIA QUERY KHUSUS HP (Max-width: 600px) --- */
-    /* Ini adalah bagian yang membuat tampilan menyesuaikan untuk HP */
+    /* --- PENTING: KHUSUS HP (Max-width: 600px) --- */
     @media (max-width: 600px) {
         .container {
-            padding: 0 10px; /* Kurangi padding samping pada HP */
+            padding: 0 10px; 
         }
         
         .header {
             padding: 15px 0;
         }
         
-        /* Navigasi diubah menjadi kolom agar tidak tumpang tindih */
         .nav {
             flex-direction: column;
         }
@@ -475,9 +412,9 @@
             gap: 20px;
         }
         
-        /* Gambar dikecilkan sedikit agar lebih pas di layar HP */
+        /* PENGATURAN GAMBAR UNTUK HP (Lebih Kecil) */
         .card-visual img {
-            width: 70px; /* Dikecilkan untuk HP */
+            width: 70px; 
             height: 70px;
         }
         
@@ -489,491 +426,7 @@
             font-size: 0.9em;
         }
     }
-    /* --- Akhir Media Query HP --- */
 </style>
-    <style>.card-btn {
-            display: inline-block;
-            padding: 15px 35px;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: #fff;
-            border-radius: 15px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .card-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-        }</style>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
-        
-        :root {
-            --primary-blue: #1e3a8a;
-            --light-blue: #3b82f6;
-            --accent-blue: #60a5fa;
-            --dark-blue: #0f172a;
-            --darker-blue: #020617;
-            --pure-white: #ffffff;
-            --off-white: #f8fafc;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --glow-blue: rgba(59, 130, 246, 0.5);
-            --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-blue);
-            color: var(--pure-white);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(30, 58, 138, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 60%, rgba(96, 165, 250, 0.08) 0%, transparent 50%),
-                linear-gradient(135deg, var(--dark-blue) 0%, var(--darker-blue) 100%);
-        }
-
-        .floating-orbs {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            filter: blur(40px);
-            animation: float 15s infinite;
-        }
-
-        .orb:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 10%;
-            left: 10%;
-            animation-duration: 18s;
-            opacity: 0.3;
-        }
-
-        .orb:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            bottom: 5%;
-            right: 15%;
-            animation-duration: 22s;
-            opacity: 0.25;
-        }
-
-        .orb:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            top: 50%;
-            left: 80%;
-            animation-duration: 15s;
-            opacity: 0.4;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            25% {
-                transform: translate(20px, 30px) rotate(10deg);
-            }
-            50% {
-                transform: translate(-10px, -20px) rotate(-5deg);
-            }
-            75% {
-                transform: translate(15px, 10px) rotate(5deg);
-            }
-            100% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-        }
-        
-        .header {
-            width: 100%;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            background-color: rgba(15, 23, 42, 0.8);
-            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: 1.8em;
-            color: var(--light-blue);
-            text-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links a {
-            color: var(--pure-white);
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-blue);
-        }
-
-        .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-title {
-            font-size: 3.5em;
-            font-weight: 900;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-transform: uppercase;
-        }
-
-        .hero-title span {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: block;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2em;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: var(--gradient-primary);
-            color: var(--pure-white);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
-        }
-
-        .section {
-            padding: 80px 0;
-            border-top: 1px solid rgba(59, 130, 246, 0.1);
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 10px;
-            color: var(--accent-blue);
-        }
-
-        .section-subtitle {
-            font-size: 1.1em;
-            color: var(--text-light);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 50px;
-        }
-
-        .hardware-grid, .software-grid, .programming-grid, .distro-grid {
-            display: grid;
-            /* Grid responsif dasar untuk PC/Laptop */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        /* Adjust grid for better layout on smaller columns */
-        .software-grid, .programming-grid {
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-
-        .card {
-            background-color: var(--darker-blue);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid var(--primary-blue);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            display: flex; 
-            flex-direction: column;
-        }
-        
-        .card-visual {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        /* --- Gambar Lebih Besar (PC/Default) --- */
-        .card-visual img {
-            width: 100px; /* Lebih Besar */
-            height: 100px; /* Lebih Besar */
-            border-radius: 10px;
-            object-fit: cover;
-            border: 3px solid var(--accent-blue);
-        }
-
-        .card h3 {
-            color: var(--light-blue);
-            margin-bottom: 15px;
-            font-size: 1.4em;
-            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
-            padding-bottom: 5px;
-        }
-
-        .card > p {
-            font-size: 0.95em;
-            color: var(--text-light);
-            flex-grow: 1; 
-            margin-bottom: 15px;
-        }
-
-        .card-list {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 15px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.1);
-            padding-top: 10px;
-        }
-
-        .card-list li {
-            padding: 5px 0;
-            font-size: 0.9em;
-            color: var(--pure-white); 
-        }
-        
-        .card-list .sub-list {
-            list-style: disc;
-            padding-left: 20px;
-            margin-top: 5px;
-            color: var(--text-light);
-        }
-        
-        .card-list .sub-list li {
-            padding: 2px 0;
-            font-size: 0.85em;
-        }
-
-        .card-list li:last-child {
-            border-bottom: none;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px var(--glow-blue);
-        }
-
-        
-        /* Linux Section Styles */
-        .distro-grid {
-            margin-top: 30px;
-        }
-
-        .distro-card {
-            background-color: var(--darker-blue);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid var(--primary-blue);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .distro-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px var(--glow-blue);
-        }
-        
-        .distro-card h3 {
-            color: var(--accent-blue);
-            margin-bottom: 10px;
-            font-size: 1.5em;
-            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
-            padding-bottom: 5px;
-        }
-        
-        .distro-card p {
-            font-size: 0.95em;
-            margin-bottom: 8px;
-            color: var(--text-light);
-        }
-
-        .sources-list {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .sources-list ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .sources-list li {
-            margin-bottom: 8px;
-            font-size: 0.9em;
-            color: var(--text-light);
-        }
-        
-        .sources-list a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-        
-        .sources-list a:hover {
-            text-decoration: underline;
-        }
-
-
-        /* Footer Styles */
-        .footer {
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid rgba(59, 130, 246, 0.1);
-            font-size: 0.9em;
-            color: var(--text-light);
-        }
-
-        .footer p {
-            margin: 5px 0;
-        }
-
-        .social-links a {
-            color: var(--pure-white);
-            margin: 0 10px;
-            font-size: 1.5em;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-blue);
-        }
-        
-        /* Utility */
-        @media (max-width: 1024px) {
-             .software-grid, .programming-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-        }
-
-        /* --- MEDIA QUERY KHUSUS HP (Max-width: 600px) --- */
-        @media (max-width: 600px) {
-            .container {
-                padding: 0 10px; /* Kurangi padding samping pada HP */
-            }
-            
-            .header {
-                padding: 15px 0;
-            }
-            
-            /* Navigasi diubah menjadi kolom agar tidak tumpang tindih */
-            .nav {
-                flex-direction: column;
-            }
-            
-            .nav-links {
-                margin-top: 15px;
-                display: flex;
-                width: 100%;
-                justify-content: space-around;
-            }
-            
-            .nav-links a {
-                margin: 0 5px;
-                font-size: 0.9em;
-            }
-
-            .hero-title {
-                font-size: 2em;
-            }
-
-            .section-title {
-                font-size: 1.8em;
-            }
-            
-            .section-subtitle {
-                font-size: 1em;
-                margin-bottom: 30px;
-            }
-
-            /* Card diatur menjadi satu kolom penuh untuk HP */
-            .hardware-grid, .software-grid, .programming-grid, .distro-grid {
-                grid-template-columns: 1fr; 
-                gap: 20px;
-            }
-            
-            /* Gambar dikecilkan sedikit agar lebih pas di layar HP */
-            .card-visual img {
-                width: 70px; 
-                height: 70px;
-            }
-            
-            .card h3 {
-                font-size: 1.3em;
-            }
-            
-            .card > p {
-                font-size: 0.9em;
-            }
-        }
-        /* --- Akhir Media Query HP --- */
-    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
