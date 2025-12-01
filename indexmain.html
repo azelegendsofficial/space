@@ -247,6 +247,7 @@
 
         .hardware-grid, .software-grid, .programming-grid, .distro-grid {
             display: grid;
+            /* Grid responsif dasar untuk PC/Laptop */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 30px;
@@ -273,9 +274,10 @@
             margin-bottom: 20px;
         }
 
+        /* --- Gambar Lebih Besar (PC/Default) --- */
         .card-visual img {
-            width: 80px; 
-            height: 80px;
+            width: 100px; /* Lebih Besar */
+            height: 100px; /* Lebih Besar */
             border-radius: 10px;
             object-fit: cover;
             border: 3px solid var(--accent-blue);
@@ -422,19 +424,68 @@
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
         }
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5em;
+
+        /* --- MEDIA QUERY KHUSUS HP (Max-width: 600px) --- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 10px; /* Kurangi padding samping pada HP */
+            }
+            
+            .header {
+                padding: 15px 0;
+            }
+            
+            /* Navigasi diubah menjadi kolom agar tidak tumpang tindih */
+            .nav {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                display: flex;
+                width: 100%;
+                justify-content: space-around;
+            }
+            
+            .nav-links a {
+                margin: 0 5px;
+                font-size: 0.9em;
             }
 
-            .section-title {
+            .hero-title {
                 font-size: 2em;
             }
 
-            .nav-links {
-                display: none; 
+            .section-title {
+                font-size: 1.8em;
+            }
+            
+            .section-subtitle {
+                font-size: 1em;
+                margin-bottom: 30px;
+            }
+
+            /* Card diatur menjadi satu kolom penuh untuk HP */
+            .hardware-grid, .software-grid, .programming-grid, .distro-grid {
+                grid-template-columns: 1fr; 
+                gap: 20px;
+            }
+            
+            /* Gambar dikecilkan sedikit agar lebih pas di layar HP */
+            .card-visual img {
+                width: 70px; 
+                height: 70px;
+            }
+            
+            .card h3 {
+                font-size: 1.3em;
+            }
+            
+            .card > p {
+                font-size: 0.9em;
             }
         }
+        /* --- Akhir Media Query HP --- */
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -483,7 +534,7 @@
                 <div class="hardware-grid">
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/2563eb/ffffff?text=Mobo" alt="Gambar Motherboard">
+                            <img src="https://via.placeholder.com/100x100/2563eb/ffffff?text=Mobo" alt="Gambar Motherboard">
                         </div>
                         <h3>Motherboard (Papan Induk)</h3>
                         <p>Papan sirkuit terbesar yang berfungsi sebagai pusat komunikasi dan distribusi daya. Semua komponen utama, dari CPU hingga RAM, dicolokkan ke sini, saling terhubung melalui Bus.</p>
@@ -495,7 +546,7 @@
                     
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/3b82f6/ffffff?text=CPU" alt="Gambar CPU Processor">
+                            <img src="https://via.placeholder.com/100x100/3b82f6/ffffff?text=CPU" alt="Gambar CPU Processor">
                         </div>
                         <h3>CPU (Central Processing Unit)</h3>
                         <p>Dijuluki "otak" sistem. Tugas utamanya adalah mengeksekusi urutan instruksi program dalam siklus *Fetch-Decode-Execute*, yang pada dasarnya adalah bagaimana komputer "berpikir" dan melakukan pekerjaan berat.</p>
@@ -507,7 +558,7 @@
                     
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/60a5fa/ffffff?text=RAM" alt="Gambar RAM Memory">
+                            <img src="https://via.placeholder.com/100x100/60a5fa/ffffff?text=RAM" alt="Gambar RAM Memory">
                         </div>
                         <h3>RAM (Random Access Memory)</h3>
                         <p>Ini adalah 'meja kerja' super cepat yang sifatnya <strong>volatile</strong> (sementara). Setiap aplikasi yang Anda buka akan dimuat ke sini agar CPU bisa mengaksesnya kilat. Ingat, semua data di RAM akan hilang begitu listrik mati!</p>
@@ -519,7 +570,7 @@
 
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/93c5fd/ffffff?text=GPU" alt="Gambar Graphics Card">
+                            <img src="https://via.placeholder.com/100x100/93c5fd/ffffff?text=GPU" alt="Gambar Graphics Card">
                         </div>
                         <h3>GPU (Graphics Processing Unit)</h3>
                         <p>Komponen ini ahli dalam pemrosesan paralel (melakukan ribuan tugas kecil secara bersamaan). Inilah yang membuat GPU sangat berharga untuk rendering grafis 3D, kecerdasan buatan (AI), dan bahkan *mining* kripto.</p>
@@ -531,7 +582,7 @@
                     
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/292563/ffffff?text=SSD" alt="Gambar Solid State Drive">
+                            <img src="https://via.placeholder.com/100x100/292563/ffffff?text=SSD" alt="Gambar Solid State Drive">
                         </div>
                         <h3>Storage (Penyimpanan Data)</h3>
                         <p>Tempat penyimpanan data jangka panjang yang bersifat <strong>non-volatile</strong> (data tidak hilang saat listrik mati). Ini adalah rumah bagi sistem operasi, program, dan semua file pribadi Anda.</p>
@@ -543,7 +594,7 @@
                     
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/1e3a8a/ffffff?text=PSU" alt="Gambar Power Supply Unit">
+                            <img src="https://via.placeholder.com/100x100/1e3a8a/ffffff?text=PSU" alt="Gambar Power Supply Unit">
                         </div>
                         <h3>Power Supply Unit (PSU)</h3>
                         <p>Mengubah listrik AC rumah menjadi arus DC yang stabil pada berbagai tegangan yang dibutuhkan Motherboard, CPU, dan GPU. Jangan pernah pelit memilih PSU, karena ini menentukan keselamatan seluruh hardware Anda!</p>
@@ -576,7 +627,7 @@
                 <div class="hardware-grid">
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/f1c40f/000000?text=KEY" alt="Gambar Keyboard">
+                            <img src="https://via.placeholder.com/100x100/f1c40f/000000?text=KEY" alt="Gambar Keyboard">
                         </div>
                         <h3>Keyboard (Input)</h3>
                         <p>Perangkat input paling fundamental untuk memasukkan teks, karakter, dan perintah berbasis tombol ke komputer. Ini adalah cara utama kita berinteraksi secara tekstual dengan sistem.</p>
@@ -587,7 +638,7 @@
                     </div>
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/f1c40f/000000?text=MOUSE" alt="Gambar Mouse">
+                            <img src="https://via.placeholder.com/100x100/f1c40f/000000?text=MOUSE" alt="Gambar Mouse">
                         </div>
                         <h3>Mouse (Input)</h3>
                         <p>Perangkat penunjuk yang revolusioner. Fungsinya mengontrol kursor grafis di layar, memungkinkan navigasi antarmuka yang cepat dan intuitif, terutama dalam lingkungan *Graphical User Interface* (GUI).</p>
@@ -598,7 +649,7 @@
                     </div>
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/f1c40f/000000?text=SCAN" alt="Gambar Scanner">
+                            <img src="https://via.placeholder.com/100x100/f1c40f/000000?text=SCAN" alt="Gambar Scanner">
                         </div>
                         <h3>Scanner (Input)</h3>
                         <p>Alat ini mengambil gambar atau dokumen fisik lalu mengubahnya menjadi file digital (seperti JPEG atau PDF) yang dapat disimpan, diedit, dan dibagikan oleh komputer. Ini adalah jembatan dari dunia kertas ke dunia digital.</p>
@@ -609,7 +660,7 @@
                     </div>
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/2ecc71/ffffff?text=MON" alt="Gambar Monitor">
+                            <img src="https://via.placeholder.com/100x100/2ecc71/ffffff?text=MON" alt="Gambar Monitor">
                         </div>
                         <h3>Monitor (Output)</h3>
                         <p>Layar visual utama kita. Ini adalah perangkat output terpenting yang menampilkan semua hasil pemrosesan data (gambar, teks, video) yang diolah oleh GPU. Tanpanya, kita tidak tahu apa yang sedang dilakukan komputer.</p>
@@ -620,7 +671,7 @@
                     </div>
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/2ecc71/ffffff?text=PRINT" alt="Gambar Printer">
+                            <img src="https://via.placeholder.com/100x100/2ecc71/ffffff?text=PRINT" alt="Gambar Printer">
                         </div>
                         <h3>Printer (Output)</h3>
                         <p>Kebalikan dari scanner, printer menghasilkan salinan fisik (*hard copy*) dari data digital. Sangat penting untuk mencetak dokumen, foto, atau desain yang Anda buat ke media kertas.</p>
@@ -631,7 +682,7 @@
                     </div>
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/2ecc71/ffffff?text=SPK" alt="Gambar Speaker">
+                            <img src="https://via.placeholder.com/100x100/2ecc71/ffffff?text=SPK" alt="Gambar Speaker">
                         </div>
                         <h3>Speaker & Headphone (Output)</h3>
                         <p>Perangkat output audio. Mereka mengambil sinyal listrik yang dihasilkan oleh *sound card* dan mengubahnya menjadi gelombang suara yang bisa didengar. Penting untuk multimedia dan komunikasi digital.</p>
@@ -654,7 +705,7 @@
                 <div class="software-grid">
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/facc15/0f172a?text=OS" alt="Gambar Sistem Operasi">
+                            <img src="https://via.placeholder.com/100x100/facc15/0f172a?text=OS" alt="Gambar Sistem Operasi">
                         </div>
                         <h3>Sistem Operasi (OS)</h3>
                         <p>OS adalah software sistem yang paling fundamental. Ia bertanggung jawab mengelola dan mengkoordinasikan semua sumber daya hardware dan bertindak sebagai 'penerjemah' antara hardware dan aplikasi Anda.</p>
@@ -666,7 +717,7 @@
 
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/4ade80/0f172a?text=App" alt="Gambar Aplikasi Software">
+                            <img src="https://via.placeholder.com/100x100/4ade80/0f172a?text=App" alt="Gambar Aplikasi Software">
                         </div>
                         <h3>Perangkat Lunak Aplikasi</h3>
                         <p>Ini adalah program yang langsung Anda gunakan untuk menyelesaikan tugas spesifik, mulai dari membuat dokumen, menjelajah internet, hingga bermain game. Mereka berjalan di atas izin dan kontrol OS.</p>
@@ -678,7 +729,7 @@
 
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/f97316/0f172a?text=Util" alt="Gambar Utility Software">
+                            <img src="https://via.placeholder.com/100x100/f97316/0f172a?text=Util" alt="Gambar Utility Software">
                         </div>
                         <h3>Perangkat Lunak Utilitas</h3>
                         <p>Utilitas adalah software 'tukang bersih-bersih' atau 'satpam'. Mereka membantu menjaga, menganalisis, dan mengoptimalkan sistem Anda, memastikan semuanya berjalan lancar, aman, dan efisien.</p>
@@ -697,7 +748,7 @@
                 <div class="programming-grid software-grid">
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/e34f26/ffffff?text=HTML" alt="Logo HTML">
+                            <img src="https://via.placeholder.com/100x100/e34f26/ffffff?text=HTML" alt="Logo HTML">
                         </div>
                         <h3>HTML & CSS</h3>
                         <p>HTML (**H**yper**T**ext **M**arkup **L**anguage) berfungsi sebagai <strong>tulang punggung</strong> atau struktur konten sebuah website. CSS (*Cascading Style Sheets*) adalah <strong>kulit</strong> yang mengatur desain, warna, dan tata letak agar terlihat cantik.</p>
@@ -709,7 +760,7 @@
                     
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/f7df1e/000000?text=JS" alt="Logo JavaScript">
+                            <img src="https://via.placeholder.com/100x100/f7df1e/000000?text=JS" alt="Logo JavaScript">
                         </div>
                         <h3>JavaScript (JS)</h3>
                         <p>Awalnya hanya digunakan untuk membuat website menjadi interaktif. Sekarang, berkat Node.js, JS bisa digunakan di sisi server (backend), menjadikannya bahasa <strong>"Full-Stack"</strong> yang paling dibutuhkan di dunia web modern.</p>
@@ -721,7 +772,7 @@
 
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/3776ab/ffffff?text=PY" alt="Logo Python">
+                            <img src="https://via.placeholder.com/100x100/3776ab/ffffff?text=PY" alt="Logo Python">
                         </div>
                         <h3>Python</h3>
                         <p>Dijuluki 'Swiss Army Knife' para developer karena saking serbagunanya. Ini adalah bahasa andalan untuk <strong>Data Science, Machine Learning, dan Otomatisasi</strong>, berkat sintaksnya yang rapi dan perpustakaan (*library*) yang luar biasa besar.</p>
@@ -733,7 +784,7 @@
                     
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/777bb4/ffffff?text=PHP" alt="Logo PHP">
+                            <img src="https://via.placeholder.com/100x100/777bb4/ffffff?text=PHP" alt="Logo PHP">
                         </div>
                         <h3>PHP</h3>
                         <p>Bahasa skrip <strong>server-side</strong> yang fokus total pada pengembangan web. PHP adalah mesin di balik sebagian besar website di internet, termasuk platform raksasa seperti WordPress. Sempurna untuk integrasi database.</p>
@@ -746,7 +797,7 @@
                     
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/00599c/ffffff?text=C++" alt="Logo C++">
+                            <img src="https://via.placeholder.com/100x100/00599c/ffffff?text=C++" alt="Logo C++">
                         </div>
                         <h3>C++</h3>
                         <p>Ini adalah bahasa <strong>low-level</strong> yang memberi Anda kontrol penuh atas memori dan hardware. C++ adalah pilihan mutlak untuk aplikasi yang butuh performa tercepat, seperti game engine (Unreal), sistem operasi, dan software grafis kompleks.</p>
@@ -758,7 +809,7 @@
                     
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/f8981d/000000?text=Java" alt="Logo Java">
+                            <img src="https://via.placeholder.com/100x100/f8981d/000000?text=Java" alt="Logo Java">
                         </div>
                         <h3>Java</h3>
                         <p>Java terkenal dengan prinsip <strong>"Write Once, Run Anywhere" (WORA)</strong>. Berjalan di atas Java Virtual Machine (JVM), bahasa ini adalah fondasi dari aplikasi enterprise besar, sistem perbankan, dan hingga kini masih menjadi pilihan utama untuk pengembangan aplikasi Android Native yang stabil.</p>
@@ -770,7 +821,7 @@
 
                     <div class="card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/239120/ffffff?text=C%23" alt="Logo C Sharp">
+                            <img src="https://via.placeholder.com/100x100/239120/ffffff?text=C%23" alt="Logo C Sharp">
                         </div>
                         <h3>C# (C Sharp)</h3>
                         <p>Dikembangkan oleh Microsoft. C# adalah bahasa serbaguna yang kuat, terutama untuk ekosistem Windows dan platform .NET. Jika Anda tertarik pada pengembangan game, C# adalah bahasa utama yang digunakan dalam game *engine* Unity.</p>
@@ -807,7 +858,7 @@
                     
                     <div class="distro-card card">
                          <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/e95420/ffffff?text=Ubuntu" alt="Logo Ubuntu">
+                            <img src="https://via.placeholder.com/100x100/e95420/ffffff?text=Ubuntu" alt="Logo Ubuntu">
                         </div>
                         <h3>1. Ubuntu (Serbaguna & Ramah Pemula)</h3>
                         <p><strong>Filosofi:</strong> Ubuntu adalah gerbang termudah untuk pengguna baru yang pindah dari Windows atau macOS. Distro ini sangat modern, mudah digunakan, dan berbasis pada Debian.</p>
@@ -817,7 +868,7 @@
                     
                     <div class="distro-card card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/87cf51/0f172a?text=Mint" alt="Logo Linux Mint">
+                            <img src="https://via.placeholder.com/100x100/87cf51/0f172a?text=Mint" alt="Logo Linux Mint">
                         </div>
                         <h3>2. Linux Mint (Alternatif Klasik yang Nyaman)</h3>
                         <p><strong>Filosofi:</strong> Jika Anda merindukan tampilan Windows yang lebih tradisional, Mint adalah jawabannya. Ia berbasis Ubuntu tetapi fokus memberikan pengalaman desktop yang sangat stabil, nyaman, dan menyediakan *codec* multimedia bawaan.</p>
@@ -827,7 +878,7 @@
 
                     <div class="distro-card card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/d70a53/ffffff?text=Debian" alt="Logo Debian">
+                            <img src="https://via.placeholder.com/100x100/d70a53/ffffff?text=Debian" alt="Logo Debian">
                         </div>
                         <h3>3. Debian (Fondasi Stabilitas dan Server)</h3>
                         <p><strong>Filosofi:</strong> Ini adalah salah satu distro tertua dan merupakan fondasi dari Ubuntu dan Mint. Filosofinya adalah <strong>Stabilitas</strong> dan keandalan yang tak tertandingi, sehingga paket software-nya biasanya lebih tua.</p>
@@ -837,7 +888,7 @@
 
                     <div class="distro-card card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/294172/ffffff?text=Fedora" alt="Logo Fedora">
+                            <img src="https://via.placeholder.com/100x100/294172/ffffff?text=Fedora" alt="Logo Fedora">
                         </div>
                         <h3>4. Fedora (Panggung Teknologi Terbaru)</h3>
                         <p><strong>Filosofi:</strong> Didukung oleh Red Hat, Fedora adalah tempat di mana semua teknologi dan paket Linux terbaru diuji coba. Jika Anda suka mencoba fitur-fitur tercanggih dan sering di-update, Fedora adalah yang paling *cutting-edge*.</p>
@@ -847,7 +898,7 @@
 
                     <div class="distro-card card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/557c94/ffffff?text=Kali" alt="Logo Kali Linux">
+                            <img src="https://via.placeholder.com/100x100/557c94/ffffff?text=Kali" alt="Logo Kali Linux">
                         </div>
                         <h3>5. Kali Linux (Khusus Keamanan)</h3>
                         <p><strong>Filosofi:</strong> Dirancang khusus untuk <strong>ethical hacking</strong>, *penetration testing*, dan forensik digital. Distro ini dilengkapi dengan ratusan alat keamanan siber yang sudah terkonfigurasi sejak awal instalasi.</p>
@@ -857,7 +908,7 @@
 
                     <div class="distro-card card">
                         <div class="card-visual">
-                            <img src="https://via.placeholder.com/80x80/1793d1/ffffff?text=Arch" alt="Logo Arch Linux">
+                            <img src="https://via.placeholder.com/100x100/1793d1/ffffff?text=Arch" alt="Logo Arch Linux">
                         </div>
                         <h3>6. Arch Linux (Milik Para Kustomizer)</h3>
                         <p><strong>Filosofi:</strong> Arch mengikuti filosofi KISS (*Keep It Simple, Stupid*). Arch sangat minimalis dan pengguna harus membangun sistemnya sendiri dari nol. Ini adalah sistem <strong>rolling release</strong> (selalu update, tidak ada versi mayor).</p>
