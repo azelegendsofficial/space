@@ -5,6 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brian Official - Penjelasan Tentang Hardware dan Software Serta Fungsi dan Komponen nya</title>
     <style>
+    /* ... (CSS Awal lainnya tetap sama) ... */
+    
+    /* 7. CARD STYLES (PENINGKATAN UKURAN) */
+    
+    /* Perbaikan pada Card Button, agar tetap ada di dalam file utuh */
+    .card-btn {
+        display: inline-block;
+        padding: 15px 35px;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: #fff;
+        border-radius: 15px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .card-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    }
+    
+    /* Project Grid */
+    .project-grid {
+        display: grid;
+        /* Meningkatkan ukuran minimum agar card lebih besar dan tidak terlalu rapat */
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+        gap: 2.5rem; /* Menambah jarak antar card */
+        margin-top: 4rem;
+    }
+
+    .project-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        /* MENINGKATKAN PADDING CARD AGAR TERLIHAT LEBIH BESAR */
+        padding: 3.5rem; 
+        border-radius: 24px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        /* Memastikan card flexibel untuk konten */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* ... (Hover effects lainnya tetap sama) ... */
+    
+    .project-icon {
+        /* MENINGKATKAN UKURAN KOTAK IKON */
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 255, 255, 0.1); /* Mengubah background menjadi lebih transparan */
+        border-radius: 50%; /* Membuatnya BULAT agar lebih dinamis */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); /* Mengubah glow */
+        transition: all 0.4s ease;
+        border: 4px solid var(--accent-blue); /* Menambahkan border agar menonjol */
+        overflow: hidden; /* Penting untuk gambar yang tidak kotak */
+    }
+
+    .project-icon img, 
+    .project-icon svg {
+        /* MENINGKATKAN UKURAN GAMBAR/SVG */
+        width: 60px !important; 
+        height: 60px !important; 
+        object-fit: contain; /* Memastikan gambar/logo tidak terpotong */
+        /* Menghapus fill="white" di SVG dan menggunakan warna CSS */
+        color: var(--pure-white); 
+        fill: var(--pure-white);
+    }
+
+    /* Target SVG di Project Card untuk warna */
+    .project-card .project-icon svg path, 
+    .project-card .project-icon svg rect,
+    .project-card .project-icon svg circle {
+        stroke: var(--pure-white);
+        fill: currentColor;
+    }
+
+    /* Override untuk ikon di file HTML yang menggunakan fill="white" secara eksplisit */
+    .project-card .project-icon .bi-hdd-fill path {
+        fill: currentColor !important;
+    }
+
+    .project-card h3 {
+        font-size: 2rem; /* Membuat judul lebih besar */
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        color: white;
+    }
+
+    .project-card p {
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.7;
+        flex-grow: 1; /* Penting agar semua card memiliki tinggi yang sama */
+        margin-bottom: 2rem;
+        font-size: 1.1rem; /* Membuat teks lebih mudah dibaca */
+    }
+
+    /* ... (CSS Mobile Navigation dan Footer tetap sama) ... */
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        /* ... (media query lainnya) ... */
+        
+        .project-grid {
+            /* Di HP tetap 1 kolom */
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            padding: 2rem; /* Mengurangi padding di HP */
+        }
+        
+        .project-icon {
+            width: 80px; /* Sedikit lebih kecil di HP */
+            height: 80px;
+        }
+
+        .project-icon img, 
+        .project-icon svg {
+            width: 50px !important; 
+            height: 50px !important; 
+        }
+    }
+
+    /* ... (media query lainnya tetap sama) ... */
+</style>
+    <style>
     /* 1. IMPORTS & VARIABEL GLOBAL (Theming) */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
