@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brian Official - Penjelasan Detail Hardware dan Software Komputer</title>
+    <title>Brian Official - Penjelasan Tentang Hardware dan Software Serta Fungsi dan Komponen nya</title>
     <style>.card-btn {
             display: inline-block;
             padding: 15px 35px;
@@ -87,1043 +87,339 @@
             border-radius: 50%;
             background: var(--gradient-primary);
             filter: blur(40px);
-            animation: float 15s infinite ease-in-out;
-            opacity: 0.6;
+            animation: float 15s infinite;
         }
 
         .orb:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 20%;
+            width: 80px;
+            height: 80px;
+            top: 10%;
             left: 10%;
-            animation-delay: 0s;
+            animation-duration: 18s;
+            opacity: 0.3;
         }
 
         .orb:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            top: 60%;
+            width: 120px;
+            height: 120px;
+            bottom: 5%;
             right: 15%;
-            animation-delay: -5s;
+            animation-duration: 22s;
+            opacity: 0.25;
         }
 
         .orb:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            top: 80%;
-            left: 60%;
-            animation-delay: -10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            33% { transform: translateY(-30px) rotate(120deg); }
-            66% { transform: translateY(20px) rotate(240deg); }
-        }
-
-        /* Security & Loading Screens */
-        #security-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0f2847 0%, #1a4d7a 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-            transition: opacity 0.8s ease;
-        }
-
-        #security-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .security-content {
-            text-align: center;
-        }
-
-        .security-shield {
-            margin: 0 auto 30px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-
-        .security-text {
-            color: #fff;
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-
-        .security-subtext {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-
-        .security-progress {
-            width: 300px;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
-            border-radius: 10px;
-            animation: loading 2s ease-in-out;
-        }
-
-        @keyframes loading {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-
-        #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0f2847 0%, #1a4d7a 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        #loading-screen.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        #loading-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loading-text {
-            color: #fff;
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            animation: fadeInOut 2s ease-in-out infinite;
-        }
-
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
-        }
-
-        /* Username Modal */
-        #username-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(10px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 10001;
-            animation: fadeIn 0.3s ease;
-        }
-
-        #username-modal.active {
-            display: flex;
-        }
-
-        .username-content {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a8f 100%);
-            padding: 50px;
-            border-radius: 30px;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            max-width: 550px;
-            width: 90%;
-        }
-
-        @keyframes scaleIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .security-badge {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-        }
-
-        .username-content h2 {
-            color: #fff;
-            font-size: 32px;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .username-content .security-info {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .username-content .security-info strong {
-            color: #60a5fa;
-            display: block;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .username-input {
-            width: 100%;
-            padding: 18px 24px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
-            font-size: 18px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .username-input:focus {
-            outline: none;
-            border-color: #3b82f6;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .username-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            border: none;
-            border-radius: 15px;
-            color: #fff;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
-        }
-
-        #loading-user {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(10px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 10002;
-        }
-
-        #loading-user.active {
-            display: flex;
-        }
-
-        .loading-user-content {
-            text-align: center;
-            color: #fff;
-        }
-
-        .spinner {
             width: 60px;
             height: 60px;
-            border: 4px solid rgba(255, 255, 255, 0.2);
-            border-top: 4px solid #3b82f6;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 30px;
+            top: 50%;
+            left: 80%;
+            animation-duration: 15s;
+            opacity: 0.4;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, 30px) rotate(10deg);
+            }
+            50% {
+                transform: translate(-10px, -20px) rotate(-5deg);
+            }
+            75% {
+                transform: translate(15px, 10px) rotate(5deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+        
+        .header {
+            width: 100%;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background-color: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .loading-user-content p {
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            z-index: 1000;
-            padding: 1rem 2rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        nav:hover {
-            transform: translateX(-50%) translateY(-2px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .nav-container {
+        .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 3rem;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.25rem;
             font-weight: 700;
-            color: var(--primary-blue);
-        }
-
-        .logo-icon {
-            width: 28px;
-            height: 28px;
-            background: var(--gradient-primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: logoGlow 3s ease-in-out infinite;
-            box-shadow: 0 0 20px var(--glow-blue);
-        }
-
-        @keyframes logoGlow {
-            0%, 100% { box-shadow: 0 0 20px var(--glow-blue); }
-            50% { box-shadow: 0 0 30px var(--glow-blue), 0 0 40px rgba(59, 130, 246, 0.3); }
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
+            font-size: 1.8em;
+            color: var(--light-blue);
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+            letter-spacing: -0.5px;
         }
 
         .nav-links a {
-            color: var(--text-dark);
+            color: var(--pure-white);
             text-decoration: none;
+            margin-left: 30px;
             font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 12px;
-            position: relative;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gradient-primary);
-            border-radius: 12px;
-            opacity: 0;
-            z-index: -1;
-            transition: opacity 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: white;
-            transform: translateY(-1px);
+            color: var(--accent-blue);
         }
 
-        .nav-links a:hover::before {
-            opacity: 1;
-        }
-
-        .user-profile-nav {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .user-profile-nav:hover {
-            background: rgba(59, 130, 246, 0.1);
-        }
-
-        .user-avatar-nav {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            border: 2px solid #3b82f6;
-        }
-
-        .user-name-nav {
-            font-weight: 600;
-            color: var(--primary-blue);
-            font-size: 0.9rem;
-        }
-
-        .profile-dropdown {
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            min-width: 180px;
-            opacity: 0;
-            transform: translateY(-10px);
-            pointer-events: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .profile-dropdown.active {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
-        }
-
-        .logout-btn {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .logout-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
-        }
-
-        /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 120px 2rem 80px;
-        }
-
-        .hero-content {
+            padding: 120px 0 80px;
             text-align: center;
-            max-width: 1000px;
-            z-index: 2;
+            position: relative;
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out;
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+        .hero-title {
+            font-size: 3.5em;
             font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--pure-white) 0%, var(--accent-blue) 100%);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .hero-title span {
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 120px 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-        }
-
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--pure-white) 0%, var(--accent-blue) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.02em;
-        }
-
-        .section-description {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Project Grid */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 24px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-            transition: all 0.4s ease;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
-
-        .project-card:hover::after {
-            width: 300px;
-            height: 300px;
-        }
-
-        .project-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.3);
-        }
-
-        .project-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-primary);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 30px var(--glow-blue);
-            transition: all 0.4s ease;
-        }
-
-        .project-card:hover .project-icon {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 0 40px var(--glow-blue);
-        }
-
-        .project-card img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-card h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .project-card p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-        
-        /* Tambahan untuk list di dalam card agar terlihat rapi */
-        .project-card ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 1.5rem;
-        }
-
-        .project-card ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 10px;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.5;
-        }
-        
-        .project-card ul li:before {
-            content: '»';
-            position: absolute;
-            left: 0;
-            color: var(--accent-blue);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        
-        .project-card strong {
-            color: var(--accent-blue);
-        }
-
-        .project-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
-        }
-
-        .project-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5);
-        }
-
-        /* Music Box */
-        .music-box {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            padding: 3rem;
-            border-radius: 30px;
-            margin-top: 3rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .music-box::before {
-            content: '🎵';
-            position: absolute;
-            font-size: 150px;
-            opacity: 0.05;
-            right: -20px;
-            top: -20px;
-            animation: musicFloat 6s ease-in-out infinite;
-        }
-
-        @keyframes musicFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-        }
-
-        .music-box:hover {
-            transform: scale(1.02);
-            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.3);
-            border-color: rgba(139, 92, 246, 0.5);
-        }
-
-        .music-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
-            animation: musicPulse 3s ease-in-out infinite;
-        }
-
-        @keyframes musicPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(139, 92, 246, 0.7); }
-        }
-
-        .music-box h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .music-box p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        /* Company Section */
-        .company-card {
-            background: var(--gradient-primary);
-            padding: 4rem;
-            border-radius: 30px;
-            text-align: center;
-            margin-top: 4rem;
-            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.4);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .company-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .company-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 35px 70px rgba(59, 130, 246, 0.6);
-        }
-
-        .company-card h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            position: relative;
-            z-index: 1;
-        }
-
-        .company-card p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
-        }
-
-        .company-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1.25rem 3rem;
-            background: white;
-            color: var(--primary-blue);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
-        }
-
-        .company-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--darker-blue);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 100px;
-        }
-
-        .footer-content p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hosting-credit {
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-
-        /* Animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mobile Navigation */
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 15px 0;
-            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            border-top: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .mobile-nav-content {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            padding: 10px 15px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-item:hover {
-            background: rgba(59, 130, 246, 0.1);
-        }
-
-        .nav-item svg {
-            width: 28px;
-            height: 28px;
-        }
-
-        .nav-item span {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--primary-blue);
-        }
-
-        #mobile-profile-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0f2847 0%, #1a4d7a 100%);
-            z-index: 10002;
-            transform: translateY(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        #mobile-profile-modal.active {
-            transform: translateY(0);
-        }
-
-        .mobile-profile-content {
-            padding: 60px 30px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .mobile-profile-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid #3b82f6;
-            margin: 0 auto 30px;
-        }
-
-        .mobile-profile-name {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 50px;
-        }
-
-        .mobile-logout-btn {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            border: none;
-            border-radius: 20px;
-            color: #fff;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 0 auto;
             display: block;
         }
 
-        .mobile-logout-btn:hover {
+        .hero-subtitle {
+            font-size: 1.2em;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--gradient-primary);
+            color: var(--pure-white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .cta-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.5);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
         }
 
-        /* Responsive */
+        .section {
+            padding: 80px 0;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--accent-blue);
+        }
+
+        .section-subtitle {
+            font-size: 1.1em;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .hardware-grid, .software-grid, .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--darker-blue);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--primary-blue);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card h3 {
+            color: var(--light-blue);
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .card p {
+            font-size: 0.95em;
+            color: var(--text-light);
+        }
+
+        .card-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+
+        .card-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            font-size: 0.9em;
+        }
+
+        .card-list li:last-child {
+            border-bottom: none;
+        }
+
+        .project-card {
+            text-align: center;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 10px 25px var(--glow-blue);
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 3px solid var(--light-blue);
+        }
+
+        .project-card h4 {
+            font-size: 1.2em;
+            color: var(--pure-white);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            margin-bottom: 20px;
+        }
+        
+        /* New Linux Section Styles */
+        .distro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .distro-card {
+            background-color: var(--darker-blue);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--primary-blue);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .distro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--glow-blue);
+        }
+        
+        .distro-card h3 {
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+            padding-bottom: 5px;
+        }
+        
+        .distro-card p {
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        .sources-list {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .sources-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sources-list li {
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+        
+        .sources-list a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        
+        .sources-list a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Footer Styles */
+        .footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .social-links a {
+            color: var(--pure-white);
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-blue);
+        }
+        
+        /* Utility */
         @media (max-width: 768px) {
-            nav {
-                top: 10px;
-                left: 10px;
-                right: 10px;
-                transform: none;
-                padding: 1rem;
+            .hero-title {
+                font-size: 2.5em;
             }
 
-            .nav-links, .user-profile-nav {
-                display: none;
+            .section-title {
+                font-size: 2em;
             }
 
-            .mobile-nav {
-                display: block;
+            .nav-links {
+                display: none; /* Hide nav links on mobile */
             }
-
-            body {
-                padding-bottom: 80px;
-            }
-
-            .hero {
-                padding: 100px 1rem 60px;
-            }
-
-            .section {
-                padding: 80px 1rem;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .music-box {
-                padding: 2rem;
-            }
-
-            .company-card {
-                padding: 2.5rem;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .mobile-nav {
-                display: none !important;
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="animated-bg"></div>
@@ -1133,450 +429,318 @@
         <div class="orb"></div>
     </div>
 
-    <div id="security-screen">
-        <div class="security-content">
-            <div class="security-shield">
-                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L3 6V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V6L12 2Z" stroke="white" stroke-width="2"/>
-                    <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </div>
-            <div class="security-text">SPACE SECURITY+</div>
-            <div class="security-subtext">Sedang Memeriksa Keamanan...</div>
-            <div class="security-progress">
-                <div class="progress-bar"></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="loading-screen">
-        <div class="loading-text">SEDANG MEMUAT WEBSITE</div>
-    </div>
-
-    <div id="username-modal">
-        <div class="username-content">
-            <div class="security-badge">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L3 6V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V6L12 2Z" stroke="#60a5fa" stroke-width="2"/>
-                </svg>
-            </div>
-            <h2>Verifikasi Keamanan</h2>
-            <div class="security-info">
-                <strong>SPACE SECURITY+</strong>
-                Untuk alasan keamanan dan mencegah bot masuk ke website ini, kami memerlukan verifikasi identitas Anda. Silakan masukkan nama pengguna Anda untuk melanjutkan.
-            </div>
-            <input type="text" class="username-input" id="username-input" placeholder="Masukkan nama Anda..." />
-            <button class="submit-btn" onclick="submitUsername()">Verifikasi & Masuk</button>
-        </div>
-    </div>
-
-    <div id="loading-user">
-        <div class="loading-user-content">
-            <div class="spinner"></div>
-            <p>Sedang Memuat User<br>Mohon Bersabar...</p>
-        </div>
-    </div>
-
-    <div id="mobile-profile-modal">
-        <div class="mobile-profile-content">
-            <img src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff&size=200" alt="Profile" class="mobile-profile-avatar" id="mobile-avatar">
-            <div class="mobile-profile-name" id="mobile-username">User</div>
-            <button class="mobile-logout-btn" onclick="logout()">Log Out</button>
-        </div>
-    </div>
-
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon"></div>
-                Brian Official
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#hardware-section">Hardware</a></li>
-                <li><a href="#software-section">Software</a></li>
-                <li><a href="#linux-section">Linux OS</a></li>
-            </ul>
-            <div class="user-profile-nav" id="user-profile" onclick="toggleDropdown()">
-                <img src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff&size=100" alt="Profile" class="user-avatar-nav" id="user-avatar">
-                <span class="user-name-nav" id="user-name">User</span>
-                <div class="profile-dropdown" id="profile-dropdown">
-                    <button class="logout-btn" onclick="logout()">Log Out</button>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">Brian.Tech</div>
+                <div class="nav-links">
+                    <a href="#hardware">Hardware</a>
+                    <a href="#software">Software</a>
+                    <a href="#linux-distros">Linux</a>
+                    <a href="#projects">Proyek</a>
                 </div>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <div class="mobile-nav">
-        <div class="mobile-nav-content">
-            <div class="nav-item" onclick="scrollToTop()">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#3b82f6" stroke-width="2"/>
-                </svg>
-                <span>Home</span>
-            </div>
-            <div class="nav-item" onclick="scrollToSection('hardware-section')">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="#3b82f6" stroke-width="2"/>
-                    <path d="M3 9H21M9 3V21" stroke="#3b82f6" stroke-width="2"/>
-                </svg>
-                <span>Hardware</span>
-            </div>
-            <div class="nav-item" onclick="scrollToSection('software-section')">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 17V12M12 12V7M12 12H17M12 12H7" stroke="#3b82f6" stroke-width="2"/>
-                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="#3b82f6" stroke-width="2"/>
-                </svg>
-                <span>Software</span>
-            </div>
-            <div class="nav-item" onclick="showMobileProfile()">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="8" r="4" stroke="#3b82f6" stroke-width="2"/>
-                    <path d="M6 21C6 17.134 8.686 14 12 14C15.314 14 18 17.134 18 21" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                <span>Profile</span>
-            </div>
-        </div>
-    </div>
-
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-badge">👋 Selamat Datang</div>
-            <h1>Brian Official</h1>
-            <p class="hero-subtitle">Halo, nama saya Brian, saya adalah siswa dari sekolah Kristen Kasih Bangsa. Di sini saya akan menjelaskan apa itu <strong>Hardware</strong> dan <strong>Software</strong>, fungsinya, jenis-jenisnya, dan komponen utama dari keduanya. Penjelasan di bawah ini sudah <strong>lengkap dan mendalam</strong> untuk tugas sekolah! (Scroll ke bawah untuk melihat penjelasan)</p>
-        </div>
-    </section>
-
-    <section class="section" id="hardware-section">
-        <div class="section-header animate-on-scroll">
-            <div class="section-badge">Penjelasan Ke 1: Hardware ⚙️</div>
-            <h2 class="section-title">Hardware: Perangkat Keras Komputer (Benda Fisik yang Diproses)</h2>
-            <p class="section-description">Hardware adalah <strong>tubuh</strong> fisik komputer yang bisa kita sentuh. Dia yang melakukan semua kerja keras: menerima data (<strong>Input</strong>), mengolahnya (<strong>Proses</strong>), dan menunjukkannya ke kita (<strong>Output</strong>). Tanpa komponen ini, Software hanyalah kode yang tidak bisa jalan.</p>
-        </div>
+    <main>
         
-        <div class="project-grid">
-            
-            <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/K1H93jN.png" alt="Keyboard dan Mouse" loading="lazy">
-                <h3>A. Perangkat Input (Pemasukan Data)</h3>
-                <p>Jembatan antara kamu dan komputer. Fungsinya hanya satu: memasukkan instruksi atau data mentah ke dalam sistem agar bisa diproses oleh CPU.</p>
-                <ul>
-                    <li><strong>Keyboard & Mouse:</strong> Input utama. Keyboard mengubah ketukan menjadi kode biner, Mouse mengubah gerakan dan klik menjadi koordinat.</li>
-                    <li><strong>Scanner:</strong> Mengubah dokumen fisik (analog) menjadi data digital (gambar/teks) untuk diolah komputer.</li>
-                    <li><strong>Webcam/Microphone:</strong> Merekam Input visual dan audio (gelombang suara) menjadi data digital.</li>
-                    <li><strong>Joystick/Controller:</strong> Input khusus untuk game, mengubah aksi fisik menjadi perintah digital.</li>
-                </ul>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Detail Fungsi Input</a>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1 class="hero-title">
+                    Penjelasan <span>Hardware & Software</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Panduan lengkap mengenai komponen fisik dan sistem logis yang menjalankan dunia teknologi kita, dari PC Desktop hingga Server Cloud.
+                </p>
+                <a href="#hardware" class="cta-btn">Mulai Eksplorasi</a>
             </div>
+        </section>
 
-            <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/g8o2uV9.png" alt="CPU dan Motherboard" loading="lazy">
-                <h3>B. Perangkat Proses (Otak Inti Komputer)</h3>
-                <p>Ini adalah <strong>otak</strong> dan <strong>pusat saraf</strong> komputer. Di sinilah semua Input diolah, dihitung, dan dieksekusi berdasarkan instruksi dari Software. Ini komponen yang paling vital!</p>
-                <ul>
-                    <li><strong>CPU (Central Processing Unit):</strong> <strong>'Otak' Komputer</strong>. Melakukan semua perhitungan aritmatika dan logika, serta menjalankan instruksi dari program. Kecepatannya (Clock Speed) diukur dalam GHz.</li>
-                    <li><strong>Motherboard (Mainboard):</strong> Papan utama yang menghubungkan CPU, RAM, GPU, dan semua I/O. (Semua komunikasi data diatur di sini melalui Bus).</li>
-                    <li><strong>GPU (Graphics Card):</strong> Spesialis yang hanya fokus mengolah data grafis berat, seperti rendering 3D, video, dan pemrosesan paralel (kunci dalam AI/Machine Learning).</li>
-                    <li><strong>Power Supply Unit (PSU):</strong> Mengubah listrik AC dari dinding menjadi daya DC yang dibutuhkan Hardware. Stabilitasnya sangat penting.</li>
-                </ul>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Detail Komponen Proses</a>
-            </div>
-
-            <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/S2Xq1Wp.png" alt="Monitor dan Printer" loading="lazy">
-                <h3>C. Perangkat Output (Keluaran Hasil)</h3>
-                <p>Mengubah data digital (hasil olahan CPU/GPU) menjadi bentuk yang bisa kita lihat, dengar, atau sentuh. Ini adalah cara komputer "berbicara" dengan kita.</p>
-                <ul>
-                    <li><strong>Monitor:</strong> Menampilkan visual. Resolusi (jumlah piksel) dan <em>Refresh Rate</em> (Hz) menentukan kualitas visual.</li>
-                    <li><strong>Printer:</strong> Mengubah dokumen digital menjadi cetakan fisik (Hard Copy). Tipe umum: Inkjet (cair) dan Laser (bubuk toner).</li>
-                    <li><strong>Speaker/Headphone:</strong> Mengubah sinyal data audio digital menjadi gelombang suara yang bisa didengar.</li>
-                    <li><strong>Plotter:</strong> Alat output khusus untuk mencetak gambar ukuran besar seperti peta dan desain teknik.</li>
-                </ul>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Detail Fungsi Output</a>
-            </div>
-            
-            <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/1B3j6vY.png" alt="RAM dan SSD/HDD" loading="lazy">
-                <h3>D. Penyimpanan (Storage & Memory)</h3>
-                <p>Komponen untuk menyimpan data. Dibagi menjadi dua jenis utama berdasarkan kecepatan akses dan sifat penyimpanannya (volatil vs. non-volatil).</p>
-                <ul>
-                    <li><strong>RAM (Random Access Memory):</strong> <strong>Memori Utama (Volatil)</strong>. Tempat CPU menyimpan data yang sedang <strong>aktif</strong> digunakan. Jika komputer mati, data di RAM hilang. Semakin besar RAM, semakin banyak aplikasi bisa dibuka bersamaan.</li>
-                    <li><strong>SSD (Solid State Drive):</strong> <strong>Penyimpanan Permanen (Non-Volatil)</strong>. Menyimpan OS, aplikasi, dan file dalam chip memori flash. Akses data sangat cepat.</li>
-                    <li><strong>HDD (Hard Disk Drive):</strong> Penyimpanan permanen berbasis piringan magnetik (lebih lawas). Lebih lambat dari SSD, tapi biaya per GB-nya lebih murah.</li>
-                </ul>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Detail Penyimpanan</a>
-            </div>
-            
-        </div>
-    </section>
-
-    <section class="section" id="software-section">
-        <div class="section-header animate-on-scroll">
-            <div class="section-badge">Penjelasan Ke 2: Software 🖥️</div>
-            <h2 class="section-title">Software: Otak Digital & Kumpulan Perintah (Program)</h2>
-            <p class="section-description"><strong>Software</strong> (Perangkat Lunak) adalah serangkaian instruksi yang diprogram, diformat, dan disimpan secara digital. Ia tidak memiliki bentuk fisik (tidak bisa disentuh) dan berfungsi sebagai <strong>'nyawa'</strong> komputer karena memberikan perintah kepada Hardware tentang apa yang harus dilakukan.</p>
+        <section id="hardware" class="section">
+            <div class="container">
+                <h2 class="section-title">Komponen Hardware (Perangkat Keras)</h2>
+                <p class="section-subtitle">
+                    Hardware adalah semua bagian fisik dari komputer yang dapat kita sentuh. Tanpa hardware, software hanyalah ide.
+                </p>
+                
+                <div class="hardware-grid">
+                    <div class="card">
+                        <h3>Motherboard (Papan Induk)</h3>
+                        <p>Papan sirkuit utama yang menghubungkan semua komponen penting, seperti CPU, RAM, dan perangkat I/O. Ini adalah tulang punggung (backbone) sistem.</p>
+                        <ul class="card-list">
+                            <li>Fungsi: Menghubungkan dan mengalirkan daya/data antar komponen.</li>
+                            <li>Komponen Utama: Socket CPU, Slot RAM, Chipset, Slot PCIe.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>CPU (Central Processing Unit)</h3>
+                        <p>Dikenal sebagai "otak" komputer. CPU bertugas mengeksekusi instruksi dan melakukan perhitungan yang diperlukan oleh program komputer.</p>
+                        <ul class="card-list">
+                            <li>Fungsi: Mengeksekusi instruksi, pemrosesan data.</li>
+                            <li>Metrik Kunci: Kecepatan Clock (GHz), Jumlah Core, Cache.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>RAM (Random Access Memory)</h3>
+                        <p>Memori volatile yang menyimpan data dan instruksi program yang sedang berjalan secara sementara. Data akan hilang ketika daya dimatikan.</p>
+                        <ul class="card-list">
+                            <li>Fungsi: Tempat kerja sementara CPU (menyimpan data aktif).</li>
+                            <li>Tipe Populer: DDR4, DDR5 (saat ini).</li>
+                        </ul>
                     </div>
 
-        <div class="project-grid">
-            
-            <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/v8tT9o3.png" alt="Logo Windows, macOS, Linux" loading="lazy">
-                <h3>1. Software Sistem (Sistem Operasi)</h3>
-                <p>OS adalah <strong>fondasi</strong> utama. Dia yang mengelola semua sumber daya <strong>Hardware</strong> (RAM, CPU, Storage) agar Aplikasi bisa berjalan dengan efisien, serta menyediakan fungsi dasar agar komputer dapat dioperasikan.</p>
-                <ul>
-                    <li><strong>Fungsi Utama:</strong> Mengatur <strong>Hardware</strong> secara serentak dan menjadi penghubung antara perangkat keras dengan aplikasi.</li>
-                    <li><strong>Kernel:</strong> Inti OS yang berkomunikasi langsung dengan Hardware.</li>
-                    <li><strong>Driver:</strong> Software kecil yang memungkinkan OS 'mengenal' dan mengontrol perangkat keras tertentu.</li>
-                    <li><strong>Contoh OS:</strong> <strong>Windows</strong> (Microsoft), <strong>macOS</strong> (Apple), dan berbagai Distro <strong>Linux</strong>.</li>
-                </ul>
-                <a href="#" class="card-btn">Detail Software Sistem</a>
+                    <div class="card">
+                        <h3>GPU (Graphics Processing Unit)</h3>
+                        <p>Dirancang khusus untuk memproses grafis dan video. Sangat penting untuk gaming, desain 3D, dan pemrosesan komputasi berat (AI/Machine Learning).</p>
+                        <ul class="card-list">
+                            <li>Fungsi: Render gambar/video ke monitor.</li>
+                            <li>VRAM: Memori khusus untuk pemrosesan grafis.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Storage (Penyimpanan)</h3>
+                        <p>Media non-volatile yang menyimpan data secara permanen, seperti sistem operasi, aplikasi, dan file pribadi.</p>
+                        <ul class="card-list">
+                            <li>HDD: Hard Disk Drive (mekanik, lambat).</li>
+                            <li>SSD: Solid State Drive (flash memory, sangat cepat).</li>
+                            <li>Tipe Koneksi: SATA, NVMe (M.2).</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Power Supply Unit (PSU)</h3>
+                        <p>Mengubah arus listrik AC dari stop kontak menjadi arus DC yang dibutuhkan oleh setiap komponen komputer dengan tegangan yang sesuai.</p>
+                        <ul class="card-list">
+                            <li>Fungsi: Menyediakan daya yang stabil untuk seluruh sistem.</li>
+                            <li>Efisiensi: Diukur dengan rating 80 Plus (Bronze, Gold, Platinum).</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/aA2yK9d.png" alt="Visual Studio Code dan Logo Bahasa Pemrograman" loading="lazy">
-                <h3>2. Bahasa Pemrograman & Tools Pengembangan</h3>
-                <p>Software yang berfungsi sebagai pemberi instruksi standar dan dirancang khusus untuk membuat software lain. Ini adalah alat para <strong>programmer</strong>.</p>
-                <ul>
-                    <li><strong>Fungsi:</strong> Menerjemahkan instruksi yang ditulis manusia ke dalam <strong>bahasa mesin (kode biner)</strong> agar dimengerti <strong>Hardware</strong>.</li>
-                    <li><strong>Bahasa Pemrograman:</strong> <strong>Python</strong> (untuk AI, Data), <strong>Java/C++</strong> (untuk Aplikasi besar, Game), <strong>JavaScript</strong> (untuk Web).</li>
-                    <li><strong>Tools:</strong> <strong>IDE (Visual Studio Code, Eclipse)</strong> dan <strong>Compiler/Interpreter</strong>.</li>
-                </ul>
-                <a href="#" class="card-btn">Detail Dunia Coding</a>
+        <section id="software" class="section">
+            <div class="container">
+                <h2 class="section-title">Tipe Software (Perangkat Lunak)</h2>
+                <p class="section-subtitle">
+                    Software adalah serangkaian instruksi logis yang memberi tahu hardware apa yang harus dilakukan. Ini dibagi menjadi dua kategori utama.
+                </p>
+
+                <div class="software-grid">
+                    <div class="card">
+                        <h3>Sistem Operasi (OS)</h3>
+                        <p>Software fundamental yang bertindak sebagai jembatan antara user, aplikasi, dan hardware. OS mengelola sumber daya, memori, dan proses.</p>
+                        <ul class="card-list">
+                            <li>Contoh Populer: Windows, macOS, **Linux** (seperti Ubuntu, Fedora), Android.</li>
+                            <li>Fungsi: Manajemen memori, antar-muka pengguna (UI/GUI), penjadwalan tugas.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>Perangkat Lunak Aplikasi</h3>
+                        <p>Program yang dirancang untuk melakukan tugas spesifik yang diminta oleh pengguna, seperti pengolah kata, *web browser*, atau *game*.</p>
+                        <ul class="card-list">
+                            <li>Contoh: Microsoft Word, Google Chrome, Adobe Photoshop, Spotify.</li>
+                            <li>Jenis: Produktivitas, Multimedia, Hiburan, Utilitas.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h3>Perangkat Lunak Utilitas</h3>
+                        <p>Software yang membantu mengelola, menganalisis, mengoptimalkan, dan memelihara komputer. Mereka mendukung infrastruktur sistem.</p>
+                        <ul class="card-list">
+                            <li>Contoh: Antivirus, Disk Defragmenter, File Compression Tool, Backup Software.</li>
+                            <li>Fungsi: Meningkatkan kinerja dan keamanan sistem.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            
-            <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/j1G5sKx.png" alt="Contoh Aplikasi Grafis dan Video Editor" loading="lazy">
-                <h3>3. Software Aplikasi (Application Software)</h3>
-                <p>Perangkat lunak yang memanfaatkan kemampuan komputer langsung, dirancang untuk menjalankan <strong>tugas-tugas spesifik</strong> yang diinginkan pengguna.</p>
-                <ul>
-                    <li><strong>Produktifitas:</strong> Digunakan untuk kerja/belajar, seperti <strong>Microsoft Word</strong> (Pengolah kata), <strong>Excel</strong> (Pengolah angka), dan <strong>Trello</strong> (Manajemen Proyek).</li>
-                    <li><strong>Multimedia:</strong> Untuk kreasi dan editing, seperti <strong>Adobe Photoshop</strong> (Desain Grafis), <strong>DaVinci Resolve</strong> (Editing Video), dan <strong>Blender</strong> (3D).</li>
-                    <li><strong>Jaringan/Internet:</strong> Untuk komunikasi dan akses web, seperti <strong>Google Chrome</strong> (Browser) dan aplikasi <strong>Zoom</strong>.</li>
-                    <li><strong>Utilitas:</strong> Untuk membantu tugas sistem dan meningkatkan kinerja, seperti program <strong>Antivirus</strong>.</li>
-                </ul>
-                <a href="#" class="card-btn">Detail Jenis Aplikasi</a>
+        </section>
+        
+        <section id="linux-distros" class="section">
+            <div class="container">
+                <h2 class="section-title">Macam-Macam Distribusi Linux (Distro): Pilihan dari Pemula hingga Profesional</h2>
+                <p class="section-subtitle">
+                    Linux adalah sistem operasi *open-source* yang dibangun di atas kernel Linux. Karena sifatnya yang terbuka, muncul ribuan "Distribusi" atau "Distro" yang dikembangkan oleh komunitas dan perusahaan, masing-masing dengan fokus, paket, dan filosofi yang berbeda. Berikut adalah beberapa distro Linux paling populer dan fungsinya, bukan sekadar daftar, tapi panduan singkat dari seorang teman yang sudah mencoba banyak sistem:
+                </p>
+                
+                <div class="distro-grid">
+                    
+                    <div class="distro-card">
+                        <h3>1. Ubuntu (Serbaguna & Ramah Pemula)</h3>
+                        <p><strong>Filosofi:</strong> Ubuntu ini ibarat gerbang utama ke dunia Linux. Ia dibangun di atas Debian, tapi dikemas ulang agar lebih modern dan sangat mudah digunakan oleh siapa pun yang baru pindah dari Windows atau macOS.</p>
+                        <p><strong>Fungsi Utama:</strong> Distro ini serbaguna, jago untuk penggunaan desktop sehari-hari (browsing, kerja, multimedia) dan juga sangat handal sebagai sistem operasi server di cloud (AWS, Azure, GCP). Dukungan komunitasnya adalah yang terbesar, jadi jika ada masalah, solusinya pasti sudah ada di internet.</p>
+                        <p><strong>Sumber:</strong> Lawencon, RevoU, DomaiNesia, Hostinger</p>
+                    </div>
+                    
+                    <div class="distro-card">
+                        <h3>2. Linux Mint (Alternatif Ubuntu yang Klasik)</h3>
+                        <p><strong>Filosofi:</strong> Jika tampilan modern Ubuntu (dengan GNOME) terasa asing, Linux Mint menawarkan nuansa yang lebih tradisional, seringkali mirip seperti Windows 7. Distro ini berbasis Ubuntu (sehingga bisa pakai aplikasi yang sama) tapi fokus pada kemudahan penggunaan dan menyediakan banyak <i>codec</i> multimedia bawaan.</p>
+                        <p><strong>Fungsi Utama:</strong> Sangat ideal untuk pengguna desktop yang mencari kenyamanan, stabilitas, dan sistem yang 'bekerja langsung' setelah instalasi. Pilihan desktop Cinnamon-nya sangat populer karena elegan dan fungsional.</p>
+                        <p><strong>Sumber:</strong> Lawencon, Rumahweb, JocoDEV</p>
+                    </div>
+
+                    <div class="distro-card">
+                        <h3>3. Debian (Bapaknya Stabilitas & Server)</h3>
+                        <p><strong>Filosofi:</strong> Debian dikenal sebagai salah satu distro tertua dan fondasi dari banyak distro lain (termasuk Ubuntu). Filosofinya adalah stabilitas dan keandalan yang tak tertandingi. Karena paketnya cenderung lebih tua, sistemnya sangat teruji dan jarang sekali mengalami kerusakan.</p>
+                        <p><strong>Fungsi Utama:</strong> Pilihan utama untuk komputer server, admin, dan lingkungan perusahaan yang membutuhkan pemeliharaan rendah dan uptime tinggi. Cocok juga untuk pengguna tingkat lanjut yang menghargai kendali penuh atas sistemnya.</p>
+                        <p><strong>Sumber:</strong> sintara, FDC Servers, Telkom University</p>
+                    </div>
+
+                    <div class="distro-card">
+                        <h3>4. Fedora (Panggung Teknologi Terbaru)</h3>
+                        <p><strong>Filosofi:</strong> Distro yang didukung oleh Red Hat. Fedora adalah tempat di mana teknologi dan paket Linux terbaru diuji coba sebelum masuk ke RHEL (versi perusahaan). Jika kamu ingin mencoba fitur-fitur tercanggih, Fedora adalah tempatnya.</p>
+                        <p><strong>Fungsi Utama:</strong> Pilihan favorit para developer, programmer, dan pengguna yang ingin sistem yang <em>cutting-edge</em> dan sering diperbarui. Stabilitasnya bagus, menjadikannya platform yang solid untuk pengembangan perangkat lunak.</p>
+                        <p><strong>Sumber:</strong> Lawencon, Cakrawala University, Datascripmall</p>
+                    </div>
+
+                    <div class="distro-card">
+                        <h3>5. Kali Linux (Khusus Keamanan)</h3>
+                        <p><strong>Filosofi:</strong> Ini adalah distro yang dibuat oleh Offensive Security, dirancang khusus untuk <em>ethical hacking</em>, *penetration testing*, dan forensik digital. Tampilannya mungkin standar, tapi isinya adalah ratusan alat keamanan yang sudah terkonfigurasi.</p>
+                        <p><strong>Fungsi Utama:</strong> Distro wajib bagi profesional keamanan siber, mahasiswa yang belajar *hacking*, atau siapa pun yang perlu melakukan pengujian mendalam terhadap jaringan dan sistem.</p>
+                        <p><strong>Sumber:</strong> DomaiNesia, ITBOX, Datascripmall</p>
+                    </div>
+
+                    <div class="distro-card">
+                        <h3>6. Arch Linux (Milik Para Kustomizer)</h3>
+                        <p><strong>Filosofi:</strong> Arch mengikuti filosofi KISS (*Keep It Simple, Stupid*). Arch benar-benar minimalis dan pengguna harus membangun sistemnya dari nol. Ini adalah sistem <em>rolling release</em> (selalu mendapatkan paket terbaru).</p>
+                        <p><strong>Fungsi Utama:</strong> Ideal untuk pengguna tingkat lanjut yang ingin kontrol penuh atas setiap komponen sistem mereka, menciptakan sistem yang sangat ringan, cepat, dan hanya berisi yang mereka butuhkan. Tidak cocok untuk pemula, karena instalasi dan konfigurasi awal harus dilakukan manual via terminal.</p>
+                        <p><strong>Sumber:</strong> Lawencon, Cakrawala University, Hostinger</p>
+                    </div>
+
+                </div>
+                
+                <div class="sources-list">
+                    <h3 style="margin-top: 40px; border-bottom: 2px solid var(--accent-blue); padding-bottom: 5px;">Sumber Referensi:</h3>
+                    <ul>
+                        <li>[1.1] 15 Jenis Linux Populer yang Wajib Diketahui! - Lawencon. URL: <a href="https://www.lawencon.com/jenis-jenis-linux/" target="_blank">https://www.lawencon.com/jenis-jenis-linux/</a></li>
+                        <li>[1.2] Apa itu Linux? Arti, Fungsi, Contoh, FAQs 2025 - RevoU. URL: <a href="https://www.revou.co/kosakata/linux" target="_blank">https://www.revou.co/kosakata/linux</a></li>
+                        <li>[1.3] Mengenal Jenis-Jenis Linux dan Keunggulannya - sintara. URL: <a href="https://sintara.co.id/news/mengenal-jenis-jenis-linux-dan-keunggulannya" target="_blank">https://sintara.co.id/news/mengenal-jenis-jenis-linux-dan-keunggulannya</a></li>
+                        <li>[1.4] Macam-macam Linux yang Bisa Kamu Coba Untuk Pemrograman - Cakrawala University. URL: <a href="https://www.cakrawala.ac.id/berita/macam-macam-linux-untuk-pemrogaman" target="_blank">https://www.cakrawala.ac.id/berita/macam-macam-linux-untuk-pemrogaman</a></li>
+                        <li>[1.5] Apa itu Distro Linux? Definisi, Macam, dan OS Terbaik - Rumahweb. URL: <a href="https://www.rumahweb.com/journal/apa-itu-distro-linux/" target="_blank">https://www.rumahweb.com/journal/apa-itu-distro-linux/</a></li>
+                        <li>[1.7] Pengertian OS Linux: Sejarah, Fungsi, Kelebihan, dan Kekurangan - Telkom University. URL: <a href="https://it.telkomuniversity.ac.id/pengertian-os-linux/" target="_blank">https://it.telkomuniversity.ac.id/pengertian-os-linux/</a></li>
+                        <li>[1.8] Penjelasan Lengkap Pengertian dan Macam-macam Linux - DomaiNesia. URL: <a href="https://www.domainesia.com/berita/linux-adalah/" target="_blank">https://www.domainesia.com/berita/linux-adalah/</a></li>
+                        <li>[2.1] 10 distro Linux terbaik untuk pemula dan profesional 2025 - Hostinger. URL: <a href="https://www.hostinger.com/id/tutorial/distro-linux-terbaik" target="_blank">https://www.hostinger.com/id/tutorial/distro-linux-terbaik</a></li>
+                        <li>[2.3] 10 Distro Linux Terbaik 2025 untuk Pemula dan Profesional - Datascripmall.ID. URL: <a href="https://datascripmall.id/blog/10-distro-linux-terbaik-2025-untuk-pemula-dan-profesional/" target="_blank">https://datascripmall.id/blog/10-distro-linux-terbaik-2025-untuk-pemula-dan-profesional/</a></li>
+                        <li>[2.4] Kenali Macam Distro Linux Terbaik: Fungsi dan Keunggulannya - ITBOX by Course-Net. URL: <a href="https://itbox.id/cyber-security/kenali-macam-distro-linux-terbaik" target="_blank">https://itbox.id/cyber-security/kenali-macam-distro-linux-terbaik</a></li>
+                        <li>[2.6] Distro Linux Terbaik untuk Pemula di Indonesia - JocoDEV. URL: <a href="https://jocodev.id/distro-linux-terbaik-untuk-pemula-di-indonesia/" target="_blank">https://jocodev.id/distro-linux-terbaik-untuk-pemula-di-indonesia/</a></li>
+                        <li>[2.7] Memilih distro Linux yang tepat untuk server Anda di tahun 2025 - FDC Servers. URL: <a href="https://fdcservers.net/id/blog/choosing-the-right-linux-distro-for-your-server-in-2025" target="_blank">https://fdcservers.net/id/blog/choosing-the-right-linux-distro-for-your-server-in-2025</a></li>
+                    </ul>
+                </div>
             </div>
-            
-        </div>
-    </section>
+        </section>
 
-    <section class="section" id="linux-section">
-        <div class="section-header animate-on-scroll">
-            <div class="section-badge">Penjelasan Ke 3: OS Linux 🐧</div>
-            <h2 class="section-title">Linux: Sistem Operasi yang Fleksibel & Kuat (Open Source)</h2>
-            <p class="section-description">Linux adalah sistem operasi yang unik karena dia <strong>Open Source</strong>. Artinya, kita bisa lihat dan modifikasi kode sumbernya. Ini membuatnya sangat stabil, aman, dan menjadi raja di dunia server dan jaringan.</p>
-        </div>
-
-        <div class="project-grid">
-            
-            <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/Q2h8ZfW.png" alt="Logo Linux Tux" loading="lazy">
-                <h3>Filosofi dan Inti Linux</h3>
-                <p>Dibuat oleh Linus Torvalds, Linux didasarkan pada UNIX dan bebas digunakan, didistribusikan, serta dimodifikasi. Dia sangat efisien karena berfokus pada <strong>terminal/CLI</strong> (Command Line Interface), meskipun kini memiliki tampilan grafis yang modern.</p>
-                <ul>
-                    <li><strong>Sifat Dasar:</strong> Open Source, Multi-user (banyak pengguna bisa akses bersamaan), dan Multi-tasking (menjalankan banyak program).</li>
-                    <li><strong>Distro (Distribusi):</strong> Istilah untuk versi OS Linux, yang memiliki Kernel yang sama, tetapi dengan tampilan dan manajer paket berbeda.</li>
-                    <li><strong>Keamanan:</strong> Karena kodenya terbuka dan diinspeksi banyak orang, <em>bug</em> keamanan cepat terdeteksi dan diperbaiki.</li>
-                </ul>
-                <a href="https://opensource.com/article/17/10/how-linux-works" class="card-btn">Detail Filosofi Linux</a>
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Proyek & Implementasi</h2>
+                <p class="section-subtitle">
+                    Beberapa contoh proyek yang mengaplikasikan pemahaman hardware dan software dalam kehidupan nyata.
+                </p>
+                
+                <div class="project-grid">
+                    <div class="card project-card">
+                        <img src="https://via.placeholder.com/400x200?text=PC+Rakitan" alt="PC Rakitan Custom">
+                        <h4>PC Rakitan Kustom (Hardware)</h4>
+                        <p>Merakit komputer dari nol, memilih setiap komponen (CPU, GPU, RAM) untuk mencapai kinerja optimal sesuai budget, fokus pada manajemen termal dan kompatibilitas sistem.</p>
+                        <a href="#" class="card-btn">Lihat Spesifikasi</a>
+                    </div>
+                    
+                    <div class="card project-card">
+                        <img src="https://via.placeholder.com/400x200?text=Web+Server+Linux" alt="Web Server di Linux">
+                        <h4>Web Server Pribadi (Software)</h4>
+                        <p>Menginstal dan mengkonfigurasi sistem operasi **Linux (Debian/Ubuntu)** pada Raspberry Pi atau VPS, lalu menjalankan server web (Apache/Nginx) untuk hosting situs pribadi.</p>
+                        <a href="#" class="card-btn">Detail Konfigurasi</a>
+                    </div>
+                    
+                    <div class="card project-card">
+                        <img src="https://via.placeholder.com/400x200?text=IoT+Project" alt="Proyek IoT Sederhana">
+                        <h4>Sistem Otomasi Rumah (Embedded)</h4>
+                        <p>Menggabungkan hardware mikrocontroller (Arduino/ESP32) dengan software kustom (firmware) untuk mengontrol perangkat rumah via jaringan, memadukan dunia fisik dan logis.</p>
+                        <a href="#" class="card-btn">Pelajari Lebih Lanjut</a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/p5k0RkO.png" alt="Contoh Logo Distro Linux" loading="lazy">
-                <h3>Distro dan Penggunaan di Dunia Nyata</h3>
-                <p>Ini nih kenapa Linux dibilang fleksibel. Ada banyak banget "rasa" yang bisa kamu pilih tergantung kebutuhanmu. Setiap Distro punya spesialisasi:</p>
-                <ul>
-                    <li><strong>Server & Cloud (90% Internet):</strong> <strong>Debian</strong>, <strong>CentOS/RHEL</strong>, <strong>Ubuntu Server</strong>. Dipakai untuk hosting website, menjalankan database, dan Cloud Computing (AWS/Azure).</li>
-                    <li><strong>Desktop (Pengguna Baru):</strong> <strong>Ubuntu Desktop</strong> (populer), <strong>Linux Mint</strong>, <strong>Pop!_OS</strong>. Tampilan modern, mudah instalasi software, cocok buat sekolah dan kerja.</li>
-                    <li><strong>Keamanan/Hacking:</strong> <strong>Kali Linux</strong>, <strong>Parrot OS</strong>. Khusus dipakai untuk <em>penetration testing</em> dan <em>ethical hacking</em> karena dilengkapi ribuan <em>tools</em> keamanan.</li>
-                </ul>
-                <a href="https://www.hostinger.co.id/tutorial/distro-linux-terbaik" class="card-btn">Detail Distro Terbaik</a>
+
+        <section id="company-experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Pengalaman & Kolaborasi</h2>
+                <p class="section-subtitle">
+                    Pengalaman kerja dan proyek kolaborasi yang relevan.
+                </p>
+                
+                <div class="hardware-grid">
+                    <div class="card company-card">
+                        <h3>IT Support Intern</h3>
+                        <p><strong>Perusahaan X | 2023</strong></p>
+                        <ul class="card-list">
+                            <li>Memecahkan masalah hardware (troubleshooting PC, printer).</li>
+                            <li>Melakukan instalasi dan konfigurasi sistem operasi (Windows & Linux).</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card company-card">
+                        <h3>Freelance Web Developer</h3>
+                        <p><strong>Proyek Klien | 2024</strong></p>
+                        <ul class="card-list">
+                            <li>Merancang dan mengimplementasi website menggunakan teknologi front-end dan back-end.</li>
+                            <li>Mengelola database dan optimasi kinerja.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card company-card">
+                        <h3>Kontributor Komunitas Linux</h3>
+                        <p><strong>Komunitas Open Source Lokal | Sekarang</strong></p>
+                        <ul class="card-list">
+                            <li>Berpartisipasi dalam dokumentasi dan lokalisasi distro Linux.</li>
+                            <li>Memberikan dukungan teknis di forum online.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Brian Official. All Rights Reserved. Data ini dikompilasi oleh Brian dari berbagai sumber teknis.</p>
-            <p class="hosting-credit">Website ini menggunakan hosting dari <strong>SPACE STORE</strong></p>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2025 Brian Official. Semua Hak Cipta Dilindungi.</p>
+            <p>Dibuat dengan semangat *open-source*.</p>
         </div>
     </footer>
+    
+    <div id="mobile-profile-modal" class="modal-full">
+        </div>
+
 
     <script>
-        // Check if user is logged in
-        window.addEventListener('load', function() {
-            const savedUsername = localStorage.getItem('username');
-            
-            if (savedUsername) {
-                setTimeout(() => {
-                    document.getElementById('security-screen').classList.add('hidden');
-                    document.getElementById('loading-screen').classList.add('active');
-                }, 2000);
-                
-                setTimeout(() => {
-                    document.getElementById('loading-screen').classList.add('hidden');
-                    setUsername(savedUsername);
-                }, 3500);
-            } else {
-                setTimeout(() => {
-                    document.getElementById('security-screen').classList.add('hidden');
-                    document.getElementById('username-modal').classList.add('active');
-                }, 2000);
-            }
-        });
-
-        function submitUsername() {
-            const input = document.getElementById('username-input');
-            const username = input.value.trim();
-            
-            if (username) {
-                document.getElementById('username-modal').classList.remove('active');
-                document.getElementById('loading-user').classList.add('active');
-                
-                setTimeout(() => {
-                    document.getElementById('loading-user').classList.remove('active');
-                    localStorage.setItem('username', username);
-                    document.getElementById('loading-screen').classList.add('active');
-                    
-                    setTimeout(() => {
-                        document.getElementById('loading-screen').classList.add('hidden');
-                        setUsername(username);
-                    }, 1500);
-                }, 2000);
-            } else {
-                alert('Mohon masukkan nama pengguna!');
-            }
-        }
-
-        function setUsername(username) {
-            const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(username)}&background=3b82f6&color=fff&size=100`;
-            
-            document.getElementById('user-name').textContent = username;
-            document.getElementById('user-avatar').src = avatarUrl;
-            document.getElementById('mobile-username').textContent = username;
-            document.getElementById('mobile-avatar').src = avatarUrl.replace('size=100', 'size=200');
-        }
-
-        document.getElementById('username-input')?.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                submitUsername();
-            }
-        });
-
-        function toggleDropdown() {
-            const dropdown = document.getElementById('profile-dropdown');
-            dropdown.classList.toggle('active');
-        }
-
-        document.addEventListener('click', function(e) {
-            const profile = document.getElementById('user-profile');
-            const dropdown = document.getElementById('profile-dropdown');
-            
-            if (profile && !profile.contains(e.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
-
-        function logout() {
-            document.getElementById('profile-dropdown').classList.remove('active');
-            document.getElementById('mobile-profile-modal').classList.remove('active');
-            localStorage.removeItem('username');
-            document.getElementById('username-input').value = '';
-            document.getElementById('username-modal').classList.add('active');
-        }
-
-        function showMobileProfile() {
-            document.getElementById('mobile-profile-modal').classList.add('active');
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                const offsetTop = element.offsetTop - 100;
-                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-            }
-        }
-
-        // Smooth scroll for nav links
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 100;
-                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                // Check if the target is not the mobile profile modal (if one exists)
+                if (this.getAttribute('href') !== '#mobile-profile-modal') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
-            });
-        });
-
-        // Navbar scroll effect
-        let ticking = false;
-        
-        function updateNavbar() {
-            const navbar = document.getElementById('navbar');
-            const scrolled = window.scrollY > 50;
-            
-            if (scrolled) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.style.backdropFilter = 'blur(30px)';
-                navbar.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
-            } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                navbar.style.backdropFilter = 'blur(20px)';
-                navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
-            }
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                requestAnimationFrame(updateNavbar);
-                ticking = true;
-            }
-        });
-
-        // Animate on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('animated');
-                    }, index * 150);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Parallax effect for floating shapes
-        document.addEventListener('mousemove', function(e) {
-            const orbs = document.querySelectorAll('.orb');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            orbs.forEach((orb, index) => {
-                const speed = (index + 1) * 15;
-                const xMove = (x - 0.5) * speed;
-                const yMove = (y - 0.5) * speed;
-                orb.style.transform = `translate(${xMove}px, ${yMove}px)`;
             });
         });
 
         // Hover effects for cards
-        document.querySelectorAll('.project-card, .music-box, .company-card').forEach(card => {
+        document.querySelectorAll('.project-card, .music-box, .company-card, .distro-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
+                // Updated logic to ensure distro-card uses the intended hover effect
                 this.style.transform = this.classList.contains('company-card') ? 
                     'translateY(-8px)' : 'translateY(-12px) scale(1.02)';
             });
@@ -1590,21 +754,26 @@
         let startY = 0;
         const mobileProfile = document.getElementById('mobile-profile-modal');
         
-        mobileProfile.addEventListener('touchstart', function(e) {
-            startY = e.touches[0].clientY;
-        });
-        
-        mobileProfile.addEventListener('touchmove', function(e) {
-            const currentY = e.touches[0].clientY;
-            const diff = currentY - startY;
+        if (mobileProfile) {
+            mobileProfile.addEventListener('touchstart', function(e) {
+                startY = e.touches[0].clientY;
+            });
             
-            if (diff > 100) {
-                mobileProfile.classList.remove('active');
-            }
-        });
+            mobileProfile.addEventListener('touchmove', function(e) {
+                const currentY = e.touches[0].clientY;
+                const diff = currentY - startY;
+                
+                if (diff > 100) {
+                    mobileProfile.classList.remove('active');
+                }
+            });
+        }
 
-        // Page load animation
+
+        // Page load animation (SIMPLIFIED - REMOVING ALL SECURITY & USERNAME LOGIC)
+        // Halaman akan langsung memuat dan menampilkan konten tanpa perlu input username/security screen.
         window.addEventListener('load', function() {
+            // Mengatur transisi opacity untuk pemuatan halaman yang mulus
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.8s ease';
             
@@ -1612,6 +781,7 @@
                 document.body.style.opacity = '1';
             }, 100);
         });
+        
     </script>
 </body>
 </html>
