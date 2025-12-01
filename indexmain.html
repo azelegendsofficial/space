@@ -251,6 +251,11 @@
             gap: 30px;
         }
 
+        /* Adjust grid for software section to fit 4 cards nicely on large screens */
+        .software-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
         .card {
             background-color: var(--darker-blue);
             padding: 30px;
@@ -258,9 +263,10 @@
             border: 1px solid var(--primary-blue);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
+            display: flex; /* For better content alignment */
+            flex-direction: column;
         }
         
-        /* NEW STYLE FOR VISUALS IN CARD */
         .card-visual {
             text-align: center;
             margin-bottom: 20px;
@@ -273,7 +279,6 @@
             object-fit: cover;
             border: 3px solid var(--accent-blue);
         }
-        /* END NEW STYLE */
 
         .card h3 {
             color: var(--light-blue);
@@ -283,21 +288,37 @@
             padding-bottom: 5px;
         }
 
-        .card p {
+        .card > p {
             font-size: 0.95em;
             color: var(--text-light);
+            flex-grow: 1; /* Make sure description takes equal space */
+            margin-bottom: 15px;
         }
 
         .card-list {
             list-style: none;
             padding-left: 0;
             margin-top: 15px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-top: 10px;
         }
 
         .card-list li {
-            padding: 8px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding: 5px 0;
             font-size: 0.9em;
+            color: var(--pure-white); /* List items slightly brighter */
+        }
+        
+        .card-list .sub-list {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 5px;
+            color: var(--text-light);
+        }
+        
+        .card-list .sub-list li {
+            padding: 2px 0;
+            font-size: 0.85em;
         }
 
         .card-list li:last-child {
@@ -395,6 +416,11 @@
         }
         
         /* Utility */
+        @media (max-width: 1024px) {
+             .software-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5em;
@@ -427,7 +453,7 @@
                     <a href="#hardware">Hardware</a>
                     <a href="#software">Software</a>
                     <a href="#linux-distros">Linux</a>
-                    </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -450,7 +476,7 @@
             <div class="container">
                 <h2 class="section-title">Komponen Hardware (Perangkat Keras)</h2>
                 <p class="section-subtitle">
-                    Hardware adalah semua bagian fisik dari komputer yang dapat kita sentuh. Tanpa hardware, software hanyalah ide.
+                    Hardware adalah fondasi fisik dari sebuah sistem komputasi. Tanpa hardware yang solid, semua perangkat lunak tidak akan bisa berjalan. Ini adalah benda-benda nyata yang mengirim, memproses, dan menyimpan data.
                 </p>
                 
                 <div class="hardware-grid">
@@ -459,10 +485,10 @@
                             <img src="https://via.placeholder.com/80x80/2563eb/ffffff?text=Mobo" alt="Gambar Motherboard">
                         </div>
                         <h3>Motherboard (Papan Induk)</h3>
-                        <p>Papan sirkuit utama yang menghubungkan semua komponen penting, seperti CPU, RAM, dan perangkat I/O. Ini adalah tulang punggung (backbone) sistem.</p>
+                        <p>Papan sirkuit tercetak (PCB) terbesar yang berfungsi sebagai pusat komunikasi dan distribusi daya. Semua komponen utama, dari CPU hingga GPU, dicolokkan ke sini, saling terhubung melalui jalur data berkecepatan tinggi yang disebut Bus.</p>
                         <ul class="card-list">
-                            <li>Fungsi: Menghubungkan dan mengalirkan daya/data antar komponen.</li>
-                            <li>Komponen Utama: Socket CPU, Slot RAM, Chipset, Slot PCIe.</li>
+                            <li>Fungsi Inti: Menyatukan semua komponen dan mengontrol aliran data.</li>
+                            <li>Detail Penting: Keberadaan Chipset (Northbridge & Southbridge) yang mengatur komunikasi.</li>
                         </ul>
                     </div>
                     
@@ -471,10 +497,10 @@
                             <img src="https://via.placeholder.com/80x80/3b82f6/ffffff?text=CPU" alt="Gambar CPU Processor">
                         </div>
                         <h3>CPU (Central Processing Unit)</h3>
-                        <p>Dikenal sebagai "otak" komputer. CPU bertugas mengeksekusi instruksi dan melakukan perhitungan yang diperlukan oleh program komputer.</p>
+                        <p>Sebuah sirkuit terintegrasi kompleks, dijuluki "otak" sistem. Tugas utamanya adalah mengeksekusi urutan instruksi program dalam sebuah siklus yang dikenal sebagai *Fetch-Decode-Execute*, yang pada dasarnya adalah bagaimana komputer "berpikir".</p>
                         <ul class="card-list">
-                            <li>Fungsi: Mengeksekusi instruksi, pemrosesan data.</li>
-                            <li>Metrik Kunci: Kecepatan Clock (GHz), Jumlah Core, Cache.</li>
+                            <li>Fungsi Inti: Melakukan semua perhitungan logis dan aritmatika.</li>
+                            <li>Detail Penting: Diukur dari Kecepatan Clock (seberapa cepat instruksi diproses) dan jumlah Core (unit pemrosesan independen).</li>
                         </ul>
                     </div>
                     
@@ -483,10 +509,10 @@
                             <img src="https://via.placeholder.com/80x80/60a5fa/ffffff?text=RAM" alt="Gambar RAM Memory">
                         </div>
                         <h3>RAM (Random Access Memory)</h3>
-                        <p>Memori volatile yang menyimpan data dan instruksi program yang sedang berjalan secara sementara. Data akan hilang ketika daya dimatikan.</p>
+                        <p>Area kerja super cepat yang sifatnya *volatile* (sementara). Ketika Anda membuka sebuah aplikasi, data aplikasi itu akan dimuat ke RAM agar CPU dapat mengaksesnya dengan sangat cepat. Jika daya mati, semua data di RAM hilang.</p>
                         <ul class="card-list">
-                            <li>Fungsi: Tempat kerja sementara CPU (menyimpan data aktif).</li>
-                            <li>Tipe Populer: DDR4, DDR5 (saat ini).</li>
+                            <li>Fungsi Inti: Menyimpan data yang sedang aktif digunakan CPU untuk pemrosesan segera.</li>
+                            <li>Detail Penting: Kapasitas RAM (misalnya 8GB, 16GB) sangat menentukan kemampuan multitasking sistem.</li>
                         </ul>
                     </div>
 
@@ -495,10 +521,10 @@
                             <img src="https://via.placeholder.com/80x80/93c5fd/ffffff?text=GPU" alt="Gambar Graphics Card">
                         </div>
                         <h3>GPU (Graphics Processing Unit)</h3>
-                        <p>Dirancang khusus untuk memproses grafis dan video. Sangat penting untuk gaming, desain 3D, dan pemrosesan komputasi berat (AI/Machine Learning).</p>
+                        <p>Awalnya dibuat hanya untuk merender grafis, kini GPU jauh lebih kuat dalam pemrosesan paralel (melakukan banyak tugas kecil secara bersamaan). Inilah yang membuat GPU sangat berharga untuk AI, *mining*, dan tentu saja, *gaming*.</p>
                         <ul class="card-list">
-                            <li>Fungsi: Render gambar/video ke monitor.</li>
-                            <li>VRAM: Memori khusus untuk pemrosesan grafis.</li>
+                            <li>Fungsi Inti: Mengolah data visual kompleks dan mempercepat perhitungan paralel.</li>
+                            <li>Detail Penting: Memiliki memori khusus sendiri yang disebut VRAM (Video RAM) agar tidak membebani RAM utama.</li>
                         </ul>
                     </div>
                     
@@ -506,12 +532,11 @@
                         <div class="card-visual">
                             <img src="https://via.placeholder.com/80x80/292563/ffffff?text=SSD" alt="Gambar Solid State Drive">
                         </div>
-                        <h3>Storage (Penyimpanan)</h3>
-                        <p>Media non-volatile yang menyimpan data secara permanen, seperti sistem operasi, aplikasi, dan file pribadi.</p>
+                        <h3>Storage (Penyimpanan Data)</h3>
+                        <p>Tempat penyimpanan data jangka panjang yang bersifat *non-volatile* (data tidak hilang saat listrik mati). Ini adalah rumah bagi sistem operasi, semua program, dan file pribadi Anda.</p>
                         <ul class="card-list">
-                            <li>HDD: Hard Disk Drive (mekanik, lambat).</li>
-                            <li>SSD: Solid State Drive (flash memory, sangat cepat).</li>
-                            <li>Tipe Koneksi: SATA, NVMe (M.2).</li>
+                            <li>HDD (Hard Disk Drive): Lebih tua, menggunakan piringan magnetik yang berputar (mekanik, lambat).</li>
+                            <li>SSD (Solid State Drive): Modern, menggunakan chip flash memory (elektronik, sangat cepat) dan menjadi standar baru.</li>
                         </ul>
                     </div>
                     
@@ -520,10 +545,10 @@
                             <img src="https://via.placeholder.com/80x80/1e3a8a/ffffff?text=PSU" alt="Gambar Power Supply Unit">
                         </div>
                         <h3>Power Supply Unit (PSU)</h3>
-                        <p>Mengubah arus listrik AC dari stop kontak menjadi arus DC yang dibutuhkan oleh setiap komponen komputer dengan tegangan yang sesuai.</p>
+                        <p>Ini adalah komponen yang paling sering diabaikan, padahal fungsinya sangat krusial: mengubah listrik AC rumah menjadi arus DC yang stabil pada berbagai tegangan yang dibutuhkan Motherboard, CPU, dan GPU. Kualitas PSU menentukan keselamatan seluruh hardware.</p>
                         <ul class="card-list">
-                            <li>Fungsi: Menyediakan daya yang stabil untuk seluruh sistem.</li>
-                            <li>Efisiensi: Diukur dengan rating 80 Plus (Bronze, Gold, Platinum).</li>
+                            <li>Fungsi Inti: Konversi dan penyediaan daya listrik yang stabil dan aman.</li>
+                            <li>Detail Penting: Efisiensi diukur dengan rating 80 Plus, semakin tinggi ratingnya, semakin sedikit energi yang terbuang sebagai panas.</li>
                         </ul>
                     </div>
                 </div>
@@ -534,7 +559,7 @@
             <div class="container">
                 <h2 class="section-title">Tipe Software (Perangkat Lunak)</h2>
                 <p class="section-subtitle">
-                    Software adalah serangkaian instruksi logis yang memberi tahu hardware apa yang harus dilakukan. Ini dibagi menjadi dua kategori utama.
+                    Software adalah sekumpulan instruksi digital, sebuah kode, yang berfungsi untuk memberi tahu hardware apa yang harus dilakukan. Ini adalah jiwa dari komputer. Software memungkinkan kita untuk berinteraksi dengan mesin melalui antarmuka visual, dan inilah yang membuat komputer menjadi alat yang fleksibel, bukan sekadar kalkulator besar.
                 </p>
 
                 <div class="software-grid">
@@ -543,10 +568,10 @@
                             <img src="https://via.placeholder.com/80x80/facc15/0f172a?text=OS" alt="Gambar Sistem Operasi">
                         </div>
                         <h3>Sistem Operasi (OS)</h3>
-                        <p>Software fundamental yang bertindak sebagai jembatan antara user, aplikasi, dan hardware. OS mengelola sumber daya, memori, dan proses.</p>
+                        <p>OS adalah software sistem yang paling vital. Ia mengatur dan mengelola semua sumber daya hardware (memori, CPU, I/O) dan bertindak sebagai penerjemah utama antara hardware dan aplikasi yang Anda jalankan.</p>
                         <ul class="card-list">
-                            <li>Contoh Populer: Windows, macOS, **Linux** (seperti Ubuntu, Fedora), Android.</li>
-                            <li>Fungsi: Manajemen memori, antar-muka pengguna (UI/GUI), penjadwalan tugas.</li>
+                            <li>Contoh: Windows, macOS, **Linux** (seperti Ubuntu).</li>
+                            <li>Fungsi Utama: Manajemen File Sistem, Penjadwalan Proses, Antar-Muka Grafis.</li>
                         </ul>
                     </div>
 
@@ -555,10 +580,10 @@
                             <img src="https://via.placeholder.com/80x80/4ade80/0f172a?text=App" alt="Gambar Aplikasi Software">
                         </div>
                         <h3>Perangkat Lunak Aplikasi</h3>
-                        <p>Program yang dirancang untuk melakukan tugas spesifik yang diminta oleh pengguna, seperti pengolah kata, *web browser*, atau *game*.</p>
+                        <p>Ini adalah program-program yang langsung berinteraksi dengan pengguna untuk menyelesaikan tugas tertentu, mulai dari pekerjaan hingga hiburan. Mereka bergantung pada OS untuk mengakses sumber daya hardware.</p>
                         <ul class="card-list">
-                            <li>Contoh: Microsoft Word, Google Chrome, Adobe Photoshop, Spotify.</li>
-                            <li>Jenis: Produktivitas, Multimedia, Hiburan, Utilitas.</li>
+                            <li>Contoh: Pengolah kata (Word), Browser (Chrome), Program Edit Foto (Photoshop).</li>
+                            <li>Jenis: Produktivitas, Multimedia, dan Hiburan.</li>
                         </ul>
                     </div>
 
@@ -567,12 +592,31 @@
                             <img src="https://via.placeholder.com/80x80/f97316/0f172a?text=Util" alt="Gambar Utility Software">
                         </div>
                         <h3>Perangkat Lunak Utilitas</h3>
-                        <p>Software yang membantu mengelola, menganalisis, mengoptimalkan, dan memelihara komputer. Mereka mendukung infrastruktur sistem.</p>
+                        <p>Utilitas adalah software pendukung yang membantu menjaga, menganalisis, dan mengoptimalkan komputer. Mereka memastikan sistem berjalan lancar, aman, dan efisien.</p>
                         <ul class="card-list">
-                            <li>Contoh: Antivirus, Disk Defragmenter, File Compression Tool, Backup Software.</li>
-                            <li>Fungsi: Meningkatkan kinerja dan keamanan sistem.</li>
+                            <li>Contoh: Antivirus, Defragmenter Disk, Alat Pencadangan (*Backup*).</li>
+                            <li>Fungsi: Perawatan dan Keamanan Sistem.</li>
                         </ul>
                     </div>
+                    
+                    <div class="card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/9b59b6/ffffff?text=Code" alt="Gambar Coding">
+                        </div>
+                        <h3>Bahasa Pemrograman</h3>
+                        <p>Ini adalah alat dasar yang digunakan oleh developer untuk menulis instruksi-instruksi yang kemudian dikompilasi menjadi software sistem atau software aplikasi. Setiap bahasa memiliki kegunaan spesifik, dari membuat website hingga mengontrol robot.</p>
+                        <ul class="card-list">
+                            <li>Beberapa Kategori Populer:
+                                <ul class="sub-list">
+                                    <li>**Web Development:** JavaScript, Python, PHP, Ruby.</li>
+                                    <li>**System/Desktop:** C, C++, Java, C#.</li>
+                                    <li>**Data Science/AI:** Python, R.</li>
+                                    <li>**Mobile:** Swift (iOS), Kotlin/Java (Android).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -602,7 +646,7 @@
                         </div>
                         <h3>2. Linux Mint (Alternatif Ubuntu yang Klasik)</h3>
                         <p><strong>Filosofi:</strong> Jika tampilan modern Ubuntu (dengan GNOME) terasa asing, Linux Mint menawarkan nuansa yang lebih tradisional, seringkali mirip seperti Windows 7. Distro ini berbasis Ubuntu (sehingga bisa pakai aplikasi yang sama) tapi fokus pada kemudahan penggunaan dan menyediakan banyak <i>codec</i> multimedia bawaan.</p>
-                        <p><strong>Fungsi Utama:** Sangat ideal untuk pengguna desktop yang mencari kenyamanan, stabilitas, dan sistem yang 'bekerja langsung' setelah instalasi. Pilihan desktop Cinnamon-nya sangat populer karena elegan dan fungsional.</p>
+                        <p><strong>Fungsi Utama:</strong> Sangat ideal untuk pengguna desktop yang mencari kenyamanan, stabilitas, dan sistem yang 'bekerja langsung' setelah instalasi. Pilihan desktop Cinnamon-nya sangat populer karena elegan dan fungsional.</p>
                         <p><strong>Sumber:</strong> Lawencon, Rumahweb, JocoDEV</p>
                     </div>
 
