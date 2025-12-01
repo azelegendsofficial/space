@@ -21,9 +21,6 @@
         --text-light: #64748b;
         --glow-blue: rgba(59, 130, 246, 0.5);
         --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
-        /* Warna untuk komponen baru (Project Card) */
-        --card-bg: rgba(255, 255, 255, 0.05);
-        --card-border: rgba(255, 255, 255, 0.1);
     }
 
     /* 2. BASE RESET & BODY STYLES */
@@ -44,15 +41,8 @@
     html {
         scroll-behavior: smooth;
     }
-    
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
 
     /* 3. BACKGROUND & ANIMASI ORB */
-    /* ... (Kode animasi latar belakang seperti sebelumnya) ... */
     .animated-bg {
         position: fixed;
         top: 0;
@@ -82,42 +72,55 @@
         border-radius: 50%;
         background: var(--gradient-primary);
         filter: blur(40px);
-        animation: float 15s infinite ease-in-out;
-        opacity: 0.6;
+        animation: float 15s infinite;
     }
 
     .orb:nth-child(1) {
-        width: 300px;
-        height: 300px;
-        top: 20%;
+        width: 80px;
+        height: 80px;
+        top: 10%;
         left: 10%;
-        animation-delay: 0s;
+        animation-duration: 18s;
+        opacity: 0.3;
     }
 
     .orb:nth-child(2) {
-        width: 200px;
-        height: 200px;
+        width: 120px;
+        height: 120px;
         bottom: 5%;
         right: 15%;
-        animation-delay: -5s;
+        animation-duration: 22s;
+        opacity: 0.25;
     }
 
     .orb:nth-child(3) {
-        width: 150px;
-        height: 150px;
+        width: 60px;
+        height: 60px;
         top: 50%;
         left: 80%;
-        animation-delay: -10s;
+        animation-duration: 15s;
+        opacity: 0.4;
     }
-
+    
     @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        33% { transform: translateY(-30px) rotate(120deg); }
-        66% { transform: translateY(20px) rotate(240deg); }
+        0% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+            transform: translate(20px, 30px) rotate(10deg);
+        }
+        50% {
+            transform: translate(-10px, -20px) rotate(-5deg);
+        }
+        75% {
+            transform: translate(15px, 10px) rotate(5deg);
+        }
+        100% {
+            transform: translate(0, 0) rotate(0deg);
+        }
     }
     
     /* 4. HEADER & NAVIGASI */
-    /* ... (Kode header dan navigasi seperti sebelumnya) ... */
     .header {
         width: 100%;
         padding: 20px 0;
@@ -127,6 +130,12 @@
         backdrop-filter: blur(10px);
         background-color: rgba(15, 23, 42, 0.8);
         border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
     }
 
     .nav {
@@ -157,7 +166,6 @@
     }
 
     /* 5. HERO SECTION & CTA */
-    /* ... (Kode hero section seperti sebelumnya) ... */
     .hero {
         padding: 120px 0 80px;
         text-align: center;
@@ -203,6 +211,7 @@
         box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
     }
 
+    /* Card Button Global */
     .card-btn {
         display: inline-block;
         padding: 15px 35px;
@@ -244,19 +253,25 @@
         margin: 0 auto 50px;
     }
 
-    /* GRID: Mengatur ukuran minimum kolom agar card lebih besar */
-    .project-grid {
+    /* Grid Layouts */
+    .hardware-grid, .software-grid, .programming-grid, .distro-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+        /* Meningkatkan ukuran minimum agar card lebih besar dan tidak terlalu rapat */
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
         gap: 30px;
         margin-top: 30px;
     }
 
-    /* 7. CARD STYLES (PENYESUAIAN UKURAN BESAR) */
-    .project-card {
+    /* Adjust grid for better layout on smaller columns */
+    .software-grid, .programming-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    /* 7. CARD STYLES (PENINGKATAN UKURAN) */
+    .card {
         background-color: var(--darker-blue);
         /* MENINGKATKAN PADDING AGAR CARD LEBIH BESAR */
-        padding: 35px; 
+        padding: 40px; 
         border-radius: 15px;
         border: 1px solid var(--primary-blue);
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -264,54 +279,42 @@
         display: flex; 
         flex-direction: column;
     }
-
-    .project-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 8px 20px var(--glow-blue);
-    }
     
     .card-visual {
         text-align: center;
-        margin-bottom: 20px;
-    }
-
-    /* IKON/GAMBAR: Meningkatkan ukuran kontainer gambar */
-    .project-icon {
-        /* Ukuran kontainer gambar/ikon: 100px */
-        width: 100px; 
-        height: 100px; 
-        border-radius: 10px;
+        margin-bottom: 25px;
+        /* Mengatur agar gambar berada di tengah secara vertikal dan horizontal */
         display: flex;
-        align-items: center;
         justify-content: center;
-        margin: 0 auto 20px;
-        background: var(--primary-blue);
-        border: 3px solid var(--accent-blue);
-        overflow: hidden; /* Penting untuk menjaga gambar tetap di dalam */
+        align-items: center;
     }
 
-    .project-icon img, .project-icon svg {
-        /* object-fit: contain memastikan gambar tidak terpotong */
+    .card-visual img {
+        /* MENINGKATKAN UKURAN GAMBAR */
+        width: 120px; 
+        height: 120px;
+        border-radius: 10px;
+        /* FIX: Mengubah 'cover' menjadi 'contain' agar gambar tidak terpotong (sesuai bentuk asli) */
         object-fit: contain; 
-        /* Pastikan gambar/SVG mengambil 100% dari kontainer 100px di atas */
-        max-width: 100%;
-        max-height: 100%;
+        padding: 5px; /* Sedikit padding internal agar gambar bernapas */
+        border: 3px solid var(--accent-blue);
+        /* Menggunakan background di balik gambar agar lebih menonjol */
+        background-color: rgba(59, 130, 246, 0.1); 
     }
 
-
-    .project-card h3 {
+    .card h3 {
         color: var(--light-blue);
         margin-bottom: 15px;
-        font-size: 1.6em; /* Sedikit lebih besar untuk card yang lebih besar */
+        font-size: 1.5em; /* Sedikit lebih besar */
         border-bottom: 2px solid rgba(59, 130, 246, 0.3);
         padding-bottom: 5px;
     }
 
-    .project-card > p {
+    .card > p {
         font-size: 1em;
         color: var(--text-light);
         flex-grow: 1; 
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
 
     .card-list {
@@ -322,14 +325,88 @@
         padding-top: 10px;
     }
 
+    .card-list li {
+        padding: 5px 0;
+        font-size: 0.9em;
+        color: var(--pure-white); 
+    }
+    
+    .card-list .sub-list {
+        list-style: disc;
+        padding-left: 20px;
+        margin-top: 5px;
+        color: var(--text-light);
+    }
+    
+    .card-list .sub-list li {
+        padding: 2px 0;
+        font-size: 0.85em;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px var(--glow-blue);
+    }
+
+    
+    /* Linux Distro Card Styles */
+    .distro-card {
+        background-color: var(--darker-blue);
+        padding: 30px; /* Meningkatkan padding juga */
+        border-radius: 12px;
+        border: 1px solid var(--primary-blue);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+    
+    .distro-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px var(--glow-blue);
+    }
+    
+    .distro-card h3 {
+        color: var(--accent-blue);
+        margin-bottom: 10px;
+        font-size: 1.5em;
+        border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+        padding-bottom: 5px;
+    }
+    
+    .distro-card p {
+        font-size: 1em;
+        margin-bottom: 8px;
+        color: var(--text-light);
+    }
+
     /* 8. FOOTER & SOURCES */
-    /* ... (Kode footer seperti sebelumnya) ... */
     .sources-list {
         margin-top: 60px;
         padding-top: 20px;
         border-top: 1px solid rgba(59, 130, 246, 0.3);
     }
 
+    .sources-list ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .sources-list li {
+        margin-bottom: 8px;
+        font-size: 0.9em;
+        color: var(--text-light);
+    }
+    
+    .sources-list a {
+        color: var(--accent-blue);
+        text-decoration: none;
+    }
+    
+    .sources-list a:hover {
+        text-decoration: underline;
+    }
+
+
+    /* Footer Styles */
     .footer {
         padding: 40px 0;
         text-align: center;
@@ -338,78 +415,66 @@
         color: var(--text-light);
     }
 
+    .footer p {
+        margin: 5px 0;
+    }
 
+    .social-links a {
+        color: var(--pure-white);
+        margin: 0 10px;
+        font-size: 1.5em;
+        transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: var(--accent-blue);
+    }
+    
     /* 9. MEDIA QUERIES (RESPONSIVITAS HP/PC) */
     
-    /* Utility for medium screens */
     @media (max-width: 1024px) {
-         .project-grid {
+         .software-grid, .programming-grid {
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
     }
-
-    /* --- PENTING: KHUSUS HP (Max-width: 600px) --- */
-    @media (max-width: 600px) {
-        .container {
-            padding: 0 10px; 
-        }
-        
-        .header {
-            padding: 15px 0;
-        }
-        
-        .nav {
-            flex-direction: column;
-        }
-        
-        .nav-links {
-            margin-top: 15px;
-            display: flex;
-            width: 100%;
-            justify-content: space-around;
-        }
-        
-        .nav-links a {
-            margin: 0 5px;
-            font-size: 0.9em;
-        }
-
+    
+    /* --- KHUSUS HP (Max-width: 768px/600px) --- */
+    @media (max-width: 768px) {
         .hero-title {
-            font-size: 2em;
+            font-size: 2.5em;
         }
 
         .section-title {
-            font-size: 1.8em;
-        }
-        
-        .section-subtitle {
-            font-size: 1em;
-            margin-bottom: 30px;
+            font-size: 2em;
         }
 
-        /* Card diatur menjadi satu kolom penuh untuk HP */
-        .project-grid {
-            grid-template-columns: 1fr; 
+        .nav-links {
+            display: none; 
+        }
+
+        /* Mengubah layout grid menjadi 1 kolom penuh di HP */
+        .hardware-grid, .software-grid, .programming-grid, .distro-grid {
+            grid-template-columns: 1fr;
             gap: 20px;
         }
         
-        /* Mengurangi padding card di HP */
-        .project-card {
+        /* Mengurangi ukuran card di HP agar tidak terlalu besar */
+        .card, .distro-card {
             padding: 25px; 
         }
-        
-        /* PENGATURAN GAMBAR UNTUK HP (Sedikit Lebih Kecil dari PC) */
-        .project-icon {
-            width: 80px; 
-            height: 80px;
+
+        /* Mengurangi ukuran gambar di HP */
+        .card-visual img {
+            width: 90px; 
+            height: 90px;
         }
         
-        .project-card h3 {
+        .card h3 {
             font-size: 1.4em;
         }
         
-        .project-card > p {
-            font-size: 0.9em;
+        .card > p, .distro-card p {
+            font-size: 0.95em;
         }
     }
 </style>
