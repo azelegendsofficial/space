@@ -742,6 +742,34 @@
             margin-bottom: 2rem;
             font-size: 1.05rem;
         }
+        
+        /* Tambahan untuk list di dalam card agar terlihat rapi */
+        .project-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1.5rem;
+        }
+
+        .project-card ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+        }
+        
+        .project-card ul li:before {
+            content: '»';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .project-card strong {
+            color: var(--accent-blue);
+        }
 
         .project-btn {
             display: inline-flex;
@@ -1215,65 +1243,69 @@
         <div class="hero-content">
             <div class="hero-badge">👋 Selamat Datang</div>
             <h1>Brian Official</h1>
-            <p class="hero-subtitle">Halo, nama saya Brian, saya adalah siswa dari sekolah Kristen Kasih Bangsa. Di sini saya akan menjelaskan apa itu Hardware dan Software, fungsinya, jenis-jenisnya, dan komponen utama dari keduanya. Penjelasan di bawah ini sudah lengkap dan mendalam. (Scroll ke bawah untuk melihat penjelasan)</p>
+            <p class="hero-subtitle">Halo, nama saya Brian, saya adalah siswa dari sekolah Kristen Kasih Bangsa. Di sini saya akan menjelaskan apa itu **Hardware** dan **Software**, fungsinya, jenis-jenisnya, dan komponen utama dari keduanya. Penjelasan di bawah ini sudah **lengkap dan mendalam** untuk tugas sekolah! (Scroll ke bawah untuk melihat penjelasan)</p>
         </div>
     </section>
 
     <section class="section" id="hardware-section">
         <div class="section-header animate-on-scroll">
-            <div class="section-badge">Penjelasan Ke 1: Hardware</div>
-            <h2 class="section-title">Hardware: Perangkat Keras Komputer (Benda Fisik)</h2>
-            <p class="section-description">Hardware adalah **tubuh** fisik komputer yang bisa kita sentuh. Dia yang melakukan semua kerja keras: mengambil data (**Input**), mengolahnya (**Proses**), dan menunjukkannya ke kita (**Output**). Tanpa komponen ini, Software hanyalah kode yang tidak bisa jalan.</p>
+            <div class="section-badge">Penjelasan Ke 1: Hardware ⚙️</div>
+            <h2 class="section-title">Hardware: Perangkat Keras Komputer (Benda Fisik yang Diproses)</h2>
+            <p class="section-description">Hardware adalah **tubuh** fisik komputer yang bisa kita sentuh. Dia yang melakukan semua kerja keras: menerima data (**Input**), mengolahnya (**Proses**), dan menunjukkannya ke kita (**Output**). Tanpa komponen ini, Software hanyalah kode yang tidak bisa jalan.</p>
         </div>
+        
 
         <div class="project-grid">
             
             <div class="project-card animate-on-scroll">
                 <img src="https://i.imgur.com/K1H93jN.png" alt="Keyboard dan Mouse" loading="lazy">
-                <h3>Perangkat Input (Pemasukan Data)</h3>
-                <p>Ini adalah jembatan antara kamu dan komputer. Fungsinya hanya satu: memasukkan instruksi atau data mentah ke dalam sistem agar bisa diproses.</p>
+                <h3>A. Perangkat Input (Pemasukan Data)</h3>
+                <p>Jembatan antara kamu dan komputer. Fungsinya hanya satu: memasukkan instruksi atau data mentah ke dalam sistem agar bisa diproses oleh CPU.</p>
                 <ul>
-                    <li><strong>Keyboard & Mouse:</strong> Input utama berupa teks, klik, dan navigasi. (Sinyal dikirim dalam bentuk kode biner).</li>
-                    <li><strong>Scanner:</strong> Mengubah dokumen fisik menjadi data digital (gambar/teks) untuk diolah komputer.</li>
-                    <li><strong>Microphone:</strong> Merekam Input berupa gelombang suara menjadi data digital.</li>
+                    <li><strong>Keyboard & Mouse:</strong> Input utama. Keyboard mengubah ketukan menjadi kode biner, Mouse mengubah gerakan dan klik menjadi koordinat.</li>
+                    <li><strong>Scanner:</strong> Mengubah dokumen fisik (analog) menjadi data digital (gambar/teks) untuk diolah komputer.</li>
+                    <li><strong>Webcam/Microphone:</strong> Merekam Input visual dan audio (gelombang suara) menjadi data digital.</li>
+                    <li><strong>Joystick/Controller:</strong> Input khusus untuk game, mengubah aksi fisik menjadi perintah digital.</li>
                 </ul>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber Informasi</a>
+                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Detail Fungsi Input</a>
             </div>
 
             <div class="project-card animate-on-scroll">
                 <img src="https://i.imgur.com/g8o2uV9.png" alt="CPU dan Motherboard" loading="lazy">
-                <h3>Perangkat Proses (Pemrosesan Inti)</h3>
-                <p>Ini adalah **otak** dan **pusat saraf** komputer. Di sinilah semua Input diolah, dihitung, dan dieksekusi menjadi data yang berguna. Ini komponen yang paling penting!</p>
+                <h3>B. Perangkat Proses (Otak Inti Komputer)</h3>
+                <p>Ini adalah **otak** dan **pusat saraf** komputer. Di sinilah semua Input diolah, dihitung, dan dieksekusi berdasarkan instruksi dari Software. Ini komponen yang paling vital!</p>
                 <ul>
-                    <li><strong>CPU (Central Processing Unit):</strong> Melakukan semua perhitungan dan menjalankan instruksi dari Software. Kecepatan diukur dalam GHz.</li>
-                    <li><strong>Motherboard:</strong> Papan utama yang menghubungkan CPU, RAM, GPU, dan semua I/O. (Semua sinyal data diatur di sini).</li>
-                    <li><strong>GPU (Graphics Card):</strong> Spesialis yang hanya fokus mengolah data grafis berat, terutama untuk game, rendering video, atau AI.</li>
+                    <li><strong>CPU (Central Processing Unit):</strong> **'Otak' Komputer**. Melakukan semua perhitungan aritmatika dan logika, serta menjalankan instruksi dari program. Kecepatannya (Clock Speed) diukur dalam GHz.</li>
+                    <li><strong>Motherboard (Mainboard):</strong> Papan utama yang menghubungkan CPU, RAM, GPU, dan semua I/O. (Semua komunikasi data diatur di sini melalui Bus).</li>
+                    <li><strong>GPU (Graphics Card):</strong> Spesialis yang hanya fokus mengolah data grafis berat, seperti rendering 3D, video, dan pemrosesan paralel (kunci dalam AI/Machine Learning).</li>
+                    <li><strong>Power Supply Unit (PSU):</strong> Mengubah listrik AC dari dinding menjadi daya DC yang dibutuhkan Hardware. Stabilitasnya sangat penting.</li>
                 </ul>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber Informasi</a>
+                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Detail Komponen Proses</a>
             </div>
 
             <div class="project-card animate-on-scroll">
                 <img src="https://i.imgur.com/S2Xq1Wp.png" alt="Monitor dan Printer" loading="lazy">
-                <h3>Perangkat Output (Keluaran Hasil)</h3>
-                <p>Setelah data selesai diolah oleh CPU, perangkat ini bertugas mengubah data digital menjadi bentuk yang bisa kita lihat, dengar, atau sentuh.</p>
+                <h3>C. Perangkat Output (Keluaran Hasil)</h3>
+                <p>Mengubah data digital (hasil olahan CPU/GPU) menjadi bentuk yang bisa kita lihat, dengar, atau sentuh. Ini adalah cara komputer "berbicara" dengan kita.</p>
                 <ul>
-                    <li><strong>Monitor:</strong> Menampilkan visual. Mengubah sinyal dari GPU menjadi titik-titik warna (piksel).</li>
-                    <li><strong>Printer:</strong> Mengubah dokumen digital menjadi cetakan fisik (hard copy).</li>
+                    <li><strong>Monitor:</strong> Menampilkan visual. Resolusi (jumlah piksel) dan *Refresh Rate* (Hz) menentukan kualitas visual.</li>
+                    <li><strong>Printer:</strong> Mengubah dokumen digital menjadi cetakan fisik (Hard Copy). Tipe umum: Inkjet (cair) dan Laser (bubuk toner).</li>
                     <li><strong>Speaker/Headphone:</strong> Mengubah sinyal data audio digital menjadi gelombang suara yang bisa didengar.</li>
+                    <li><strong>Plotter:</strong> Alat output khusus untuk mencetak gambar ukuran besar seperti peta dan desain teknik.</li>
                 </ul>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber Informasi</a>
+                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Detail Fungsi Output</a>
             </div>
             
             <div class="project-card animate-on-scroll">
                 <img src="https://i.imgur.com/1B3j6vY.png" alt="RAM dan SSD/HDD" loading="lazy">
-                <h3>Penyimpanan (Storage & Memory)</h3>
-                <p>Komponen untuk menyimpan data, baik untuk jangka pendek saat proses berjalan, maupun jangka panjang (permanen) agar datamu tidak hilang.</p>
+                <h3>D. Penyimpanan (Storage & Memory)</h3>
+                <p>Komponen untuk menyimpan data. Dibagi menjadi dua jenis utama berdasarkan kecepatan akses dan sifat penyimpanannya (volatil vs. non-volatil).</p>
                 <ul>
-                    <li><strong>RAM (Random Access Memory):</strong> **Memori Jangka Pendek.** Tempat CPU menyimpan data yang sedang **aktif** digunakan. (Contoh: Aplikasi yang sedang dibuka).</li>
-                    <li><strong>SSD (Solid State Drive):</strong> **Penyimpanan Permanen.** Tempat menyimpan OS, aplikasi, dan file. Jauh lebih cepat dari HDD.</li>
-                    <li><strong>HDD (Hard Disk Drive):</strong> Penyimpanan permanen yang lebih lawas (murah & besar). Cocok untuk arsip data yang jarang diakses.</li>
+                    <li><strong>RAM (Random Access Memory):</strong> **Memori Utama (Volatil)**. Tempat CPU menyimpan data yang sedang **aktif** digunakan. Jika komputer mati, data di RAM hilang. Semakin besar RAM, semakin banyak aplikasi bisa dibuka bersamaan.</li>
+                    <li><strong>SSD (Solid State Drive):</strong> **Penyimpanan Permanen (Non-Volatil)**. Menyimpan OS, aplikasi, dan file dalam chip memori flash. Akses data sangat cepat.</li>
+                    <li><strong>HDD (Hard Disk Drive):</strong> Penyimpanan permanen berbasis piringan magnetik (lebih lawas). Lebih lambat dari SSD, tapi biaya per GB-nya lebih murah.</li>
                 </ul>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber Informasi</a>
+                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Detail Penyimpanan</a>
             </div>
             
         </div>
@@ -1281,58 +1313,56 @@
 
     <section class="section" id="software-section">
         <div class="section-header animate-on-scroll">
-            <div class="section-badge">Penjelasan Ke 2: Software</div>
+            <div class="section-badge">Penjelasan Ke 2: Software 🖥️</div>
             <h2 class="section-title">Software: Otak Digital & Kumpulan Perintah (Program)</h2>
-            <p class="section-description">Software adalah **perintah digital** yang kita berikan ke Hardware. Dia yang kasih tahu CPU untuk buka file, render video, atau menjalankan game. Ini adalah kategori yang sangat luas dan penting, terbagi menjadi Sistem, Aplikasi, dan Pengembangan.</p>
+            <p class="section-description">Software adalah **perintah digital** atau instruksi yang kita berikan kepada Hardware. Dia yang kasih tahu CPU langkah-langkah apa yang harus dilakukan. Tanpa Software, Hardware hanyalah besi tua.</p>
         </div>
+        
+
+[Image of Software Hierarchy Diagram showing System Software, Application Software, and Programming Tools]
+
 
         <div class="project-grid">
             
             <div class="project-card animate-on-scroll">
                 <img src="https://i.imgur.com/v8tT9o3.png" alt="Logo Windows, macOS, Linux" loading="lazy">
                 <h3>1. Software Sistem (Sistem Operasi)</h3>
-                <p>Ini adalah pondasi dasarnya. Sistem Operasi (OS) berfungsi sebagai **manajer** yang mengelola semua Hardware dan menjamin Aplikasi bisa berjalan dengan mulus. OS itu ditulis pakai bahasa pemrograman tingkat rendah agar performanya maksimal.</p>
+                <p>OS adalah **fondasi** dan **manajer** utama. Dia yang mengelola semua sumber daya Hardware (RAM, CPU, Storage) agar Aplikasi bisa berjalan dengan efisien.</p>
                 <ul>
-                    <li><strong>Kernel:</strong> Inti OS yang berkomunikasi langsung dengan Hardware. (Mayoritas ditulis dengan bahasa **C**).</li>
-                    <li><strong>Tugas Utama:</strong> Manajemen Memori, Penjadwalan Proses, dan Kontrol Perangkat I/O.</li>
-                    <li><strong>Contoh:</strong> **Windows 11, macOS Sonoma, Linux Ubuntu**, Android (untuk mobile).</li>
+                    <li><strong>Kernel:</strong> Inti OS yang berkomunikasi langsung dengan Hardware. Mayoritas ditulis dengan bahasa tingkat rendah seperti **C** dan **Assembly** agar cepat.</li>
+                    <li><strong>Driver:</strong> Software kecil yang memungkinkan OS 'mengenal' dan mengontrol perangkat keras tertentu (misalnya driver printer atau driver GPU).</li>
+                    <li><strong>Fungsi Utama:</strong> Manajemen File, Manajemen Memori, dan Penjadwalan Proses (memastikan CPU melayani semua tugas).</li>
+                    <li><strong>Contoh:</strong> **Windows, macOS, Berbagai Distro Linux, Android, iOS.**</li>
                 </ul>
-                <a href="#" class="card-btn">Sumber: Pengetahuan Sistem Komputer</a>
+                <a href="#" class="card-btn">Detail Software Sistem</a>
             </div>
 
             <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/j1G5sKx.png" alt="Contoh Aplikasi Grafis dan Video Editor" loading="lazy">
-                <h3>2. Software Aplikasi (Pekerjaan Spesifik)</h3>
-                <p>Inilah yang kamu pakai sehari-hari! Software ini dirancang untuk menyelesaikan tugas-tugas spesifik pengguna. Kita bisa membaginya jadi beberapa jenis:</p>
+                <img src="https://i.imgur.com/aA2yK9d.png" alt="Visual Studio Code dan Logo Bahasa Pemrograman" loading="lazy">
+                <h3>2. Software Pengembangan (Tools Pemrograman)</h3>
+                <p>Ini adalah **kategori krusial** tempat lahirnya semua Software lain. *Tools* ini digunakan programmer untuk menulis, menguji, dan menerjemahkan kode agar bisa dimengerti oleh mesin.</p>
                 <ul>
-                    <li><strong>Multimedia:</strong>
-                        <br>‣ **Video Editing:** Adobe Premiere Pro, DaVinci Resolve.
-                        <br>‣ **Grafis/Desain:** Adobe Photoshop, GIMP, CorelDRAW.
+                    <li><strong>IDE (Integrated Development Environment):</strong> Lingkungan terpadu untuk *ngoding*. Contoh: **VS Code, IntelliJ IDEA, Eclipse.** Menyediakan *code editor*, *debugger*, dan *compiler* dalam satu paket.</li>
+                    <li><strong>Bahasa Pemrograman:</strong>
+                        <br>‣ **Tingkat Rendah:** C, Assembly (untuk OS, driver).
+                        <br>‣ **Tingkat Tinggi:** **Python** (Data Science, AI), **Java/C++** (Aplikasi besar, Game), **JavaScript** (Web Development).
                     </li>
-                    <li><strong>Produktifitas (Kantor):</strong>
-                        <br>‣ Microsoft Word, Excel, PowerPoint.
-                        <br>‣ Google Workspace (Docs, Sheets).
-                    </li>
-                    <li><strong>Hiburan:</strong> Game (Valorant, Genshin Impact), Pemutar Media (VLC Player).</li>
+                    <li><strong>Compiler/Interpreter:</strong> Alat yang menerjemahkan kode yang ditulis manusia (misalnya Python) menjadi bahasa mesin (kode biner 0 dan 1) agar CPU bisa menjalankannya.</li>
                 </ul>
-                <a href="#" class="card-btn">Sumber: Pengetahuan Software Umum</a>
+                <a href="#" class="card-btn">Detail Dunia Coding</a>
             </div>
             
-             <div class="project-card animate-on-scroll">
-                <img src="https://i.imgur.com/aA2yK9d.png" alt="Visual Studio Code dan Logo Bahasa Pemrograman" loading="lazy">
-                <h3>3. Software Pengembangan (Coding/Pemrograman)</h3>
-                <p>Ini adalah kategori yang khusus dipakai oleh para programmer untuk menciptakan Software Sistem dan Aplikasi itu sendiri. Ini adalah *tools* utama kita saat *ngoding*.</p>
+            <div class="project-card animate-on-scroll">
+                <img src="https://i.imgur.com/j1G5sKx.png" alt="Contoh Aplikasi Grafis dan Video Editor" loading="lazy">
+                <h3>3. Software Aplikasi (Jenis-jenis Lengkap)</h3>
+                <p>Software yang dirancang untuk menjalankan tugas spesifik bagi pengguna. Ini adalah kategori yang paling banyak dan dibagi berdasarkan fungsinya:</p>
                 <ul>
-                    <li><strong>IDE (Integrated Development Environment):</strong>
-                        <br>‣ **VS Code, JetBrains IntelliJ:** Tempat kita menulis, menguji, dan men-debug kode.
-                    </li>
-                    <li><strong>Bahasa Pemrograman:</strong>
-                        <br>‣ **Python:** Cocok untuk AI, Data Science, dan Backend Web.
-                        <br>‣ **JavaScript/TypeScript:** Utama di Frontend dan Backend (Node.js).
-                        <br>‣ **Java/C++:** Utama di Sistem Enterprise dan Game Engine.
-                    </li>
+                    <li><strong>Aplikasi Produktifitas:</strong> (Untuk kerja/belajar) Seperti **Microsoft Office** (Word, Excel), **Google Docs**, dan **Trello** (Manajemen Proyek).</li>
+                    <li><strong>Aplikasi Multimedia:</strong> (Untuk kreasi) Seperti **Adobe Photoshop** (Editing Foto), **DaVinci Resolve** (Editing Video), dan **Blender** (3D Modeling).</li>
+                    <li><strong>Aplikasi Jaringan/Internet:</strong> (Untuk komunikasi) Seperti **Google Chrome** (Browser), **Zoom**, **WhatsApp Desktop**, dan klien Email.</li>
+                    <li><strong>Game:</strong> (Untuk hiburan) Seperti **Valorant** (Engine: C++), **Minecraft** (Engine: Java), atau **Mobile Legends**.</li>
                 </ul>
-                <a href="#" class="card-btn">Sumber: Dunia Pemrograman</a>
+                <a href="#" class="card-btn">Detail Jenis Aplikasi</a>
             </div>
             
         </div>
@@ -1340,22 +1370,23 @@
 
     <section class="section" id="linux-section">
         <div class="section-header animate-on-scroll">
-            <div class="section-badge">Penjelasan Ke 3: OS Linux</div>
+            <div class="section-badge">Penjelasan Ke 3: OS Linux 🐧</div>
             <h2 class="section-title">Linux: Sistem Operasi yang Fleksibel & Kuat (Open Source)</h2>
-            <p class="section-description">Linux adalah sistem operasi yang unik karena dia **Open Source**. Artinya, kita bisa lihat dan modifikasi kode sumbernya. Ini membuatnya sangat stabil, aman, dan menjadi raja di dunia server dan jaringan. Dia punya banyak "rasa" atau Distribusi (Distro).</p>
+            <p class="section-description">Linux adalah sistem operasi yang unik karena dia **Open Source**. Artinya, kita bisa lihat dan modifikasi kode sumbernya. Ini membuatnya sangat stabil, aman, dan menjadi raja di dunia server dan jaringan.</p>
         </div>
 
         <div class="project-grid">
             
             <div class="project-card animate-on-scroll">
                 <img src="https://i.imgur.com/Q2h8ZfW.png" alt="Logo Linux Tux" loading="lazy">
-                <h3>Filosofi Linux</h3>
-                <p>Linux itu bukan cuma OS, tapi filosofi. Dibuat oleh Linus Torvalds, dia didasarkan pada UNIX dan bebas digunakan, didistribusikan, serta dimodifikasi. Ini kenapa dia jadi favorit para teknisi dan programmer di seluruh dunia.</p>
+                <h3>Filosofi dan Inti Linux</h3>
+                <p>Dibuat oleh Linus Torvalds, Linux didasarkan pada UNIX dan bebas digunakan, didistribusikan, serta dimodifikasi. Dia sangat efisien karena berfokus pada **terminal/CLI** (Command Line Interface), meskipun kini memiliki tampilan grafis yang modern.</p>
                 <ul>
-                    <li><strong>Sifat Dasar:</strong> Open Source, Multi-user, dan Multi-tasking.</li>
-                    <li><strong>Perbedaan Distro:</strong> Setiap Distro punya tampilan (Desktop Environment) dan manajemen paket (Software Installer) yang berbeda.</li>
+                    <li><strong>Sifat Dasar:</strong> Open Source, Multi-user (banyak pengguna bisa akses bersamaan), dan Multi-tasking (menjalankan banyak program).</li>
+                    <li><strong>Distro (Distribusi):</strong> Istilah untuk versi OS Linux, yang memiliki Kernel yang sama, tetapi dengan tampilan dan manajer paket berbeda.</li>
+                    <li><strong>Keamanan:</strong> Karena kodenya terbuka dan diinspeksi banyak orang, *bug* keamanan cepat terdeteksi dan diperbaiki.</li>
                 </ul>
-                <a href="https://opensource.com/article/17/10/how-linux-works" class="card-btn">Sumber: OpenSource</a>
+                <a href="https://opensource.com/article/17/10/how-linux-works" class="card-btn">Detail Filosofi Linux</a>
             </div>
 
             <div class="project-card animate-on-scroll">
@@ -1363,11 +1394,11 @@
                 <h3>Distro dan Penggunaan di Dunia Nyata</h3>
                 <p>Ini nih kenapa Linux dibilang fleksibel. Ada banyak banget "rasa" yang bisa kamu pilih tergantung kebutuhanmu. Setiap Distro punya spesialisasi:</p>
                 <ul>
-                    <li><strong>Server & Infrastruktur (90% Internet):</strong> **Debian**, **CentOS**, **RHEL** (Red Hat). Dipakai untuk hosting website, menjalankan database, dan Cloud Computing (AWS/Azure).</li>
-                    <li><strong>Desktop (Pengguna Biasa):</strong> **Ubuntu** (paling populer), **Linux Mint**, **Pop!_OS**. Cocok buat sekolah, kerja, dan yang baru mau coba Linux.</li>
-                    <li><strong>Keamanan:</strong> **Kali Linux**, **Parrot OS**. Khusus dipakai untuk *penetration testing* dan *ethical hacking*.</li>
+                    <li><strong>Server & Cloud (90% Internet):</strong> **Debian**, **CentOS/RHEL**, **Ubuntu Server**. Dipakai untuk hosting website, menjalankan database, dan Cloud Computing (AWS/Azure).</li>
+                    <li><strong>Desktop (Pengguna Baru):</strong> **Ubuntu Desktop** (populer), **Linux Mint**, **Pop!_OS**. Tampilan modern, mudah instalasi software, cocok buat sekolah dan kerja.</li>
+                    <li><strong>Keamanan/Hacking:</strong> **Kali Linux**, **Parrot OS**. Khusus dipakai untuk *penetration testing* dan *ethical hacking* karena dilengkapi ribuan *tools* keamanan.</li>
                 </ul>
-                <a href="https://www.hostinger.co.id/tutorial/distro-linux-terbaik" class="card-btn">Sumber: Hostinger</a>
+                <a href="https://www.hostinger.co.id/tutorial/distro-linux-terbaik" class="card-btn">Detail Distro Terbaik</a>
             </div>
             
         </div>
