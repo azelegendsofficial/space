@@ -245,7 +245,7 @@
             margin: 0 auto 50px;
         }
 
-        .hardware-grid, .software-grid, .project-grid {
+        .hardware-grid, .software-grid, .distro-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
@@ -259,6 +259,21 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
         }
+        
+        /* NEW STYLE FOR VISUALS IN CARD */
+        .card-visual {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-visual img {
+            width: 80px; /* Standard size for icons/visuals */
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid var(--accent-blue);
+        }
+        /* END NEW STYLE */
 
         .card h3 {
             color: var(--light-blue);
@@ -289,39 +304,14 @@
             border-bottom: none;
         }
 
-        .project-card {
-            text-align: center;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 10px 25px var(--glow-blue);
-        }
-        
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 3px solid var(--light-blue);
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px var(--glow-blue);
         }
 
-        .project-card h4 {
-            font-size: 1.2em;
-            color: var(--pure-white);
-            margin-bottom: 10px;
-        }
-
-        .project-card p {
-            margin-bottom: 20px;
-        }
         
-        /* New Linux Section Styles */
+        /* Linux Section Styles */
         .distro-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
             margin-top: 30px;
         }
 
@@ -437,8 +427,7 @@
                     <a href="#hardware">Hardware</a>
                     <a href="#software">Software</a>
                     <a href="#linux-distros">Linux</a>
-                    <a href="#projects">Proyek</a>
-                </div>
+                    </div>
             </nav>
         </div>
     </header>
@@ -466,6 +455,9 @@
                 
                 <div class="hardware-grid">
                     <div class="card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/2563eb/ffffff?text=Mobo" alt="Gambar Motherboard">
+                        </div>
                         <h3>Motherboard (Papan Induk)</h3>
                         <p>Papan sirkuit utama yang menghubungkan semua komponen penting, seperti CPU, RAM, dan perangkat I/O. Ini adalah tulang punggung (backbone) sistem.</p>
                         <ul class="card-list">
@@ -475,6 +467,9 @@
                     </div>
                     
                     <div class="card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/3b82f6/ffffff?text=CPU" alt="Gambar CPU Processor">
+                        </div>
                         <h3>CPU (Central Processing Unit)</h3>
                         <p>Dikenal sebagai "otak" komputer. CPU bertugas mengeksekusi instruksi dan melakukan perhitungan yang diperlukan oleh program komputer.</p>
                         <ul class="card-list">
@@ -484,6 +479,9 @@
                     </div>
                     
                     <div class="card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/60a5fa/ffffff?text=RAM" alt="Gambar RAM Memory">
+                        </div>
                         <h3>RAM (Random Access Memory)</h3>
                         <p>Memori volatile yang menyimpan data dan instruksi program yang sedang berjalan secara sementara. Data akan hilang ketika daya dimatikan.</p>
                         <ul class="card-list">
@@ -493,6 +491,9 @@
                     </div>
 
                     <div class="card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/93c5fd/ffffff?text=GPU" alt="Gambar Graphics Card">
+                        </div>
                         <h3>GPU (Graphics Processing Unit)</h3>
                         <p>Dirancang khusus untuk memproses grafis dan video. Sangat penting untuk gaming, desain 3D, dan pemrosesan komputasi berat (AI/Machine Learning).</p>
                         <ul class="card-list">
@@ -502,6 +503,9 @@
                     </div>
                     
                     <div class="card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/292563/ffffff?text=SSD" alt="Gambar Solid State Drive">
+                        </div>
                         <h3>Storage (Penyimpanan)</h3>
                         <p>Media non-volatile yang menyimpan data secara permanen, seperti sistem operasi, aplikasi, dan file pribadi.</p>
                         <ul class="card-list">
@@ -512,6 +516,9 @@
                     </div>
                     
                     <div class="card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/1e3a8a/ffffff?text=PSU" alt="Gambar Power Supply Unit">
+                        </div>
                         <h3>Power Supply Unit (PSU)</h3>
                         <p>Mengubah arus listrik AC dari stop kontak menjadi arus DC yang dibutuhkan oleh setiap komponen komputer dengan tegangan yang sesuai.</p>
                         <ul class="card-list">
@@ -532,6 +539,9 @@
 
                 <div class="software-grid">
                     <div class="card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/facc15/0f172a?text=OS" alt="Gambar Sistem Operasi">
+                        </div>
                         <h3>Sistem Operasi (OS)</h3>
                         <p>Software fundamental yang bertindak sebagai jembatan antara user, aplikasi, dan hardware. OS mengelola sumber daya, memori, dan proses.</p>
                         <ul class="card-list">
@@ -541,6 +551,9 @@
                     </div>
 
                     <div class="card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/4ade80/0f172a?text=App" alt="Gambar Aplikasi Software">
+                        </div>
                         <h3>Perangkat Lunak Aplikasi</h3>
                         <p>Program yang dirancang untuk melakukan tugas spesifik yang diminta oleh pengguna, seperti pengolah kata, *web browser*, atau *game*.</p>
                         <ul class="card-list">
@@ -550,6 +563,9 @@
                     </div>
 
                     <div class="card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/f97316/0f172a?text=Util" alt="Gambar Utility Software">
+                        </div>
                         <h3>Perangkat Lunak Utilitas</h3>
                         <p>Software yang membantu mengelola, menganalisis, mengoptimalkan, dan memelihara komputer. Mereka mendukung infrastruktur sistem.</p>
                         <ul class="card-list">
@@ -570,42 +586,60 @@
                 
                 <div class="distro-grid">
                     
-                    <div class="distro-card">
+                    <div class="distro-card card">
+                         <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/e95420/ffffff?text=Ubuntu" alt="Logo Ubuntu">
+                        </div>
                         <h3>1. Ubuntu (Serbaguna & Ramah Pemula)</h3>
                         <p><strong>Filosofi:</strong> Ubuntu ini ibarat gerbang utama ke dunia Linux. Ia dibangun di atas Debian, tapi dikemas ulang agar lebih modern dan sangat mudah digunakan oleh siapa pun yang baru pindah dari Windows atau macOS.</p>
                         <p><strong>Fungsi Utama:</strong> Distro ini serbaguna, jago untuk penggunaan desktop sehari-hari (browsing, kerja, multimedia) dan juga sangat handal sebagai sistem operasi server di cloud (AWS, Azure, GCP). Dukungan komunitasnya adalah yang terbesar, jadi jika ada masalah, solusinya pasti sudah ada di internet.</p>
                         <p><strong>Sumber:</strong> Lawencon, RevoU, DomaiNesia, Hostinger</p>
                     </div>
                     
-                    <div class="distro-card">
+                    <div class="distro-card card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/87cf51/0f172a?text=Mint" alt="Logo Linux Mint">
+                        </div>
                         <h3>2. Linux Mint (Alternatif Ubuntu yang Klasik)</h3>
                         <p><strong>Filosofi:</strong> Jika tampilan modern Ubuntu (dengan GNOME) terasa asing, Linux Mint menawarkan nuansa yang lebih tradisional, seringkali mirip seperti Windows 7. Distro ini berbasis Ubuntu (sehingga bisa pakai aplikasi yang sama) tapi fokus pada kemudahan penggunaan dan menyediakan banyak <i>codec</i> multimedia bawaan.</p>
-                        <p><strong>Fungsi Utama:</strong> Sangat ideal untuk pengguna desktop yang mencari kenyamanan, stabilitas, dan sistem yang 'bekerja langsung' setelah instalasi. Pilihan desktop Cinnamon-nya sangat populer karena elegan dan fungsional.</p>
+                        <p><strong>Fungsi Utama:** Sangat ideal untuk pengguna desktop yang mencari kenyamanan, stabilitas, dan sistem yang 'bekerja langsung' setelah instalasi. Pilihan desktop Cinnamon-nya sangat populer karena elegan dan fungsional.</p>
                         <p><strong>Sumber:</strong> Lawencon, Rumahweb, JocoDEV</p>
                     </div>
 
-                    <div class="distro-card">
+                    <div class="distro-card card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/d70a53/ffffff?text=Debian" alt="Logo Debian">
+                        </div>
                         <h3>3. Debian (Bapaknya Stabilitas & Server)</h3>
                         <p><strong>Filosofi:</strong> Debian dikenal sebagai salah satu distro tertua dan fondasi dari banyak distro lain (termasuk Ubuntu). Filosofinya adalah stabilitas dan keandalan yang tak tertandingi. Karena paketnya cenderung lebih tua, sistemnya sangat teruji dan jarang sekali mengalami kerusakan.</p>
                         <p><strong>Fungsi Utama:</strong> Pilihan utama untuk komputer server, admin, dan lingkungan perusahaan yang membutuhkan pemeliharaan rendah dan uptime tinggi. Cocok juga untuk pengguna tingkat lanjut yang menghargai kendali penuh atas sistemnya.</p>
                         <p><strong>Sumber:</strong> sintara, FDC Servers, Telkom University</p>
                     </div>
 
-                    <div class="distro-card">
+                    <div class="distro-card card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/294172/ffffff?text=Fedora" alt="Logo Fedora">
+                        </div>
                         <h3>4. Fedora (Panggung Teknologi Terbaru)</h3>
                         <p><strong>Filosofi:</strong> Distro yang didukung oleh Red Hat. Fedora adalah tempat di mana teknologi dan paket Linux terbaru diuji coba sebelum masuk ke RHEL (versi perusahaan). Jika kamu ingin mencoba fitur-fitur tercanggih, Fedora adalah tempatnya.</p>
                         <p><strong>Fungsi Utama:</strong> Pilihan favorit para developer, programmer, dan pengguna yang ingin sistem yang <em>cutting-edge</em> dan sering diperbarui. Stabilitasnya bagus, menjadikannya platform yang solid untuk pengembangan perangkat lunak.</p>
                         <p><strong>Sumber:</strong> Lawencon, Cakrawala University, Datascripmall</p>
                     </div>
 
-                    <div class="distro-card">
+                    <div class="distro-card card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/557c94/ffffff?text=Kali" alt="Logo Kali Linux">
+                        </div>
                         <h3>5. Kali Linux (Khusus Keamanan)</h3>
                         <p><strong>Filosofi:</strong> Ini adalah distro yang dibuat oleh Offensive Security, dirancang khusus untuk <em>ethical hacking</em>, *penetration testing*, dan forensik digital. Tampilannya mungkin standar, tapi isinya adalah ratusan alat keamanan yang sudah terkonfigurasi.</p>
                         <p><strong>Fungsi Utama:</strong> Distro wajib bagi profesional keamanan siber, mahasiswa yang belajar *hacking*, atau siapa pun yang perlu melakukan pengujian mendalam terhadap jaringan dan sistem.</p>
                         <p><strong>Sumber:</strong> DomaiNesia, ITBOX, Datascripmall</p>
                     </div>
 
-                    <div class="distro-card">
+                    <div class="distro-card card">
+                        <div class="card-visual">
+                            <img src="https://via.placeholder.com/80x80/1793d1/ffffff?text=Arch" alt="Logo Arch Linux">
+                        </div>
                         <h3>6. Arch Linux (Milik Para Kustomizer)</h3>
                         <p><strong>Filosofi:</strong> Arch mengikuti filosofi KISS (*Keep It Simple, Stupid*). Arch benar-benar minimalis dan pengguna harus membangun sistemnya dari nol. Ini adalah sistem <em>rolling release</em> (selalu mendapatkan paket terbaru).</p>
                         <p><strong>Fungsi Utama:</strong> Ideal untuk pengguna tingkat lanjut yang ingin kontrol penuh atas setiap komponen sistem mereka, menciptakan sistem yang sangat ringan, cepat, dan hanya berisi yang mereka butuhkan. Tidak cocok untuk pemula, karena instalasi dan konfigurasi awal harus dilakukan manual via terminal.</p>
@@ -634,76 +668,6 @@
             </div>
         </section>
 
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Proyek & Implementasi</h2>
-                <p class="section-subtitle">
-                    Beberapa contoh proyek yang mengaplikasikan pemahaman hardware dan software dalam kehidupan nyata.
-                </p>
-                
-                <div class="project-grid">
-                    <div class="card project-card">
-                        <img src="https://via.placeholder.com/400x200?text=PC+Rakitan" alt="PC Rakitan Custom">
-                        <h4>PC Rakitan Kustom (Hardware)</h4>
-                        <p>Merakit komputer dari nol, memilih setiap komponen (CPU, GPU, RAM) untuk mencapai kinerja optimal sesuai budget, fokus pada manajemen termal dan kompatibilitas sistem.</p>
-                        <a href="#" class="card-btn">Lihat Spesifikasi</a>
-                    </div>
-                    
-                    <div class="card project-card">
-                        <img src="https://via.placeholder.com/400x200?text=Web+Server+Linux" alt="Web Server di Linux">
-                        <h4>Web Server Pribadi (Software)</h4>
-                        <p>Menginstal dan mengkonfigurasi sistem operasi **Linux (Debian/Ubuntu)** pada Raspberry Pi atau VPS, lalu menjalankan server web (Apache/Nginx) untuk hosting situs pribadi.</p>
-                        <a href="#" class="card-btn">Detail Konfigurasi</a>
-                    </div>
-                    
-                    <div class="card project-card">
-                        <img src="https://via.placeholder.com/400x200?text=IoT+Project" alt="Proyek IoT Sederhana">
-                        <h4>Sistem Otomasi Rumah (Embedded)</h4>
-                        <p>Menggabungkan hardware mikrocontroller (Arduino/ESP32) dengan software kustom (firmware) untuk mengontrol perangkat rumah via jaringan, memadukan dunia fisik dan logis.</p>
-                        <a href="#" class="card-btn">Pelajari Lebih Lanjut</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="company-experience" class="section">
-            <div class="container">
-                <h2 class="section-title">Pengalaman & Kolaborasi</h2>
-                <p class="section-subtitle">
-                    Pengalaman kerja dan proyek kolaborasi yang relevan.
-                </p>
-                
-                <div class="hardware-grid">
-                    <div class="card company-card">
-                        <h3>IT Support Intern</h3>
-                        <p><strong>Perusahaan X | 2023</strong></p>
-                        <ul class="card-list">
-                            <li>Memecahkan masalah hardware (troubleshooting PC, printer).</li>
-                            <li>Melakukan instalasi dan konfigurasi sistem operasi (Windows & Linux).</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card company-card">
-                        <h3>Freelance Web Developer</h3>
-                        <p><strong>Proyek Klien | 2024</strong></p>
-                        <ul class="card-list">
-                            <li>Merancang dan mengimplementasi website menggunakan teknologi front-end dan back-end.</li>
-                            <li>Mengelola database dan optimasi kinerja.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card company-card">
-                        <h3>Kontributor Komunitas Linux</h3>
-                        <p><strong>Komunitas Open Source Lokal | Sekarang</strong></p>
-                        <ul class="card-list">
-                            <li>Berpartisipasi dalam dokumentasi dan lokalisasi distro Linux.</li>
-                            <li>Memberikan dukungan teknis di forum online.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
 
     </main>
 
@@ -738,11 +702,10 @@
         });
 
         // Hover effects for cards
-        document.querySelectorAll('.project-card, .music-box, .company-card, .distro-card').forEach(card => {
+        document.querySelectorAll('.card, .distro-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
-                // Updated logic to ensure distro-card uses the intended hover effect
-                this.style.transform = this.classList.contains('company-card') ? 
-                    'translateY(-8px)' : 'translateY(-12px) scale(1.02)';
+                // Apply a lift effect on hover
+                this.style.transform = 'translateY(-8px) scale(1.01)';
             });
             
             card.addEventListener('mouseleave', function() {
@@ -750,7 +713,7 @@
             });
         });
 
-        // Close mobile profile with swipe down
+        // Close mobile profile with swipe down (if mobile profile exists)
         let startY = 0;
         const mobileProfile = document.getElementById('mobile-profile-modal');
         
@@ -771,9 +734,7 @@
 
 
         // Page load animation (SIMPLIFIED - REMOVING ALL SECURITY & USERNAME LOGIC)
-        // Halaman akan langsung memuat dan menampilkan konten tanpa perlu input username/security screen.
         window.addEventListener('load', function() {
-            // Mengatur transisi opacity untuk pemuatan halaman yang mulus
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.8s ease';
             
