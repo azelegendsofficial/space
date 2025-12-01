@@ -498,7 +498,7 @@
                             <img src="https://via.placeholder.com/80x80/3b82f6/ffffff?text=CPU" alt="Gambar CPU Processor">
                         </div>
                         <h3>CPU (Central Processing Unit)</h3>
-                        <p>Dijuluki "otak" sistem. Tugas utamanya adalah mengeksekusi urutan instruksi program dalam siklus *Fetch-Decode-Execute*, yang pada dasarnya adalah bagaimana komputer "berpikir".</p>
+                        <p>Dijuluki "otak" sistem. Tugas utamanya adalah mengeksekusi urutan instruksi program dalam siklus *Fetch-Decode-Execute*, yang pada dasarnya adalah bagaimana komputer "berpikir" dan melakukan pekerjaan berat.</p>
                         <ul class="card-list">
                             <li>Fungsi Inti: Melakukan semua perhitungan logis dan aritmatika.</li>
                             <li>Detail Penting: Diukur dari Kecepatan Clock (GHz) dan jumlah Core.</li>
@@ -510,7 +510,7 @@
                             <img src="https://via.placeholder.com/80x80/60a5fa/ffffff?text=RAM" alt="Gambar RAM Memory">
                         </div>
                         <h3>RAM (Random Access Memory)</h3>
-                        <p>Area kerja super cepat yang sifatnya **volatile** (sementara). Data aplikasi dimuat ke RAM agar CPU dapat mengaksesnya dengan sangat cepat. Data akan hilang jika daya mati.</p>
+                        <p>Ini adalah 'meja kerja' super cepat yang sifatnya <strong>volatile</strong> (sementara). Setiap aplikasi yang Anda buka akan dimuat ke sini agar CPU bisa mengaksesnya kilat. Ingat, semua data di RAM akan hilang begitu listrik mati!</p>
                         <ul class="card-list">
                             <li>Fungsi Inti: Menyimpan data yang sedang aktif digunakan CPU untuk pemrosesan segera.</li>
                             <li>Detail Penting: Kapasitas RAM sangat menentukan kemampuan multitasking sistem.</li>
@@ -522,7 +522,7 @@
                             <img src="https://via.placeholder.com/80x80/93c5fd/ffffff?text=GPU" alt="Gambar Graphics Card">
                         </div>
                         <h3>GPU (Graphics Processing Unit)</h3>
-                        <p>Kuat dalam pemrosesan paralel (melakukan banyak tugas kecil secara bersamaan). Inilah yang membuat GPU sangat berharga untuk grafis 3D, AI, dan *mining*.</p>
+                        <p>Komponen ini ahli dalam pemrosesan paralel (melakukan ribuan tugas kecil secara bersamaan). Inilah yang membuat GPU sangat berharga untuk rendering grafis 3D, kecerdasan buatan (AI), dan bahkan *mining* kripto.</p>
                         <ul class="card-list">
                             <li>Fungsi Inti: Mengolah data visual kompleks dan mempercepat perhitungan paralel.</li>
                             <li>Detail Penting: Memiliki memori khusus sendiri yang disebut VRAM (Video RAM).</li>
@@ -534,7 +534,7 @@
                             <img src="https://via.placeholder.com/80x80/292563/ffffff?text=SSD" alt="Gambar Solid State Drive">
                         </div>
                         <h3>Storage (Penyimpanan Data)</h3>
-                        <p>Tempat penyimpanan data jangka panjang yang bersifat **non-volatile** (data tidak hilang saat listrik mati). Ini adalah rumah bagi sistem operasi dan semua file Anda.</p>
+                        <p>Tempat penyimpanan data jangka panjang yang bersifat <strong>non-volatile</strong> (data tidak hilang saat listrik mati). Ini adalah rumah bagi sistem operasi, program, dan semua file pribadi Anda.</p>
                         <ul class="card-list">
                             <li>SSD (Solid State Drive): Modern, menggunakan chip flash memory (elektronik, sangat cepat).</li>
                             <li>HDD (Hard Disk Drive): Lebih tua, menggunakan piringan magnetik (mekanik, lambat).</li>
@@ -546,7 +546,7 @@
                             <img src="https://via.placeholder.com/80x80/1e3a8a/ffffff?text=PSU" alt="Gambar Power Supply Unit">
                         </div>
                         <h3>Power Supply Unit (PSU)</h3>
-                        <p>Mengubah listrik AC rumah menjadi arus DC yang stabil pada berbagai tegangan yang dibutuhkan Motherboard, CPU, dan GPU. Kualitas PSU menentukan keselamatan seluruh hardware.</p>
+                        <p>Mengubah listrik AC rumah menjadi arus DC yang stabil pada berbagai tegangan yang dibutuhkan Motherboard, CPU, dan GPU. Jangan pernah pelit memilih PSU, karena ini menentukan keselamatan seluruh hardware Anda!</p>
                         <ul class="card-list">
                             <li>Fungsi Inti: Konversi dan penyediaan daya listrik yang stabil dan aman.</li>
                             <li>Detail Penting: Efisiensi diukur dengan rating 80 Plus.</li>
@@ -556,17 +556,17 @@
 
                 <h2 class="section-title" style="margin-top: 80px;">Perangkat Input & Output (I/O Devices)</h2>
                 <p class="section-subtitle">
-                    Perangkat I/O berfungsi sebagai jembatan yang memungkinkan pengguna berinteraksi dengan komputer. **Input** mengirimkan data ke komputer, dan **Output** menampilkan hasilnya.
+                    Perangkat I/O adalah jembatan komunikasi antara Anda dan komputer. Ini adalah cara komputer "mendengar" Anda dan "berbicara" kembali kepada Anda.
                 </p>
 
                 <div style="margin-bottom: 40px; padding: 20px; background-color: rgba(96, 165, 250, 0.1); border-radius: 10px; border-left: 5px solid var(--accent-blue);">
                     <h4 style="color: var(--light-blue); margin-bottom: 10px;">Konsep Dasar Input dan Output</h4>
                     <p style="font-size: 0.95em; color: var(--off-white);">
-                        Komputer adalah sebuah sistem pemrosesan data, dan perangkat I/O memfasilitasi aliran data tersebut:
-                        <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.9em; list-style-type: '👉 ';">
-                            <li>**INPUT:** Proses menerima data mentah atau instruksi dari dunia luar ke dalam Unit Pemrosesan Pusat (CPU). Data ini diubah menjadi sinyal digital yang dapat dimanipulasi. **Tujuan:** Memberi data ke sistem.</li>
-                            <li>**OUTPUT:** Proses menyampaikan hasil pemrosesan data (informasi) dari CPU kembali ke pengguna. Data digital diubah kembali menjadi bentuk yang dapat dipahami oleh manusia (visual, audio, cetak). **Tujuan:** Menampilkan hasil pemrosesan.</li>
-                            <li>**PERIPHERAL:** Sebutan umum untuk semua perangkat I/O yang terhubung ke komputer, karena mereka berada di luar CPU dan RAM.</li>
+                        Semua perangkat keras I/O melakukan dua fungsi fundamental ini:
+                        <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.9em; list-style-type: disc;">
+                            <li><strong>INPUT:</strong> Ini adalah proses menerima data mentah atau instruksi dari dunia luar ke dalam Unit Pemrosesan Pusat (CPU). Data fisik (seperti gerakan atau suara) diubah menjadi sinyal digital. Tujuan Utamanya: <strong>Menerima perintah atau data mentah dari kita ke dalam sistem.</strong></li>
+                            <li><strong>OUTPUT:</strong> Ini adalah proses menyampaikan hasil pemrosesan data (informasi yang sudah matang) dari CPU kembali ke pengguna. Sinyal digital diubah kembali menjadi bentuk yang dapat kita pahami (visual, audio, cetak). Tujuan Utamanya: <strong>Menyajikan hasil olahan data kembali kepada pengguna dalam bentuk yang kita pahami.</strong></li>
+                            <li><strong>PERIPHERAL:</strong> Perangkat I/O sering disebut *peripheral* karena mereka berada di 'pinggiran' CPU dan RAM, tetapi perannya sangat vital.</li>
                         </ul>
                     </p>
                 </div>
@@ -579,10 +579,10 @@
                             <img src="https://via.placeholder.com/80x80/f1c40f/000000?text=KEY" alt="Gambar Keyboard">
                         </div>
                         <h3>Keyboard (Input)</h3>
-                        <p>Perangkat input utama yang memungkinkan pengguna memasukkan teks, karakter, dan perintah berbasis tombol ke komputer. Ini adalah alat dasar interaksi teks.</p>
+                        <p>Perangkat input paling fundamental untuk memasukkan teks, karakter, dan perintah berbasis tombol ke komputer. Ini adalah cara utama kita berinteraksi secara tekstual dengan sistem.</p>
                         <ul class="card-list">
                             <li>Jenis: Mekanikal, Membran, Ergonomis.</li>
-                            <li>Fungsi: Mengubah ketukan fisik menjadi kode digital (ASCII/Unicode) untuk CPU.</li>
+                            <li>Cara Kerja: Mengubah ketukan fisik menjadi kode digital (ASCII/Unicode) yang dikirim ke CPU.</li>
                         </ul>
                     </div>
                     <div class="card">
@@ -590,10 +590,10 @@
                             <img src="https://via.placeholder.com/80x80/f1c40f/000000?text=MOUSE" alt="Gambar Mouse">
                         </div>
                         <h3>Mouse (Input)</h3>
-                        <p>Perangkat penunjuk yang mengontrol kursor grafis di layar. Digunakan untuk navigasi antarmuka, memilih objek, dan memulai perintah. Sangat penting untuk GUI.</p>
+                        <p>Perangkat penunjuk yang revolusioner. Fungsinya mengontrol kursor grafis di layar, memungkinkan navigasi antarmuka yang cepat dan intuitif, terutama dalam lingkungan *Graphical User Interface* (GUI).</p>
                         <ul class="card-list">
                             <li>Jenis: Optik, Laser, Trackball.</li>
-                            <li>Fungsi: Menerjemahkan gerakan fisik dan klik menjadi sinyal koordinat digital.</li>
+                            <li>Cara Kerja: Menerjemahkan gerakan fisik dan klik menjadi sinyal koordinat digital.</li>
                         </ul>
                     </div>
                     <div class="card">
@@ -601,7 +601,7 @@
                             <img src="https://via.placeholder.com/80x80/f1c40f/000000?text=SCAN" alt="Gambar Scanner">
                         </div>
                         <h3>Scanner (Input)</h3>
-                        <p>Perangkat yang mengambil gambar atau dokumen fisik, kemudian membaca dan mengubahnya menjadi file digital (bitmap atau JPEG) yang dapat disimpan dan dimanipulasi oleh komputer.</p>
+                        <p>Alat ini mengambil gambar atau dokumen fisik lalu mengubahnya menjadi file digital (seperti JPEG atau PDF) yang dapat disimpan, diedit, dan dibagikan oleh komputer. Ini adalah jembatan dari dunia kertas ke dunia digital.</p>
                         <ul class="card-list">
                             <li>Jenis: Flatbed, Handheld.</li>
                             <li>Fungsi: Digitalisasi dokumen dan gambar fisik.</li>
@@ -612,10 +612,10 @@
                             <img src="https://via.placeholder.com/80x80/2ecc71/ffffff?text=MON" alt="Gambar Monitor">
                         </div>
                         <h3>Monitor (Output)</h3>
-                        <p>Perangkat output visual utama yang menampilkan hasil pemrosesan data (gambar, teks, video) dari GPU. Ini adalah cara utama pengguna menerima informasi dari komputer.</p>
+                        <p>Layar visual utama kita. Ini adalah perangkat output terpenting yang menampilkan semua hasil pemrosesan data (gambar, teks, video) yang diolah oleh GPU. Tanpanya, kita tidak tahu apa yang sedang dilakukan komputer.</p>
                         <ul class="card-list">
                             <li>Jenis: CRT, LCD, LED/OLED.</li>
-                            <li>Fungsi: Menampilkan output grafis (*soft copy*) yang diproses oleh GPU.</li>
+                            <li>Fungsi: Menampilkan output grafis (*soft copy*) secara *real-time*.</li>
                         </ul>
                     </div>
                     <div class="card">
@@ -623,9 +623,9 @@
                             <img src="https://via.placeholder.com/80x80/2ecc71/ffffff?text=PRINT" alt="Gambar Printer">
                         </div>
                         <h3>Printer (Output)</h3>
-                        <p>Perangkat yang menghasilkan salinan fisik (*hard copy*) dari data digital. Digunakan untuk mencetak dokumen, foto, atau desain ke media seperti kertas.</p>
+                        <p>Kebalikan dari scanner, printer menghasilkan salinan fisik (*hard copy*) dari data digital. Sangat penting untuk mencetak dokumen, foto, atau desain yang Anda buat ke media kertas.</p>
                         <ul class="card-list">
-                            <li>Jenis: Inkjet, Laser, Dot Matrix.</li>
+                            <li>Jenis: Inkjet (tinta cair), Laser (toner bubuk), Dot Matrix (pukulan jarum).</li>
                             <li>Fungsi: Mengubah data digital menjadi cetakan fisik permanen.</li>
                         </ul>
                     </div>
@@ -634,7 +634,7 @@
                             <img src="https://via.placeholder.com/80x80/2ecc71/ffffff?text=SPK" alt="Gambar Speaker">
                         </div>
                         <h3>Speaker & Headphone (Output)</h3>
-                        <p>Perangkat output audio yang mengubah sinyal listrik (hasil pemrosesan sound card) menjadi gelombang suara yang dapat didengar oleh telinga manusia, memungkinkan output multimedia.</p>
+                        <p>Perangkat output audio. Mereka mengambil sinyal listrik yang dihasilkan oleh *sound card* dan mengubahnya menjadi gelombang suara yang bisa didengar. Penting untuk multimedia dan komunikasi digital.</p>
                         <ul class="card-list">
                             <li>Jenis: Stereo, Surround Sound, Headset.</li>
                             <li>Fungsi: Menghasilkan suara dari data digital.</li>
@@ -648,7 +648,7 @@
             <div class="container">
                 <h2 class="section-title">Software Sistem dan Aplikasi</h2>
                 <p class="section-subtitle">
-                    Software adalah sekumpulan instruksi digital yang memberi tahu hardware apa yang harus dilakukan. Ini adalah jiwa dari komputer.
+                    Software adalah sekumpulan instruksi digital yang memberi tahu hardware apa yang harus dilakukan. Ini adalah 'jiwa' dan 'kecerdasan' di balik komponen fisik.
                 </p>
 
                 <div class="software-grid">
@@ -657,10 +657,10 @@
                             <img src="https://via.placeholder.com/80x80/facc15/0f172a?text=OS" alt="Gambar Sistem Operasi">
                         </div>
                         <h3>Sistem Operasi (OS)</h3>
-                        <p>OS adalah software sistem yang paling vital. Ia mengatur dan mengelola semua sumber daya hardware (memori, CPU, I/O) dan bertindak sebagai penerjemah utama antara hardware dan aplikasi.</p>
+                        <p>OS adalah software sistem yang paling fundamental. Ia bertanggung jawab mengelola dan mengkoordinasikan semua sumber daya hardware dan bertindak sebagai 'penerjemah' antara hardware dan aplikasi Anda.</p>
                         <ul class="card-list">
-                            <li>Contoh: Windows, macOS, **Linux** (seperti Ubuntu).</li>
-                            <li>Fungsi Utama: Manajemen File Sistem, Penjadwalan Proses, Antar-Muka Grafis.</li>
+                            <li>Contoh: Windows, macOS, <strong>Linux</strong> (seperti Ubuntu).</li>
+                            <li>Fungsi Utama: Manajemen File Sistem, Penjadwalan Proses (memberi jatah kerja pada CPU), Antar-Muka Grafis.</li>
                         </ul>
                     </div>
 
@@ -669,7 +669,7 @@
                             <img src="https://via.placeholder.com/80x80/4ade80/0f172a?text=App" alt="Gambar Aplikasi Software">
                         </div>
                         <h3>Perangkat Lunak Aplikasi</h3>
-                        <p>Program-program yang langsung berinteraksi dengan pengguna untuk menyelesaikan tugas tertentu, mulai dari pekerjaan, pendidikan, hingga hiburan. Mereka bergantung pada OS untuk berjalan.</p>
+                        <p>Ini adalah program yang langsung Anda gunakan untuk menyelesaikan tugas spesifik, mulai dari membuat dokumen, menjelajah internet, hingga bermain game. Mereka berjalan di atas izin dan kontrol OS.</p>
                         <ul class="card-list">
                             <li>Contoh: Pengolah kata (Word), Browser (Chrome), Program Edit Foto (Photoshop).</li>
                             <li>Jenis: Produktivitas, Multimedia, dan Hiburan.</li>
@@ -681,9 +681,9 @@
                             <img src="https://via.placeholder.com/80x80/f97316/0f172a?text=Util" alt="Gambar Utility Software">
                         </div>
                         <h3>Perangkat Lunak Utilitas</h3>
-                        <p>Utilitas adalah software pendukung yang membantu menjaga, menganalisis, dan mengoptimalkan komputer. Mereka memastikan sistem berjalan lancar, aman, dan efisien.</p>
+                        <p>Utilitas adalah software 'tukang bersih-bersih' atau 'satpam'. Mereka membantu menjaga, menganalisis, dan mengoptimalkan sistem Anda, memastikan semuanya berjalan lancar, aman, dan efisien.</p>
                         <ul class="card-list">
-                            <li>Contoh: Antivirus, Defragmenter Disk, Alat Pencadangan (*Backup*).</li>
+                            <li>Contoh: Antivirus, Defragmenter Disk, Alat Pencadangan (Backup).</li>
                             <li>Fungsi: Perawatan dan Keamanan Sistem.</li>
                         </ul>
                     </div>
@@ -691,7 +691,7 @@
 
                 <h2 class="section-title" style="margin-top: 80px; font-size: 2.5em;">Bahasa Pemrograman: Pilar Pembangun Software yang Lengkap</h2>
                 <p class="section-subtitle" style="margin-bottom: 30px;">
-                    Setiap perangkat lunak dibangun dari kode. Bahasa pemrograman adalah sintaks dan aturan yang digunakan developer untuk menulis instruksi tersebut. Berikut adalah beberapa bahasa dan perannya secara individu:
+                    Bahasa pemrograman adalah kosakata dan tata bahasa yang digunakan developer untuk menulis instruksi. Setiap bahasa punya kekuatan dan ranah spesialisasi masing-masing.
                 </p>
 
                 <div class="programming-grid software-grid">
@@ -700,9 +700,9 @@
                             <img src="https://via.placeholder.com/80x80/e34f26/ffffff?text=HTML" alt="Logo HTML">
                         </div>
                         <h3>HTML & CSS</h3>
-                        <p>HTML (**H**yper**T**ext **M**arkup **L**anguage) berfungsi sebagai **tulang punggung** website (struktur konten). CSS (*Cascading Style Sheets*) berfungsi sebagai **kulit** (desain dan tata letak).</p>
+                        <p>HTML (**H**yper**T**ext **M**arkup **L**anguage) berfungsi sebagai <strong>tulang punggung</strong> atau struktur konten sebuah website. CSS (*Cascading Style Sheets*) adalah <strong>kulit</strong> yang mengatur desain, warna, dan tata letak agar terlihat cantik.</p>
                         <ul class="card-list">
-                            <li>Tipe: **Markup Language** (bukan bahasa pemrograman sejati).</li>
+                            <li>Tipe: <strong>Markup Language</strong> (bukan bahasa pemrograman sejati).</li>
                             <li>Peran Utama: Frontend Development (Struktur dan Styling).</li>
                         </ul>
                     </div>
@@ -712,7 +712,7 @@
                             <img src="https://via.placeholder.com/80x80/f7df1e/000000?text=JS" alt="Logo JavaScript">
                         </div>
                         <h3>JavaScript (JS)</h3>
-                        <p>Bahasa skrip yang membuat website menjadi **interaktif**. Kini JS (melalui Node.js) juga digunakan di sisi server, menjadikannya bahasa "Full-Stack" yang paling dominan di dunia web.</p>
+                        <p>Awalnya hanya digunakan untuk membuat website menjadi interaktif. Sekarang, berkat Node.js, JS bisa digunakan di sisi server (backend), menjadikannya bahasa <strong>"Full-Stack"</strong> yang paling dibutuhkan di dunia web modern.</p>
                         <ul class="card-list">
                             <li>Jenis: Interpreted Language, Multi-Paradigm.</li>
                             <li>Framework Populer: React, Vue, Angular (Frontend); Node.js (Backend).</li>
@@ -724,7 +724,7 @@
                             <img src="https://via.placeholder.com/80x80/3776ab/ffffff?text=PY" alt="Logo Python">
                         </div>
                         <h3>Python</h3>
-                        <p>Dikenal karena sintaksisnya yang bersih dan mudah dibaca. Python adalah bahasa yang sangat serbaguna dan standar industri untuk bidang Data Science, Machine Learning, dan otomatisasi skrip.</p>
+                        <p>Dijuluki 'Swiss Army Knife' para developer karena saking serbagunanya. Ini adalah bahasa andalan untuk <strong>Data Science, Machine Learning, dan Otomatisasi</strong>, berkat sintaksnya yang rapi dan perpustakaan (*library*) yang luar biasa besar.</p>
                         <ul class="card-list">
                             <li>Jenis: High-Level Language, Object-Oriented.</li>
                             <li>Peran Utama: Data Science, AI/ML, Web Development (Backend), Otomatisasi.</li>
@@ -736,7 +736,7 @@
                             <img src="https://via.placeholder.com/80x80/777bb4/ffffff?text=PHP" alt="Logo PHP">
                         </div>
                         <h3>PHP</h3>
-                        <p>Bahasa skrip *server-side* yang berfokus pada pengembangan web. PHP adalah mesin di balik sebagian besar website, termasuk platform raksasa seperti WordPress. Kuat dalam integrasi dengan database.</p>
+                        <p>Bahasa skrip <strong>server-side</strong> yang fokus total pada pengembangan web. PHP adalah mesin di balik sebagian besar website di internet, termasuk platform raksasa seperti WordPress. Sempurna untuk integrasi database.</p>
                         <ul class="card-list">
                             <li>Jenis: Server-Side Scripting Language.</li>
                             <li>Framework Populer: Laravel, Symfony; CMS Utama: WordPress.</li>
@@ -749,7 +749,7 @@
                             <img src="https://via.placeholder.com/80x80/00599c/ffffff?text=C++" alt="Logo C++">
                         </div>
                         <h3>C++</h3>
-                        <p>Bahasa *low-level* yang menawarkan kontrol tingkat tinggi atas memori dan hardware. Ideal untuk aplikasi yang membutuhkan performa maksimal, seperti video game engine dan sistem operasi.</p>
+                        <p>Ini adalah bahasa <strong>low-level</strong> yang memberi Anda kontrol penuh atas memori dan hardware. C++ adalah pilihan mutlak untuk aplikasi yang butuh performa tercepat, seperti game engine (Unreal), sistem operasi, dan software grafis kompleks.</p>
                         <ul class="card-list">
                             <li>Jenis: Compiled Language, Low-Level.</li>
                             <li>Peran Utama: Game Engine, Sistem Operasi, Software Grafis, Kinerja Tinggi.</li>
@@ -761,7 +761,7 @@
                             <img src="https://via.placeholder.com/80x80/f8981d/000000?text=Java" alt="Logo Java">
                         </div>
                         <h3>Java</h3>
-                        <p>Dikenal dengan filosofi **"Write Once, Run Anywhere"** (WORA). Java banyak digunakan untuk aplikasi berskala besar (*enterprise*), sistem backend perbankan, dan merupakan bahasa utama untuk pengembangan aplikasi Android Native.</p>
+                        <p>Java terkenal dengan prinsip <strong>"Write Once, Run Anywhere" (WORA)</strong>. Berjalan di atas Java Virtual Machine (JVM), bahasa ini adalah fondasi dari aplikasi enterprise besar, sistem perbankan, dan hingga kini masih menjadi pilihan utama untuk pengembangan aplikasi Android Native yang stabil.</p>
                         <ul class="card-list">
                             <li>Jenis: Compiled & Interpreted (via JVM), Object-Oriented.</li>
                             <li>Peran Utama: Aplikasi Enterprise, Android Development, Big Data (Hadoop).</li>
@@ -773,7 +773,7 @@
                             <img src="https://via.placeholder.com/80x80/239120/ffffff?text=C%23" alt="Logo C Sharp">
                         </div>
                         <h3>C# (C Sharp)</h3>
-                        <p>Dikembangkan oleh Microsoft, C# adalah bahasa serbaguna yang kuat, terutama untuk ekosistem Windows dan platform .NET. Ini juga merupakan bahasa utama yang digunakan dalam pengembangan game dengan *engine* Unity.</p>
+                        <p>Dikembangkan oleh Microsoft. C# adalah bahasa serbaguna yang kuat, terutama untuk ekosistem Windows dan platform .NET. Jika Anda tertarik pada pengembangan game, C# adalah bahasa utama yang digunakan dalam game *engine* Unity.</p>
                         <ul class="card-list">
                             <li>Jenis: Object-Oriented, Terintegrasi dengan .NET.</li>
                             <li>Peran Utama: Aplikasi Desktop Windows, Web Apps (ASP.NET), Game Development (Unity).</li>
@@ -788,19 +788,19 @@
                 <h2 class="section-title">Linux: Kernel, Sistem Operasi, dan Filosofi Open Source</h2>
                 
                 <div style="margin-bottom: 40px; padding: 20px; background-color: rgba(59, 130, 246, 0.15); border-radius: 10px; border-left: 5px solid var(--light-blue);">
-                    <h4 style="color: var(--accent-blue); margin-bottom: 10px;">Apa Itu Linux?</h4>
+                    <h4 style="color: var(--accent-blue); margin-bottom: 10px;">Apa Itu Linux Sebenarnya?</h4>
                     <p style="font-size: 0.95em; color: var(--off-white);">
-                        Linux seringkali disalahartikan sebagai sistem operasi (OS) seutuhnya. Sebenarnya, **Linux hanyalah nama untuk *kernel***.
-                        <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.9em; list-style-type: '💠 ';">
-                            <li>**Kernel Linux:** Inti dari sistem operasi yang bertugas mengelola hardware, memori, dan menjadwalkan proses. Tanpa Kernel, software tidak bisa berkomunikasi dengan hardware.</li>
-                            <li>**GNU/Linux:** Istilah yang lebih tepat untuk sistem operasi lengkap, menggabungkan Kernel Linux dengan utilitas dan *tools* dari proyek GNU.</li>
-                            <li>**Filosofi Open Source:** Linux adalah *free and open-source software* (FOSS). Ini berarti **kode sumbernya dapat dilihat, dimodifikasi, dan didistribusikan oleh siapa saja**. Sifat inilah yang melahirkan banyak varian OS yang disebut "Distribusi" atau **Distro**.</li>
+                        Banyak yang mengira Linux adalah OS seutuhnya, padahal itu kurang tepat.
+                        <ul style="padding-left: 20px; margin-top: 10px; font-size: 0.9em; list-style-type: disc;">
+                            <li><strong>Kernel Linux:</strong> Ini adalah inti alias jantung dari sistem operasi yang bertugas mengelola semua 'jeroan' komputer Anda (hardware, memori, dan jadwal proses). Intinya, tanpa Kernel, tidak ada software yang bisa 'ngomong' dengan hardware.</li>
+                            <li><strong>GNU/Linux:</strong> Istilah yang lebih tepat untuk sistem operasi lengkap, karena ia menggabungkan Kernel Linux dengan utilitas dan *tools* dari proyek GNU.</li>
+                            <li><strong>Filosofi Open Source:</strong> Yang paling keren, Linux itu <strong>Gratis dan Kode Sumbernya Terbuka (Open Source)</strong>. Sifat inilah yang memungkinkan komunitas programmer di seluruh dunia memodifikasi dan mengembangkan varian OS yang kita sebut "Distribusi" atau <strong>Distro</strong>.</li>
                         </ul>
                     </p>
                 </div>
                 <h3 class="section-title" style="margin-top: 0; font-size: 2.5em; color: var(--accent-blue);">Macam-Macam Distribusi Linux (Distro)</h3>
                 <p class="section-subtitle">
-                    Setiap Distro memiliki fokus, paket, dan filosofi yang berbeda, melayani kebutuhan dari server perusahaan hingga pengguna desktop biasa.
+                    Setiap Distro dikembangkan untuk tujuan spesifik, melayani kebutuhan mulai dari pengguna rumahan, developer, hingga server perusahaan.
                 </p>
                 
                 <div class="distro-grid">
@@ -810,8 +810,8 @@
                             <img src="https://via.placeholder.com/80x80/e95420/ffffff?text=Ubuntu" alt="Logo Ubuntu">
                         </div>
                         <h3>1. Ubuntu (Serbaguna & Ramah Pemula)</h3>
-                        <p><strong>Filosofi:</strong> Gerbang utama ke dunia Linux. Dikemas agar modern dan sangat mudah digunakan oleh siapa pun. Berbasis Debian.</p>
-                        <p><strong>Fungsi Utama:</strong> Serbaguna, handal untuk penggunaan desktop sehari-hari dan juga sangat handal sebagai sistem operasi server di cloud.</p>
+                        <p><strong>Filosofi:</strong> Ubuntu adalah gerbang termudah untuk pengguna baru yang pindah dari Windows atau macOS. Distro ini sangat modern, mudah digunakan, dan berbasis pada Debian.</p>
+                        <p><strong>Fungsi Utama:</strong> Sangat fleksibel. Handal untuk penggunaan desktop sehari-hari dan juga mendominasi sebagai sistem operasi server di cloud.</p>
                         <p><strong>Sumber:</strong> Lawencon, RevoU, DomaiNesia, Hostinger</p>
                     </div>
                     
@@ -819,9 +819,9 @@
                         <div class="card-visual">
                             <img src="https://via.placeholder.com/80x80/87cf51/0f172a?text=Mint" alt="Logo Linux Mint">
                         </div>
-                        <h3>2. Linux Mint (Alternatif Ubuntu yang Klasik)</h3>
-                        <p><strong>Filosofi:</strong> Menawarkan nuansa yang lebih tradisional, seringkali mirip seperti Windows 7. Fokus pada kenyamanan dan menyediakan banyak <i>codec</i> multimedia bawaan.</p>
-                        <p><strong>Fungsi Utama:</strong> Sangat ideal untuk pengguna desktop yang mencari kenyamanan dan sistem yang 'bekerja langsung' setelah instalasi.</p>
+                        <h3>2. Linux Mint (Alternatif Klasik yang Nyaman)</h3>
+                        <p><strong>Filosofi:</strong> Jika Anda merindukan tampilan Windows yang lebih tradisional, Mint adalah jawabannya. Ia berbasis Ubuntu tetapi fokus memberikan pengalaman desktop yang sangat stabil, nyaman, dan menyediakan *codec* multimedia bawaan.</p>
+                        <p><strong>Fungsi Utama:</strong> Ideal untuk pengguna desktop yang ingin sistem yang 'bekerja langsung' tanpa perlu banyak konfigurasi setelah instalasi.</p>
                         <p><strong>Sumber:</strong> Lawencon, Rumahweb, JocoDEV</p>
                     </div>
 
@@ -829,9 +829,9 @@
                         <div class="card-visual">
                             <img src="https://via.placeholder.com/80x80/d70a53/ffffff?text=Debian" alt="Logo Debian">
                         </div>
-                        <h3>3. Debian (Bapaknya Stabilitas & Server)</h3>
-                        <p><strong>Filosofi:</strong> Dikenal sebagai salah satu distro tertua dan fondasi dari banyak distro lain. Filosofinya adalah stabilitas dan keandalan yang tak tertandingi.</p>
-                        <p><strong>Fungsi Utama:</strong> Pilihan utama untuk komputer server, admin, dan lingkungan perusahaan yang membutuhkan pemeliharaan rendah dan uptime tinggi.</p>
+                        <h3>3. Debian (Fondasi Stabilitas dan Server)</h3>
+                        <p><strong>Filosofi:</strong> Ini adalah salah satu distro tertua dan merupakan fondasi dari Ubuntu dan Mint. Filosofinya adalah <strong>Stabilitas</strong> dan keandalan yang tak tertandingi, sehingga paket software-nya biasanya lebih tua.</p>
+                        <p><strong>Fungsi Utama:</strong> Pilihan utama untuk komputer server, admin jaringan, dan lingkungan perusahaan yang membutuhkan *uptime* tinggi dan pemeliharaan rendah.</p>
                         <p><strong>Sumber:</strong> sintara, FDC Servers, Telkom University</p>
                     </div>
 
@@ -840,8 +840,8 @@
                             <img src="https://via.placeholder.com/80x80/294172/ffffff?text=Fedora" alt="Logo Fedora">
                         </div>
                         <h3>4. Fedora (Panggung Teknologi Terbaru)</h3>
-                        <p><strong>Filosofi:</strong> Distro yang didukung oleh Red Hat. Fedora adalah tempat di mana teknologi dan paket Linux terbaru diuji coba sebelum masuk ke RHEL.</p>
-                        <p><strong>Fungsi Utama:</strong> Pilihan favorit para developer, programmer, dan pengguna yang ingin sistem yang <em>cutting-edge</em> dan sering diperbarui.</p>
+                        <p><strong>Filosofi:</strong> Didukung oleh Red Hat, Fedora adalah tempat di mana semua teknologi dan paket Linux terbaru diuji coba. Jika Anda suka mencoba fitur-fitur tercanggih dan sering di-update, Fedora adalah yang paling *cutting-edge*.</p>
+                        <p><strong>Fungsi Utama:</strong> Pilihan favorit para developer, programmer, dan pengguna yang ingin sistem yang modern dan selalu diperbarui dengan teknologi terkini.</p>
                         <p><strong>Sumber:</strong> Lawencon, Cakrawala University, Datascripmall</p>
                     </div>
 
@@ -850,8 +850,8 @@
                             <img src="https://via.placeholder.com/80x80/557c94/ffffff?text=Kali" alt="Logo Kali Linux">
                         </div>
                         <h3>5. Kali Linux (Khusus Keamanan)</h3>
-                        <p><strong>Filosofi:</strong> Dirancang khusus untuk <em>ethical hacking</em>, *penetration testing*, dan forensik digital. Isinya adalah ratusan alat keamanan yang sudah terkonfigurasi.</p>
-                        <p><strong>Fungsi Utama:</strong> Distro wajib bagi profesional keamanan siber, atau siapa pun yang perlu melakukan pengujian mendalam terhadap jaringan dan sistem.</p>
+                        <p><strong>Filosofi:</strong> Dirancang khusus untuk <strong>ethical hacking</strong>, *penetration testing*, dan forensik digital. Distro ini dilengkapi dengan ratusan alat keamanan siber yang sudah terkonfigurasi sejak awal instalasi.</p>
+                        <p><strong>Fungsi Utama:</strong> Distro wajib bagi profesional keamanan siber, auditor, atau siapa pun yang perlu melakukan pengujian mendalam terhadap jaringan dan sistem (bukan untuk desktop harian).</p>
                         <p><strong>Sumber:</strong> DomaiNesia, ITBOX, Datascripmall</p>
                     </div>
 
@@ -860,8 +860,8 @@
                             <img src="https://via.placeholder.com/80x80/1793d1/ffffff?text=Arch" alt="Logo Arch Linux">
                         </div>
                         <h3>6. Arch Linux (Milik Para Kustomizer)</h3>
-                        <p><strong>Filosofi:</strong> Arch mengikuti filosofi KISS (*Keep It Simple, Stupid*). Arch sangat minimalis dan pengguna harus membangun sistemnya dari nol. Ini adalah sistem <em>rolling release</em>.</p>
-                        <p><strong>Fungsi Utama:</strong> Ideal untuk pengguna tingkat lanjut yang ingin kontrol penuh atas setiap komponen sistem mereka, menciptakan sistem yang sangat ringan dan cepat. Tidak cocok untuk pemula.</p>
+                        <p><strong>Filosofi:</strong> Arch mengikuti filosofi KISS (*Keep It Simple, Stupid*). Arch sangat minimalis dan pengguna harus membangun sistemnya sendiri dari nol. Ini adalah sistem <strong>rolling release</strong> (selalu update, tidak ada versi mayor).</p>
+                        <p><strong>Fungsi Utama:</strong> Ideal untuk pengguna tingkat lanjut yang ingin kontrol penuh atas setiap komponen sistem mereka, menciptakan sistem yang super ringan dan cepat sesuai kebutuhan spesifik. *Warning*: Tidak disarankan untuk pemula!</p>
                         <p><strong>Sumber:</strong> Lawencon, Cakrawala University, Hostinger</p>
                     </div>
 
@@ -876,7 +876,7 @@
                         <li>[1.4] Macam-macam Linux yang Bisa Kamu Coba Untuk Pemrograman - Cakrawala University. URL: <a href="https://www.cakrawala.ac.id/berita/macam-macam-linux-untuk-pemrogaman" target="_blank">https://www.cakrawala.ac.id/berita/macam-macam-linux-untuk-pemrogaman</a></li>
                         <li>[1.5] Apa itu Distro Linux? Definisi, Macam, dan OS Terbaik - Rumahweb. URL: <a href="https://www.rumahweb.com/journal/apa-itu-distro-linux/" target="_blank">https://www.rumahweb.com/journal/apa-itu-distro-linux/</a></li>
                         <li>[1.7] Pengertian OS Linux: Sejarah, Fungsi, Kelebihan, dan Kekurangan - Telkom University. URL: <a href="https://it.telkomuniversity.ac.id/pengertian-os-linux/" target="_blank">https://it.telkomuniversity.ac.id/pengertian-os-linux/</a></li>
-                        <li>[1.8] Penjelasan Lengkap Pengertian dan Macam-macam Linux - DomaiNesia. URL: <a href="https://www.domainesia.com/berita/linux-adalah/" target="_blank">https://www.domainesia.com/berita/linux-adalah/</a></li>
+                        <li>[1.8] Penjelasan Lengkap Pengertian dan Macam-macam Linux - DomaiNesia. URL: <a href="https://www.domainesia.com/berita/linux-adalah/" target="_blank">https://www.domainesia.com/berita/linux-adalah/"</a></li>
                         <li>[2.1] 10 distro Linux terbaik untuk pemula dan profesional 2025 - Hostinger. URL: <a href="https://www.hostinger.com/id/tutorial/distro-linux-terbaik" target="_blank">https://www.hostinger.com/id/tutorial/distro-linux-terbaik</a></li>
                         <li>[2.3] 10 Distro Linux Terbaik 2025 untuk Pemula dan Profesional - Datascripmall.ID. URL: <a href="https://datascripmall.id/blog/10-distro-linux-terbaik-2025-untuk-pemula-dan-profesional/" target="_blank">https://datascripmall.id/blog/10-distro-linux-terbaik-2025-untuk-pemula-dan-profesional/</a></li>
                         <li>[2.4] Kenali Macam Distro Linux Terbaik: Fungsi dan Keunggulannya - ITBOX by Course-Net. URL: <a href="https://itbox.id/cyber-security/kenali-macam-distro-linux-terbaik" target="_blank">https://itbox.id/cyber-security/kenali-macam-distro-linux-terbaik</a></li>
@@ -898,7 +898,7 @@
                 <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
             <p>&copy; 2025 Brian Official. Semua Hak Cipta Dilindungi.</p>
-            <p>Dibuat dengan semangat *open-source*.</p>
+            <p>Dibuat dengan semangat open source.</p>
         </div>
     </footer>
     
