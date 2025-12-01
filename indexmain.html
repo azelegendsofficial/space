@@ -721,6 +721,14 @@
             box-shadow: 0 0 40px var(--glow-blue);
         }
 
+        .project-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
         .project-card h3 {
             font-size: 1.8rem;
             font-weight: 700;
@@ -1097,7 +1105,6 @@
         <div class="orb"></div>
     </div>
 
-    <!-- Security Check Screen -->
     <div id="security-screen">
         <div class="security-content">
             <div class="security-shield">
@@ -1114,12 +1121,10 @@
         </div>
     </div>
 
-    <!-- Loading Screen -->
     <div id="loading-screen">
         <div class="loading-text">SEDANG MEMUAT WEBSITE</div>
     </div>
 
-    <!-- Username Modal -->
     <div id="username-modal">
         <div class="username-content">
             <div class="security-badge">
@@ -1137,7 +1142,6 @@
         </div>
     </div>
 
-    <!-- Loading User -->
     <div id="loading-user">
         <div class="loading-user-content">
             <div class="spinner"></div>
@@ -1145,7 +1149,6 @@
         </div>
     </div>
 
-    <!-- Mobile Profile Modal -->
     <div id="mobile-profile-modal">
         <div class="mobile-profile-content">
             <img src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff&size=200" alt="Profile" class="mobile-profile-avatar" id="mobile-avatar">
@@ -1154,7 +1157,6 @@
         </div>
     </div>
 
-    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -1163,8 +1165,9 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#company">Company</a></li>
+                <li><a href="#hardware-section">Hardware</a></li>
+                <li><a href="#software-section">Software</a></li>
+                <li><a href="#linux-section">Linux OS</a></li>
             </ul>
             <div class="user-profile-nav" id="user-profile" onclick="toggleDropdown()">
                 <img src="https://ui-avatars.com/api/?name=User&background=3b82f6&color=fff&size=100" alt="Profile" class="user-avatar-nav" id="user-avatar">
@@ -1176,7 +1179,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Navigation -->
     <div class="mobile-nav">
         <div class="mobile-nav-content">
             <div class="nav-item" onclick="scrollToTop()">
@@ -1185,12 +1187,19 @@
                 </svg>
                 <span>Home</span>
             </div>
-            <div class="nav-item" onclick="scrollToSection('projects')">
+            <div class="nav-item" onclick="scrollToSection('hardware-section')">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="3" y="3" width="18" height="18" rx="2" stroke="#3b82f6" stroke-width="2"/>
                     <path d="M3 9H21M9 3V21" stroke="#3b82f6" stroke-width="2"/>
                 </svg>
-                <span>Penjelasan</span>
+                <span>Hardware</span>
+            </div>
+            <div class="nav-item" onclick="scrollToSection('software-section')">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 17V12M12 12V7M12 12H17M12 12H7" stroke="#3b82f6" stroke-width="2"/>
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="#3b82f6" stroke-width="2"/>
+                </svg>
+                <span>Software</span>
             </div>
             <div class="nav-item" onclick="showMobileProfile()">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1202,182 +1211,171 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-badge">👋 Selamat Datang</div>
             <h1>Brian Official</h1>
-            <p class="hero-subtitle">Halo, nama saya brian, saya adalah siswa dari sekolah kristen kasih bangsa, disini saya akan menjelaskan apa itu Hardware Dan Software Serta Fungsi dan Jenis Jenis nya apa saja. (scroll kebawah untuk melihat penjelasan)</p>
+            <p class="hero-subtitle">Halo, nama saya Brian, saya adalah siswa dari sekolah Kristen Kasih Bangsa. Di sini saya akan menjelaskan apa itu Hardware dan Software, fungsinya, jenis-jenisnya, dan komponen utama dari keduanya. Penjelasan di bawah ini sudah lengkap dan mendalam. (Scroll ke bawah untuk melihat penjelasan)</p>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="section" id="projects">
+    <section class="section" id="hardware-section">
         <div class="section-header animate-on-scroll">
-            <div class="section-badge">Penjelasan Ke 1</div>
-            <h2 class="section-title">Penjelasan Apa Itu Hardware serta Fungsi dan contoh contoh komponen?</h2>
+            <div class="section-badge">Penjelasan Ke 1: Hardware</div>
+            <h2 class="section-title">Hardware: Perangkat Keras Komputer (Benda Fisik)</h2>
+            <p class="section-description">Hardware adalah **tubuh** fisik komputer yang bisa kita sentuh. Dia yang melakukan semua kerja keras: mengambil data (**Input**), mengolahnya (**Proses**), dan menunjukkannya ke kita (**Output**). Tanpa komponen ini, Software hanyalah kode yang tidak bisa jalan.</p>
         </div>
 
         <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-hdd-fill" viewBox="0 0 16 16">
-  <path d="M0 10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1M.91 7.204A3 3 0 0 1 2 7h12c.384 0 .752.072 1.09.204l-1.867-3.422A1.5 1.5 0 0 0 11.906 3H4.094a1.5 1.5 0 0 0-1.317.782z"/>
-</svg>
-                </div>
-                <h3>Penjelasan Tentang Hardware serta Fungsi nya</h3>
-                <p>Hardware adalah sebuah perangkat keras yang bisa dilihat dan di sentuh secara langsung jadi dia bentuk nya fisik. Hardware atau perangkat keras berfungsi sebagai komponen yang menjalankan fungsi fungsi dasar komputer yaitu menerima Input, memproses data, menyimpan informasi, dan menghasilkan output. Tanpa hardware, komputer tidak dapat beroperasi karena hardware adalah tubuh fisik yang memungkinkan perintah dari software dapat dijalankan.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber: https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>Komponen Hardware</h3>
-                <p>Komponen Hardware atau perangkat keras terdiri dari CPU, Hard Disk Drive, Solid State Drive, RAM, Motherboard, Keyboard, Mouse, Monitor, Printer, Graphics Card, dan Power Supply Unit.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber: https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>CPU (Central Processing Unit)</h3>
-                <p>CPU adalah sebuah singkatan dari Central Processing Unit yang tugas nya sebagai otak dari komputer, jadi dia lah yang mengatur semua sistem pada komputer.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber: https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>HDD (Hard Disk Drive)</h3>
-                <p>HDD adalah singkatan dari Hard Disk Drive yang tugas nya sebagai penyimpanan data yang permanen, jadi dia tidak kayak RAM yang hanya menyimpan data sementara.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber: https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>SSD (Solid State Drive)</h3>
-                <p>SSD adalah singkatan dari Solid State Drive yang tugas nya sebagai penyimpanan data yang permanen, mirip sama kayak Hard Disk Drive yakni menyimpan data secara permanen bukan sementara, tapi SSD lebih bagus karena kecepatan memuat data nya yang sangat kencang di bandingkan sama HDD.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber: https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>RAM (Random Access Memory)</h3>
-                <p>RAM adalah singkatan dari Random Access Memory yang tugas nya sebagai penyimpanan data yang sementara, jadi dia tidak permanen kayak HDD dan SSD yang sama sama menyimpan data tetapi permanen.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber: https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>Motherboard</h3>
-                <p>Motherboard adalah sebuah papan sirkuit terbesar di dalam komputer. Tugas nya itu sebagai pusat dari seluruh sistem, menghubungkan beberapa komponen agar dapat saling berkomunikasi.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber: https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>Keyboard</h3>
-                <p>Keyboard adalah sebuah perangkat masukkan yang tugas nya itu memasukkan data, perintah, dan karakter seperti huruf, simbol, dan angka ke dalam sistem komputer.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber: https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>Mouse</h3>
-                <p>Mouse adalah sebuah perangkat masukkan yang tugas nya itu menggerakkan cursor, selain bisa menggerakkan cursor, mouse nya juga ada tombol klik kanan dan klik kiri, fungsi kedua tombol itu untuk memilih objek, membuka menu konteks, serta ada roda untuk mengscroll suatu halaman web, atau dokumen.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber: https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>Monitor</h3>
-                <p>Monitor adalah sebuah perangkat keluaran yang tugas nya itu menampilkan informasi dan visual kepada pengguna, seperti menampilkan gambar, video, dan teks, monitor hanya menampilkan gambar, video, dan teks, tapi proses nya itu di lakukan sama Graphics Card atau GPU.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber:  https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>Printer</h3>
-                <p>Printer adalah sebuah perangkat keluaran yang tugas nya itu menyalin dokumen atau gambar ke bentuk fisik, jadi dia itu menyalin document atau gambar dari komputer yang masih dalam bentuk digital, hanya bisa lihat tapi tidak bisa nyentuh lalu salinan tersebut akan di ubah menjadi benda fisik yang bisa di sentuh.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber:  https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            <div class="project-grid">
-            <div class="project-card animate-on-scroll">
-                <div class="project-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <path d="M3 9H21M9 3V21" stroke="#1e3a8a" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>Kartu Grafis (Graphics Card/GPU(Graphics Processing Unit)/Video Graphics)</h3>
-                <p>Kartus Grafis atau bisa disebut juga GPU atau video graphics atau graphics card.</p>
-                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber:  https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/</a>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </section>
             
+            <div class="project-card animate-on-scroll">
+                <img src="https://i.imgur.com/K1H93jN.png" alt="Keyboard dan Mouse" loading="lazy">
+                <h3>Perangkat Input (Pemasukan Data)</h3>
+                <p>Ini adalah jembatan antara kamu dan komputer. Fungsinya hanya satu: memasukkan instruksi atau data mentah ke dalam sistem agar bisa diproses.</p>
+                <ul>
+                    <li><strong>Keyboard & Mouse:</strong> Input utama berupa teks, klik, dan navigasi. (Sinyal dikirim dalam bentuk kode biner).</li>
+                    <li><strong>Scanner:</strong> Mengubah dokumen fisik menjadi data digital (gambar/teks) untuk diolah komputer.</li>
+                    <li><strong>Microphone:</strong> Merekam Input berupa gelombang suara menjadi data digital.</li>
+                </ul>
+                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber Informasi</a>
+            </div>
 
-    <!-- Footer -->
+            <div class="project-card animate-on-scroll">
+                <img src="https://i.imgur.com/g8o2uV9.png" alt="CPU dan Motherboard" loading="lazy">
+                <h3>Perangkat Proses (Pemrosesan Inti)</h3>
+                <p>Ini adalah **otak** dan **pusat saraf** komputer. Di sinilah semua Input diolah, dihitung, dan dieksekusi menjadi data yang berguna. Ini komponen yang paling penting!</p>
+                <ul>
+                    <li><strong>CPU (Central Processing Unit):</strong> Melakukan semua perhitungan dan menjalankan instruksi dari Software. Kecepatan diukur dalam GHz.</li>
+                    <li><strong>Motherboard:</strong> Papan utama yang menghubungkan CPU, RAM, GPU, dan semua I/O. (Semua sinyal data diatur di sini).</li>
+                    <li><strong>GPU (Graphics Card):</strong> Spesialis yang hanya fokus mengolah data grafis berat, terutama untuk game, rendering video, atau AI.</li>
+                </ul>
+                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber Informasi</a>
+            </div>
+
+            <div class="project-card animate-on-scroll">
+                <img src="https://i.imgur.com/S2Xq1Wp.png" alt="Monitor dan Printer" loading="lazy">
+                <h3>Perangkat Output (Keluaran Hasil)</h3>
+                <p>Setelah data selesai diolah oleh CPU, perangkat ini bertugas mengubah data digital menjadi bentuk yang bisa kita lihat, dengar, atau sentuh.</p>
+                <ul>
+                    <li><strong>Monitor:</strong> Menampilkan visual. Mengubah sinyal dari GPU menjadi titik-titik warna (piksel).</li>
+                    <li><strong>Printer:</strong> Mengubah dokumen digital menjadi cetakan fisik (hard copy).</li>
+                    <li><strong>Speaker/Headphone:</strong> Mengubah sinyal data audio digital menjadi gelombang suara yang bisa didengar.</li>
+                </ul>
+                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber Informasi</a>
+            </div>
+            
+            <div class="project-card animate-on-scroll">
+                <img src="https://i.imgur.com/1B3j6vY.png" alt="RAM dan SSD/HDD" loading="lazy">
+                <h3>Penyimpanan (Storage & Memory)</h3>
+                <p>Komponen untuk menyimpan data, baik untuk jangka pendek saat proses berjalan, maupun jangka panjang (permanen) agar datamu tidak hilang.</p>
+                <ul>
+                    <li><strong>RAM (Random Access Memory):</strong> **Memori Jangka Pendek.** Tempat CPU menyimpan data yang sedang **aktif** digunakan. (Contoh: Aplikasi yang sedang dibuka).</li>
+                    <li><strong>SSD (Solid State Drive):</strong> **Penyimpanan Permanen.** Tempat menyimpan OS, aplikasi, dan file. Jauh lebih cepat dari HDD.</li>
+                    <li><strong>HDD (Hard Disk Drive):</strong> Penyimpanan permanen yang lebih lawas (murah & besar). Cocok untuk arsip data yang jarang diakses.</li>
+                </ul>
+                <a href="https://bit.telkomuniversity.ac.id/pengertian-hardware-fungsi-dan-contohnya-penjelasan-lengkap/" class="card-btn">Sumber Informasi</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="section" id="software-section">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">Penjelasan Ke 2: Software</div>
+            <h2 class="section-title">Software: Otak Digital & Kumpulan Perintah (Program)</h2>
+            <p class="section-description">Software adalah **perintah digital** yang kita berikan ke Hardware. Dia yang kasih tahu CPU untuk buka file, render video, atau menjalankan game. Ini adalah kategori yang sangat luas dan penting, terbagi menjadi Sistem, Aplikasi, dan Pengembangan.</p>
+        </div>
+
+        <div class="project-grid">
+            
+            <div class="project-card animate-on-scroll">
+                <img src="https://i.imgur.com/v8tT9o3.png" alt="Logo Windows, macOS, Linux" loading="lazy">
+                <h3>1. Software Sistem (Sistem Operasi)</h3>
+                <p>Ini adalah pondasi dasarnya. Sistem Operasi (OS) berfungsi sebagai **manajer** yang mengelola semua Hardware dan menjamin Aplikasi bisa berjalan dengan mulus. OS itu ditulis pakai bahasa pemrograman tingkat rendah agar performanya maksimal.</p>
+                <ul>
+                    <li><strong>Kernel:</strong> Inti OS yang berkomunikasi langsung dengan Hardware. (Mayoritas ditulis dengan bahasa **C**).</li>
+                    <li><strong>Tugas Utama:</strong> Manajemen Memori, Penjadwalan Proses, dan Kontrol Perangkat I/O.</li>
+                    <li><strong>Contoh:</strong> **Windows 11, macOS Sonoma, Linux Ubuntu**, Android (untuk mobile).</li>
+                </ul>
+                <a href="#" class="card-btn">Sumber: Pengetahuan Sistem Komputer</a>
+            </div>
+
+            <div class="project-card animate-on-scroll">
+                <img src="https://i.imgur.com/j1G5sKx.png" alt="Contoh Aplikasi Grafis dan Video Editor" loading="lazy">
+                <h3>2. Software Aplikasi (Pekerjaan Spesifik)</h3>
+                <p>Inilah yang kamu pakai sehari-hari! Software ini dirancang untuk menyelesaikan tugas-tugas spesifik pengguna. Kita bisa membaginya jadi beberapa jenis:</p>
+                <ul>
+                    <li><strong>Multimedia:</strong>
+                        <br>‣ **Video Editing:** Adobe Premiere Pro, DaVinci Resolve.
+                        <br>‣ **Grafis/Desain:** Adobe Photoshop, GIMP, CorelDRAW.
+                    </li>
+                    <li><strong>Produktifitas (Kantor):</strong>
+                        <br>‣ Microsoft Word, Excel, PowerPoint.
+                        <br>‣ Google Workspace (Docs, Sheets).
+                    </li>
+                    <li><strong>Hiburan:</strong> Game (Valorant, Genshin Impact), Pemutar Media (VLC Player).</li>
+                </ul>
+                <a href="#" class="card-btn">Sumber: Pengetahuan Software Umum</a>
+            </div>
+            
+             <div class="project-card animate-on-scroll">
+                <img src="https://i.imgur.com/aA2yK9d.png" alt="Visual Studio Code dan Logo Bahasa Pemrograman" loading="lazy">
+                <h3>3. Software Pengembangan (Coding/Pemrograman)</h3>
+                <p>Ini adalah kategori yang khusus dipakai oleh para programmer untuk menciptakan Software Sistem dan Aplikasi itu sendiri. Ini adalah *tools* utama kita saat *ngoding*.</p>
+                <ul>
+                    <li><strong>IDE (Integrated Development Environment):</strong>
+                        <br>‣ **VS Code, JetBrains IntelliJ:** Tempat kita menulis, menguji, dan men-debug kode.
+                    </li>
+                    <li><strong>Bahasa Pemrograman:</strong>
+                        <br>‣ **Python:** Cocok untuk AI, Data Science, dan Backend Web.
+                        <br>‣ **JavaScript/TypeScript:** Utama di Frontend dan Backend (Node.js).
+                        <br>‣ **Java/C++:** Utama di Sistem Enterprise dan Game Engine.
+                    </li>
+                </ul>
+                <a href="#" class="card-btn">Sumber: Dunia Pemrograman</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="section" id="linux-section">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">Penjelasan Ke 3: OS Linux</div>
+            <h2 class="section-title">Linux: Sistem Operasi yang Fleksibel & Kuat (Open Source)</h2>
+            <p class="section-description">Linux adalah sistem operasi yang unik karena dia **Open Source**. Artinya, kita bisa lihat dan modifikasi kode sumbernya. Ini membuatnya sangat stabil, aman, dan menjadi raja di dunia server dan jaringan. Dia punya banyak "rasa" atau Distribusi (Distro).</p>
+        </div>
+
+        <div class="project-grid">
+            
+            <div class="project-card animate-on-scroll">
+                <img src="https://i.imgur.com/Q2h8ZfW.png" alt="Logo Linux Tux" loading="lazy">
+                <h3>Filosofi Linux</h3>
+                <p>Linux itu bukan cuma OS, tapi filosofi. Dibuat oleh Linus Torvalds, dia didasarkan pada UNIX dan bebas digunakan, didistribusikan, serta dimodifikasi. Ini kenapa dia jadi favorit para teknisi dan programmer di seluruh dunia.</p>
+                <ul>
+                    <li><strong>Sifat Dasar:</strong> Open Source, Multi-user, dan Multi-tasking.</li>
+                    <li><strong>Perbedaan Distro:</strong> Setiap Distro punya tampilan (Desktop Environment) dan manajemen paket (Software Installer) yang berbeda.</li>
+                </ul>
+                <a href="https://opensource.com/article/17/10/how-linux-works" class="card-btn">Sumber: OpenSource</a>
+            </div>
+
+            <div class="project-card animate-on-scroll">
+                <img src="https://i.imgur.com/p5k0RkO.png" alt="Contoh Logo Distro Linux" loading="lazy">
+                <h3>Distro dan Penggunaan di Dunia Nyata</h3>
+                <p>Ini nih kenapa Linux dibilang fleksibel. Ada banyak banget "rasa" yang bisa kamu pilih tergantung kebutuhanmu. Setiap Distro punya spesialisasi:</p>
+                <ul>
+                    <li><strong>Server & Infrastruktur (90% Internet):</strong> **Debian**, **CentOS**, **RHEL** (Red Hat). Dipakai untuk hosting website, menjalankan database, dan Cloud Computing (AWS/Azure).</li>
+                    <li><strong>Desktop (Pengguna Biasa):</strong> **Ubuntu** (paling populer), **Linux Mint**, **Pop!_OS**. Cocok buat sekolah, kerja, dan yang baru mau coba Linux.</li>
+                    <li><strong>Keamanan:</strong> **Kali Linux**, **Parrot OS**. Khusus dipakai untuk *penetration testing* dan *ethical hacking*.</li>
+                </ul>
+                <a href="https://www.hostinger.co.id/tutorial/distro-linux-terbaik" class="card-btn">Sumber: Hostinger</a>
+            </div>
+            
+        </div>
+    </section>
+
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Brian Official. All Rights Reserved.</p>
+            <p>&copy; 2024 Brian Official. All Rights Reserved. Data ini dikompilasi oleh Brian dari berbagai sumber teknis.</p>
             <p class="hosting-credit">Website ini menggunakan hosting dari <strong>SPACE STORE</strong></p>
         </div>
     </footer>
